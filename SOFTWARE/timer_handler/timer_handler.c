@@ -109,22 +109,6 @@ void TIM3_IRQHandler(void)
 //SPWM输出
 void TIM1_CC_IRQHandler(void) 
 {	
-//    Counter_sine=(int)(400*theta/2/M_PI);
-//    Counter_sine_I=(Counter_sine+200)%400;
-	if(Counter_sine>=400)
-	{
-
-		Counter_sine = Counter_sine-400;
-	}
-	if(Counter_sine_I>=400)
-	{
-       
-		Counter_sine_I = Counter_sine_I-400;
-	}
-	if(MI>MI_MAX)
-    {
-        MI=MI_MAX;
-    }
 	//CCR1	
 	if (TIM_GetITStatus(TIM1, TIM_IT_CC1)!=RESET)
 	{

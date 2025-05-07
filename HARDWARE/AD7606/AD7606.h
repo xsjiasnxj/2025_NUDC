@@ -1,6 +1,6 @@
 #ifndef _AD7606_H
 #define _AD7606_H
-
+#include "sys.h"
 //SPI2_SCK -> PB13
 //SPI2_MISO -> PB14
   
