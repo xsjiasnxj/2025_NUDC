@@ -111,10 +111,10 @@ void TIM1_Mode_Config()
    TIM_OCInitStructure.TIM_OCIdleState = TIM_OCIdleState_Reset;  
    TIM_OCInitStructure.TIM_OCNIdleState = TIM_OCNIdleState_Set;  
 	                                                             
-	TIM_OCInitStructure.TIM_Pulse = 100;  																				 
+	TIM_OCInitStructure.TIM_Pulse = 1;  																				 
 	TIM_OC1Init(TIM1, &TIM_OCInitStructure);                       //配置CH1
 	
-	TIM_OCInitStructure.TIM_Pulse = 100;                         
+	TIM_OCInitStructure.TIM_Pulse = 1;                         
 	TIM_OC2Init(TIM1, &TIM_OCInitStructure);                       //配置CH2
 	
 	TIM_OCInitStructure.TIM_Pulse = 0;                         
@@ -139,7 +139,7 @@ void TIM1_Mode_Config()
 	NVIC_InitTypeDef NVIC_InitStructure;
 	NVIC_InitStructure.NVIC_IRQChannel = TIM1_CC_IRQn;
 	NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority = 0;
-	NVIC_InitStructure.NVIC_IRQChannelSubPriority = 0;
+	NVIC_InitStructure.NVIC_IRQChannelSubPriority = 1;
 	NVIC_InitStructure.NVIC_IRQChannelCmd = ENABLE;
 	NVIC_Init(&NVIC_InitStructure);
 	TIM_ITConfig(TIM1,TIM_IT_CC1|TIM_IT_CC2|TIM_IT_CC3,ENABLE);  //使能中断

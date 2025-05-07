@@ -3,7 +3,7 @@
 <title>Static Call Graph - [.\Listings\project.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image .\Listings\project.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060528: Last Updated: Wed May 07 14:56:26 2025
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060528: Last Updated: Wed May 07 17:43:45 2025
 <BR><P>
 <H3>Maximum Stack Usage =        248 bytes + Unknown(Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
@@ -981,7 +981,7 @@ Global Symbols
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> startup_stm32f40_41xxx.o(.text)
 </UL>
-<P><STRONG><a name="[27]"></a>TIM1_CC_IRQHandler</STRONG> (Thumb, 188 bytes, Stack size 8 bytes, timer_handler.o(i.TIM1_CC_IRQHandler))
+<P><STRONG><a name="[27]"></a>TIM1_CC_IRQHandler</STRONG> (Thumb, 124 bytes, Stack size 8 bytes, timer_handler.o(i.TIM1_CC_IRQHandler))
 <BR><BR>[Stack]<UL><LI>Max Depth = 20<LI>Call Chain = TIM1_CC_IRQHandler &rArr; TIM_GetITStatus
 </UL>
 <BR>[Calls]<UL><LI><a href="#[aa]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_SetCompare2
@@ -1069,7 +1069,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[c8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;bsp_Init
 </UL>
 
-<P><STRONG><a name="[29]"></a>TIM3_IRQHandler</STRONG> (Thumb, 168 bytes, Stack size 24 bytes, timer_handler.o(i.TIM3_IRQHandler))
+<P><STRONG><a name="[29]"></a>TIM3_IRQHandler</STRONG> (Thumb, 150 bytes, Stack size 24 bytes, timer_handler.o(i.TIM3_IRQHandler))
 <BR><BR>[Stack]<UL><LI>Max Depth = 248<LI>Call Chain = TIM3_IRQHandler &rArr; OLED_ShowFloatNum &rArr; __hardfp_round &rArr; __aeabi_dsub &rArr; __aeabi_dadd &rArr; _double_epilogue &rArr; _double_round
 </UL>
 <BR>[Calls]<UL><LI><a href="#[bb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_f2d

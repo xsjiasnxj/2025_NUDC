@@ -3,8 +3,8 @@
 
 
 //单极性倍频调制，生成反相调制波
-extern uint16_t Counter_sine ;	
-extern uint16_t Counter_sine_I ;
+extern uint16_t Counter_sine1 ;	
+extern uint16_t Counter_sine2 ;
 extern int const talab[400];
 	
 /**
