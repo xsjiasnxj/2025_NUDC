@@ -22,8 +22,8 @@ uint16_t timer_cnt=0;
 
 
 //采样还原参数(k,b，补偿)
-float  sample2real_k[8]={0.3096f,1.0f,1.0f,1.0f,1.0f,1.0f,1.0f,1.0f};
-float  sample2real_b[8]={0.005f,0.0f,0.0f,0.0f,0.0f,0.0f,0.0f,0.0f};
+float  sample2real_k[8]={0.106f,1.0f,1.0f,1.0f,1.0f,1.0f,1.0f,1.0f};
+float  sample2real_b[8]={0.0f,0.0f,0.0f,0.0f,0.0f,0.0f,0.0f,0.0f};
 float  Compensation[8]={0.0f,0.0f,0.0f,0.0f,0.0f,0.0f,0.0f,0.0f};
 
 //pid
