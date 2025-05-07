@@ -54,14 +54,10 @@ void TIM2_IRQHandler(void) {
             cnt_s++;
             cnt = 0;
         }
-<<<<<<< HEAD
+
         /*******************************************************************/
     }
     TIM_ClearITPendingBit(TIM2, TIM_IT_Update); // 清除中断标志位
-=======
-/**********************************************************/
-	}
-	TIM_ClearITPendingBit(TIM2,TIM_IT_Update); //清除中断标志位
 }
 
 //按键检测+显示
@@ -105,45 +101,5 @@ void TIM1_CC_IRQHandler(void)
 		TIM_ClearITPendingBit(TIM1 , TIM_IT_CC2);
 	}
 
->>>>>>> 7dfee909f3999084bf1044b98b62d19710d5b4eb
 }
 
-// 按键检测 + 显示
-void TIM3_IRQHandler(void) {
-    if (TIM_GetITStatus(TIM3, TIM_IT_Update) == SET) { // 溢出中断
-        OLED_Clear();
-        OLED_ShowNum(0, 0, cnt_s, 4, 8);
-        OLED_ShowFloatNum(0, 16, omega / (2 * M_PI), 3, 2, 8);
-        OLED_ShowFloatNum(0, 48, theta, 3, 2, 8);
-        OLED_Update();
-    }
-    TIM_ClearITPendingBit(TIM3, TIM_IT_Update); // 清除中断标志位
-}
-
-// SPWM 输出
-void TIM1_CC_IRQHandler(void) {
-
-    Counter_sine += 1; // A 相
-    Counter_sine_I += 1; // B 相
-    if (Counter_sine >= 400) {
-        Counter_sine -= 400;
-    }
-    if (Counter_sine_I >= 400) {
-        Counter_sine_I -= 400;
-    }
-    if (MI > MI_MAX) {
-        MI = MI_MAX;
-    }
-
-    // CCR1
-    if (TIM_GetITStatus(TIM1, TIM_IT_CC1) != RESET) {
-        TIM_SetCompare1(TIM1, (uint32_t)(talab[Counter_sine] * MI)); // A 相
-        TIM_ClearITPendingBit(TIM1, TIM_IT_CC1);
-    }
-
-    // CCR2
-    if (TIM_GetITStatus(TIM1, TIM_IT_CC2) != RESET) {
-        TIM_SetCompare2(TIM1, (uint32_t)(talab[Counter_sine_I] * MI)); // B 相
-        TIM_ClearITPendingBit(TIM1, TIM_IT_CC2);
-    }
-}
