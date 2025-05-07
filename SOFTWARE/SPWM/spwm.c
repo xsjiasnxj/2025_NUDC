@@ -39,4 +39,31 @@ int const talab[400]=
     1577,1609,1641,1674,1706,1738,1771,1804,1836,1869,1902,1935,1968,2001,2034,2067
 };
 
+// // SPWM输出
+// void TIM1_CC_IRQHandler(void) {
+//   //    Counter_sine=(int)(400*theta/2/M_PI);
+//   //    Counter_sine_I=(Counter_sine+200)%400;
+//   if (Counter_sine >= 400) {
 
+//     Counter_sine = Counter_sine - 400;
+//   }
+//   if (Counter_sine_I >= 400) {
+
+//     Counter_sine_I = Counter_sine_I - 400;
+//   }
+//   if (MI > MI_MAX) {
+//     MI = MI_MAX;
+//   }
+//   // CCR1
+//   if (TIM_GetITStatus(TIM1, TIM_IT_CC1) != RESET) {
+//     Counter_sine = (int)(400 * theta / 2 / M_PI);
+//     TIM_SetCompare1(TIM1, (uint32_t)(talab[Counter_sine] * MI)); // A相
+//     TIM_ClearITPendingBit(TIM1, TIM_IT_CC1);
+//   }
+//   // CCR2
+//   if (TIM_GetITStatus(TIM1, TIM_IT_CC2) != RESET) {
+//     Counter_sine_I = (Counter_sine + 200) % 400;
+//     TIM_SetCompare2(TIM1, ((uint32_t)talab[Counter_sine_I]) * MI); // B相
+//     TIM_ClearITPendingBit(TIM1, TIM_IT_CC2);
+//   }
+// }

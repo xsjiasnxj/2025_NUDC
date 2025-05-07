@@ -336,7 +336,7 @@
               <MiscControls>--locale=english  --diag_suppress=1</MiscControls>
               <Define>STM32F40_41xxx,USE_STDPERIPH_DRIVER,USE_STDPERIPH_DRIVER,STM32F446xx,ARM_MATH_CM4,__CC_ARM,ARM_MATH_MATRIX_CHECK,ARM_MATH_ROUNDING,__FPU_PRESENT,__FPU_USED</Define>
               <Undefine></Undefine>
-              <IncludePath>..\CORE;..\FWLIB\inc;..\USER;..\SYSTEM;.\GLOBAL;../HARDWARE/EXTI;../HARDWARE/OLED;../HARDWARE/KEY;../HARDWARE/PWM;../HARDWARE/DMA;../HARDWARE/TIMER;../HARDWARE/BUZZER;../HARDWARE/spi;../HARDWARE/AD7606;../HARDWARE/ADC;../HARDWARE/GPIO;../SOFTWARE/PLL;../SOFTWARE/SPWM;../SOFTWARE/DISP;../SOFTWARE/PID;../SOFTWARE/timer_handler;../SOFTWARE/VOFA;../SOFTWARE/MENU;..\DSP\Include;..\DSP</IncludePath>
+              <IncludePath>..\CORE;..\FWLIB\inc;..\USER;..\SYSTEM;.\GLOBAL;../HARDWARE/EXTI;../HARDWARE/OLED;../HARDWARE/KEY;../HARDWARE/PWM;../HARDWARE/DMA;../HARDWARE/TIMER;../HARDWARE/BUZZER;../HARDWARE/spi;../HARDWARE/AD7606;../HARDWARE/ADC;../HARDWARE/GPIO;../SOFTWARE/PLL;../SOFTWARE/SPWM;../SOFTWARE/DISP;../SOFTWARE/PID;../SOFTWARE/timer_handler;../SOFTWARE/VOFA;../SOFTWARE/MENU;..\DSP\Include;..\DSP;..\SOFTWARE\CONTROL</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -514,6 +514,16 @@
               <FileName>MENU.c</FileName>
               <FileType>1</FileType>
               <FilePath>../SOFTWARE/MENU/MENU.c</FilePath>
+            </File>
+            <File>
+              <FileName>control.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\SOFTWARE\CONTROL\control.c</FilePath>
+            </File>
+            <File>
+              <FileName>control.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\SOFTWARE\CONTROL\control.h</FilePath>
             </File>
           </Files>
         </Group>

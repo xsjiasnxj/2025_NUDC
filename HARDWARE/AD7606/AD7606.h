@@ -1,6 +1,10 @@
 #ifndef _AD7606_H
 #define _AD7606_H
+<<<<<<< HEAD
 #include "stdint.h"
+=======
+#include "sys.h"
+>>>>>>> 7dfee909f3999084bf1044b98b62d19710d5b4eb
 //SPI2_SCK -> PB13
 //SPI2_MISO -> PB14
   

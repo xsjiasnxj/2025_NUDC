@@ -1,6 +1,12 @@
 .\listings\main.o: main.c
 .\listings\main.o: main.h
 .\listings\main.o: ../HARDWARE/AD7606/AD7606.h
+<<<<<<< HEAD
+=======
+.\listings\main.o: ..\SYSTEM\sys.h
+.\listings\main.o: ..\USER\stm32f4xx.h
+.\listings\main.o: ..\CORE\core_cm4.h
+>>>>>>> 7dfee909f3999084bf1044b98b62d19710d5b4eb
 .\listings\main.o: D:\Keil MDK5\ARM\ARMCC\Bin\..\include\stdint.h
 .\listings\main.o: ../HARDWARE/OLED/OLED.h
 .\listings\main.o: ../HARDWARE/OLED/OLED_Data.h
@@ -10,6 +16,7 @@
 .\listings\main.o: ..\DSP\Include\core_cm4.h
 .\listings\main.o: ..\CORE\core_cmInstr.h
 .\listings\main.o: ..\CORE\core_cmFunc.h
+<<<<<<< HEAD
 .\listings\main.o: ..\DSP\Include\core_cmSimd.h
 .\listings\main.o: D:\Keil MDK5\ARM\ARMCC\Bin\..\include\string.h
 .\listings\main.o: D:\Keil MDK5\ARM\ARMCC\Bin\..\include\math.h
@@ -18,6 +25,9 @@
 .\listings\main.o: ..\SYSTEM\sys.h
 .\listings\main.o: ..\USER\stm32f4xx.h
 .\listings\main.o: ..\CORE\core_cm4.h
+=======
+.\listings\main.o: ..\CORE\core_cm4_simd.h
+>>>>>>> 7dfee909f3999084bf1044b98b62d19710d5b4eb
 .\listings\main.o: ..\USER\system_stm32f4xx.h
 .\listings\main.o: ..\USER\stm32f4xx_conf.h
 .\listings\main.o: ..\FWLIB\inc\stm32f4xx_adc.h
@@ -47,6 +57,19 @@
 .\listings\main.o: ..\FWLIB\inc\stm32f4xx_dac.h
 .\listings\main.o: ..\FWLIB\inc\stm32f4xx_dcmi.h
 .\listings\main.o: ..\FWLIB\inc\stm32f4xx_fsmc.h
+<<<<<<< HEAD
+=======
+.\listings\main.o: ../HARDWARE/OLED/OLED.h
+.\listings\main.o: ../HARDWARE/OLED/OLED_Data.h
+.\listings\main.o: ../SOFTWARE/VOFA/Vofa.h
+.\listings\main.o: D:\Keil MDK5\ARM\ARMCC\Bin\..\include\stdbool.h
+.\listings\main.o: ..\DSP\Include\arm_math.h
+.\listings\main.o: ..\DSP\Include\core_cm4.h
+.\listings\main.o: D:\Keil MDK5\ARM\ARMCC\Bin\..\include\string.h
+.\listings\main.o: D:\Keil MDK5\ARM\ARMCC\Bin\..\include\math.h
+.\listings\main.o: ../HARDWARE/BUZZER/buzzer.h
+.\listings\main.o: ..\SYSTEM\delay.h
+>>>>>>> 7dfee909f3999084bf1044b98b62d19710d5b4eb
 .\listings\main.o: ../HARDWARE/EXTI/exti.h
 .\listings\main.o: .\GLOBAL\global.h
 .\listings\main.o: ../SOFTWARE/PID/pid.h

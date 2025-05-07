@@ -12,6 +12,7 @@
 ".\listings\timer_handler.o"
 ".\listings\vofa.o"
 ".\listings\menu.o"
+".\listings\control.o"
 ".\listings\ad7606.o"
 ".\listings\adc.o"
 ".\listings\buzzer.o"
