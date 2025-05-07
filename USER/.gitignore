@@ -1,0 +1,28 @@
+# Keil MDK工程文件
+*.uvguix.*
+*.uvoptx
+*.uvprojx
+*.crf
+*.o
+*.d
+*.axf
+*.hex
+*.map
+*.htm
+*.dep
+*.bat
+*.log
+*.ini
+JLinkLog.txt
+Listings/
+DebugConfig/
+
+# VSCode配置
+.vscode/
+!.vscode/settings.json
+!.vscode/launch.json
+
+# 系统文件
+*.bak
+*.tmp
+*.swp
