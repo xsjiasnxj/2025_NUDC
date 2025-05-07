@@ -8,15 +8,15 @@ void pid_init(pidtype* pid, float kp, float ki, float kd)
     pid->error = 0.0;
     pid->error_next = 0.0;
     pid->error_last = 0.0;
-    //¿Éµ÷½ÚPID ²ÎÊý¡£Ê¹¸ú×ÙÇúÏßÂýÂý½Ó½ü½×Ô¾º¯Êý//
+    //å¯è°ƒèŠ‚PID å‚æ•°ã€‚ä½¿è·Ÿè¸ªæ›²çº¿æ…¢æ…¢æŽ¥è¿‘é˜¶è·ƒå‡½æ•°//
     pid->kp = kp;
     pid->ki = ki;
     pid->kd = kd;
 }
 
-float pid_realize(float set, float actual, pidtype* pid)//ÊµÏÖpid
+float pid_realize(float set, float actual, pidtype* pid)//å®žçŽ°pid
 {
-    pid->set_speed = set;//ÉèÖÃÄ¿±êËÙ¶È
+    pid->set_speed = set;//è®¾ç½®ç›®æ ‡é€Ÿåº¦
     pid->actual_speed = actual;
     pid->error = pid->set_speed - pid->actual_speed;
     if(((pid->error) >= 0.0f && (pid->error) <= 0.02f) || ((pid->error) <= 0.0f && (pid->error) >= -0.02f))
@@ -27,15 +27,15 @@ float pid_realize(float set, float actual, pidtype* pid)//ÊµÏÖpid
     float increment_speed =
     		pid->kp*(pid->error-pid->error_next)
     		+pid->ki*pid->error
-			+ pid->kd*(pid->error-2.0f*pid->error_next+pid->error_last);//ÔöÁ¿¼ÆËã¹«Ê½
-    pid->error_last = pid->error_next;//ÏÂÒ»´Îµü´ú
+			+ pid->kd*(pid->error-2.0f*pid->error_next+pid->error_last);//å¢žé‡è®¡ç®—å…¬å¼
+    pid->error_last = pid->error_next;//ä¸‹ä¸€æ¬¡è¿­ä»£
     pid->error_next = pid->error;
     return increment_speed;
 }
 
 float pid_limited(pidtype* pid, float set, float actual, float output, float min, float max)
 {
-    pid->set_speed = set;//ÉèÖÃÄ¿±êËÙ¶È
+    pid->set_speed = set;//è®¾ç½®ç›®æ ‡é€Ÿåº¦
     pid->actual_speed = actual;
     pid->error = pid->set_speed - pid->actual_speed;
     if(((pid->error) >= 0.0f && (pid->error) <= 0.02f) || ((pid->error) <= 0.0f && (pid->error) >= -0.02f))
@@ -47,12 +47,12 @@ float pid_limited(pidtype* pid, float set, float actual, float output, float min
     float increment_speed =
     		pid->kp*(pid->error-pid->error_next)
     		+pid->ki*pid->error
-			+ pid->kd*(pid->error-2.0f*pid->error_next+pid->error_last);//ÔöÁ¿¼ÆËã¹«Ê½
+			+ pid->kd*(pid->error-2.0f*pid->error_next+pid->error_last);//å¢žé‡è®¡ç®—å…¬å¼
     if(output + increment_speed >= max || output + increment_speed <= min)
     {
     	increment_speed = pid->kp*(pid->error-pid->error_next);
     }
-    pid->error_last = pid->error_next;//ÏÂÒ»´Îµü´ú
+    pid->error_last = pid->error_next;//ä¸‹ä¸€æ¬¡è¿­ä»£
     pid->error_next = pid->error;
     return increment_speed;
 }

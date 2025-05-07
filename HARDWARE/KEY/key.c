@@ -30,7 +30,7 @@ void R_I_DOWN()
 	GPIO_InitStructure_KEY.GPIO_Mode = GPIO_Mode_IN;
 	GPIO_InitStructure_KEY.GPIO_Speed = GPIO_Speed_50MHz;
 	GPIO_InitStructure_KEY.GPIO_OType = GPIO_OType_OD;
-	GPIO_InitStructure_KEY.GPIO_PuPd = GPIO_PuPd_DOWN;//下拉
+	GPIO_InitStructure_KEY.GPIO_PuPd = GPIO_PuPd_DOWN;//涓嬫媺
 
 	GPIO_InitStructure_KEY.GPIO_Pin = GPIO_Pin_6|GPIO_Pin_0|GPIO_Pin_1;	//R3 R2 R1 R0
  	GPIO_Init(GPIOE, &GPIO_InitStructure_KEY);
@@ -43,7 +43,7 @@ void C_O_UP()
 	GPIO_InitStructure_KEY.GPIO_Mode = GPIO_Mode_OUT;
 	GPIO_InitStructure_KEY.GPIO_Speed = GPIO_Speed_50MHz;
 	GPIO_InitStructure_KEY.GPIO_OType = GPIO_OType_PP;
-	GPIO_InitStructure_KEY.GPIO_PuPd = GPIO_PuPd_UP;//上拉
+	GPIO_InitStructure_KEY.GPIO_PuPd = GPIO_PuPd_UP;//涓婃媺
 
 	GPIO_InitStructure_KEY.GPIO_Pin = GPIO_Pin_2|GPIO_Pin_3|GPIO_Pin_4|GPIO_Pin_5;	//C3  C1 C0
  	GPIO_Init(GPIOE, &GPIO_InitStructure_KEY);
@@ -58,7 +58,7 @@ void C_I_DOWN()
 	GPIO_InitStructure_KEY.GPIO_Mode = GPIO_Mode_IN;
 	GPIO_InitStructure_KEY.GPIO_Speed = GPIO_Speed_50MHz;
 	GPIO_InitStructure_KEY.GPIO_OType = GPIO_OType_OD;
-	GPIO_InitStructure_KEY.GPIO_PuPd = GPIO_PuPd_DOWN;//下拉
+	GPIO_InitStructure_KEY.GPIO_PuPd = GPIO_PuPd_DOWN;//涓嬫媺
 
 	GPIO_InitStructure_KEY.GPIO_Pin = GPIO_Pin_2|GPIO_Pin_3|GPIO_Pin_4|GPIO_Pin_5;	//C3  C1 C0
  	GPIO_Init(GPIOE, &GPIO_InitStructure_KEY);

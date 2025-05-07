@@ -2,15 +2,15 @@
 #define	__SPWM_H__
 
 
-//µ¥¼«ĞÔ±¶Æµµ÷ÖÆ£¬Éú³É·´Ïàµ÷ÖÆ²¨
+//å•ææ€§å€é¢‘è°ƒåˆ¶ï¼Œç”Ÿæˆåç›¸è°ƒåˆ¶æ³¢
 extern uint16_t Counter_sine ;	
 extern uint16_t Counter_sine_I ;
 extern int const talab[400];
 	
 /**
-  * @brief  º¯Êı¶¨Òå
-  * @param  ÎŞ
-  * @retval ÎŞ
+  * @brief  å‡½æ•°å®šä¹‰
+  * @param  æ— 
+  * @retval æ— 
   */
 
 #endif

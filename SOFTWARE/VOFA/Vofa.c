@@ -137,8 +137,8 @@ void Vofa_SendDataCallBack(Vofa_HandleTypedef *handle, uint8_t *data, uint16_t l
    
     for(int t=0;t<length;t++)
 	{
-		USART_SendData(USART1, data[t]);         //Ïò´®¿Ú1·¢ËÍÊý¾Ý
-		while(USART_GetFlagStatus(USART1,USART_FLAG_TC)!=SET);//µÈ´ý·¢ËÍ½áÊø
+		USART_SendData(USART1, data[t]);         //å‘ä¸²å£1å‘é€æ•°æ®
+		while(USART_GetFlagStatus(USART1,USART_FLAG_TC)!=SET);//ç­‰å¾…å‘é€ç»“æŸ
 	}
 	return;
 }

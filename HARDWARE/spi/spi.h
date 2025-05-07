@@ -3,16 +3,16 @@
 #include "sys.h"
 //////////////////////////////////////////////////////////////////////////////////	 
 
-//SPI Çı¶¯´úÂë	   
-//STM32F4¹¤³ÌÄ£°å-¿âº¯Êı°æ±¾
-//ÌÔ±¦µêÆÌ£ºhttp://mcudev.taobao.com									  
+//SPI é©±åŠ¨ä»£ç 	   
+//STM32F4å·¥ç¨‹æ¨¡æ¿-åº“å‡½æ•°ç‰ˆæœ¬
+//æ·˜å®åº—é“ºï¼šhttp://mcudev.taobao.com									  
 //SPI2_SCK -> PB13
 //SPI2_MOSI -> PB15
 //SPI2_MISO -> PB14
 ////////////////////////////////////////////////////////////////////////////////// 	
  	    													  
-void SPI2_Init(void);			 //³õÊ¼»¯SPI2¿Ú
-void SPI2_SetSpeed(u8 SpeedSet); //ÉèÖÃSPI2ËÙ¶È   
-u16 SPI2_ReadWriteByte(u16 TxData);//SPI2×ÜÏß¶ÁĞ´Ò»¸ö×Ö½Ú
+void SPI2_Init(void);			 //åˆå§‹åŒ–SPI2å£
+void SPI2_SetSpeed(u8 SpeedSet); //è®¾ç½®SPI2é€Ÿåº¦   
+u16 SPI2_ReadWriteByte(u16 TxData);//SPI2æ€»çº¿è¯»å†™ä¸€ä¸ªå­—èŠ‚
 		 
 #endif

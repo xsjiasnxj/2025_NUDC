@@ -3,16 +3,16 @@
 #include "key.h"
 
 
-//±êÖ¾Î»±äÁ¿
+//æ ‡å¿—ä½å˜é‡
 uint16_t pll_is_locked=0;
 char test_flag=0;
 //vofa
 Vofa_HandleTypedef vofa1;
 float vofa_databuffer[8];
-//°´¼ü
+//æŒ‰é”®
 Key_HandleTypeDef key1;
 
-//²ÉÑù±äÁ¿
+//é‡‡æ ·å˜é‡
 uint16_t adc_buffer[8]={0};
 float adc_real[8]={0};
 
@@ -21,7 +21,7 @@ uint16_t filter_cnt=0;
 uint16_t timer_cnt=0;
 
 
-//²ÉÑù»¹Ô­²ÎÊı(k,b£¬²¹³¥)
+//é‡‡æ ·è¿˜åŸå‚æ•°(k,bï¼Œè¡¥å¿)
 float  sample2real_k[8]={0.3096f,1.0f,1.0f,1.0f,1.0f,1.0f,1.0f,1.0f};
 float  sample2real_b[8]={0.005f,0.0f,0.0f,0.0f,0.0f,0.0f,0.0f,0.0f};
 float  Compensation[8]={0.0f,0.0f,0.0f,0.0f,0.0f,0.0f,0.0f,0.0f};
@@ -33,9 +33,9 @@ pidtype pid1,pid2,pid3,pid4;
 //float test_voltage_target=1.854;
 //float test_voltage_target_d=1;
 
-float MI=0.5f;      //µ÷ÖÆ±È
+float MI=0.5f;      //è°ƒåˆ¶æ¯”
 
-//ÊäÈëĞÅºÅ
+//è¾“å…¥ä¿¡å·
 
 float port_voltage = 0;
 float port_current = 0;
@@ -65,7 +65,7 @@ float input_power_factor_angle = 0;
 //float input_voltage3 = 0;
 //float input_current3 = 0;
 
-//ËøÏà±äÁ¿
+//é”ç›¸å˜é‡
 sogitype sogi_v;
 sogitype sogi_i;
 plltype  pll_v;
@@ -83,7 +83,7 @@ float input_current_q=0;
 float omega=h_pi;
 float theta=0;
 
-//ÆÚÍûÊä³ö
+//æœŸæœ›è¾“å‡º
 float target_current_d = 1;
 float target_current_q = 0;
 float target_current_d3 = 0;
@@ -104,7 +104,7 @@ float target_voltage_peak = 1;
 float set_power_factor_angle = 0;
 
 
-//ÏÔÊ¾¼°¹¦ÄÜ±äÁ¿
+//æ˜¾ç¤ºåŠåŠŸèƒ½å˜é‡
 
 unsigned char mode=0;
 unsigned char index=0;

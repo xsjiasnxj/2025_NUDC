@@ -11,16 +11,16 @@
 #include "Vofa.h"
 #include "MENU.h"
 
-//¼ÆÊı±äÁ¿
+//è®¡æ•°å˜é‡
 int cnt=0;
 int cnt_s=0;
 int init_cnt=0;
-//²ÉÑù+¿ØÖÆ
+//é‡‡æ ·+æ§åˆ¶
 
 void TIM2_IRQHandler(void)
 {
 	
-	if(TIM_GetITStatus(TIM2,TIM_IT_Update)==SET) //Òç³öÖĞ¶Ï
+	if(TIM_GetITStatus(TIM2,TIM_IT_Update)==SET) //æº¢å‡ºä¸­æ–­
 	{		
 
        AD7606_read();
@@ -28,7 +28,7 @@ void TIM2_IRQHandler(void)
       // input_current = adc_real[1];
       sogi(&sogi_v, input_voltage, &input_voltage_alpha, &input_voltage_beta);
       ab_to_dq(input_voltage_alpha, input_voltage_beta, theta, &input_voltage_d, &input_voltage_q);
-      pll(&pll_v, input_voltage_q, &omega, &theta);//µçÑ¹ËøÏà»·
+      pll(&pll_v, input_voltage_q, &omega, &theta);//ç”µå‹é”ç›¸ç¯
       if(omega > 312.0f && omega < 316.0f)
       {
           sogi_para_update(&sogi_v, omega);
@@ -41,7 +41,7 @@ void TIM2_IRQHandler(void)
       }
        //ab_to_dq(input_current_alpha, input_current_beta, theta, &input_current_d, &input_current_q);
         
-        //ÅĞ¶ÏÊÇ·ñËøÉÏ»·
+        //åˆ¤æ–­æ˜¯å¦é”ä¸Šç¯
         if(fabsf(omega - h_pi) <= 1.0f)
         {
          //   Counter_sine=(int)(400*theta/2/M_PI);
@@ -57,20 +57,20 @@ void TIM2_IRQHandler(void)
 //        arm_sqrt_f32(input_voltage_d*input_voltage_d + input_voltage_q*input_voltage_q, &input_voltage_peak);
 //        arm_sqrt_f32(input_current_d*input_current_d + input_current_q*input_current_q, &input_current_peak);
 //       
-//        //²¢Áª¶ËÊäÈëµçÑ¹µçÁ÷·åÖµ¼ÆËã
+//        //å¹¶è”ç«¯è¾“å…¥ç”µå‹ç”µæµå³°å€¼è®¡ç®—
 //        arm_sqrt_f32(port_voltage_d*port_voltage_d + port_voltage_q*port_voltage_q, &port_voltage_peak);
 //        arm_sqrt_f32(port_current_alpha*port_current_alpha + port_current_beta*port_current_beta, &port_current_peak);
-//        //¹¦ÂÊ¼ÆËã
-//        input_power_factor_angle = -1.0f * atanf(input_current_q/input_current_d);	//µçÑ¹³¬Ç°µçÁ÷½Ç¶È£¬»¡¶ÈÖÆ¡£
+//        //åŠŸç‡è®¡ç®—
+//        input_power_factor_angle = -1.0f * atanf(input_current_q/input_current_d);	//ç”µå‹è¶…å‰ç”µæµè§’åº¦ï¼Œå¼§åº¦åˆ¶ã€‚
 //        input_power_factor = arm_cos_f32(input_power_factor_angle);
 //        input_apparent_power = input_voltage_peak * input_current_peak * 0.5f;
 //        input_active_power = input_apparent_power * input_power_factor;
         
-        //´®¿Ú´«ÊäÊı¾İ
+        //ä¸²å£ä¼ è¾“æ•°æ®
         vofa_databuffer[0]=talab[Counter_sine]*MI;
         vofa_databuffer[1]=talab[Counter_sine_I]*MI;
         Vofa_JustFloat(&vofa1,vofa_databuffer,2);
-/**********************×÷µ÷ÊÔÓÃ************************************/
+/**********************ä½œè°ƒè¯•ç”¨************************************/
         cnt++;
         if(cnt>=1/Ts)
         {
@@ -80,13 +80,13 @@ void TIM2_IRQHandler(void)
         }
 /**********************************************************/
 	}
-	TIM_ClearITPendingBit(TIM2,TIM_IT_Update); //Çå³ıÖĞ¶Ï±êÖ¾Î»
+	TIM_ClearITPendingBit(TIM2,TIM_IT_Update); //æ¸…é™¤ä¸­æ–­æ ‡å¿—ä½
 }
 
-//°´¼ü¼ì²â+ÏÔÊ¾
+//æŒ‰é”®æ£€æµ‹+æ˜¾ç¤º
 void TIM3_IRQHandler(void)
 {
-	if(TIM_GetITStatus(TIM3,TIM_IT_Update)==SET) //Òç³öÖĞ¶Ï
+	if(TIM_GetITStatus(TIM3,TIM_IT_Update)==SET) //æº¢å‡ºä¸­æ–­
 	{	
        
       //  key_command_callback(&key1);
@@ -104,9 +104,9 @@ void TIM3_IRQHandler(void)
 //			OLED_Update();
 	
 	}
-	TIM_ClearITPendingBit(TIM3,TIM_IT_Update); //Çå³ıÖĞ¶Ï±êÖ¾Î»
+	TIM_ClearITPendingBit(TIM3,TIM_IT_Update); //æ¸…é™¤ä¸­æ–­æ ‡å¿—ä½
 }
-//SPWMÊä³ö
+//SPWMè¾“å‡º
 void TIM1_CC_IRQHandler(void) 
 {	
 //    Counter_sine=(int)(400*theta/2/M_PI);
@@ -129,14 +129,14 @@ void TIM1_CC_IRQHandler(void)
 	if (TIM_GetITStatus(TIM1, TIM_IT_CC1)!=RESET)
 	{
         Counter_sine=(int)(400*theta/2/M_PI);
-		TIM_SetCompare1(TIM1,(uint32_t)(talab[Counter_sine]*MI));	//AÏà	
+		TIM_SetCompare1(TIM1,(uint32_t)(talab[Counter_sine]*MI));	//Aç›¸	
 		TIM_ClearITPendingBit(TIM1 , TIM_IT_CC1);
 	 }
 	//CCR2
     if (TIM_GetITStatus(TIM1, TIM_IT_CC2) !=RESET)
 	{
         Counter_sine_I=(Counter_sine+200)%400;
-		TIM_SetCompare2(TIM1,((uint32_t)talab[Counter_sine_I])*MI);	//BÏà
+		TIM_SetCompare2(TIM1,((uint32_t)talab[Counter_sine_I])*MI);	//Bç›¸
 		TIM_ClearITPendingBit(TIM1 , TIM_IT_CC2);
 	}
 

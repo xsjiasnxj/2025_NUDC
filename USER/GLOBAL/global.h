@@ -11,31 +11,31 @@
 #define M_PI 					3.1415926535f
 #define sqrt2 					1.41421356f
 
-#define Ts 			            0.0005f         //²ÉÑùÊ±¼ä
+#define Ts 			            0.0005f         //é‡‡æ ·æ—¶é—´
 #define disp_time   			0.01f
 
-#define MI_MAX                  0.98f           //µ÷ÖÆ±È×î´óÖµ
+#define MI_MAX                  0.98f           //è°ƒåˆ¶æ¯”æœ€å¤§å€¼
 //#define pid_time   			    0.001f
 
 
-//ÆµÂÊÉèÖÃ
-#define CKTIM	        ((u32)168000000uL)  //Ö÷Æµ
-#define TIM_CKTIM	    ((u32) 84000000uL)  //¶¨Ê±Æ÷ÆµÂÊ
-#define PWM_PRSC        ((u8)0)            //TIM3·ÖÆµÏµÊı
-#define PWM_FREQ        ((u16) 20000)      //PWMÆµÂÊ(Hz)
-#define PWM_PERIOD      ((u16) (TIM_CKTIM / (u32)( 2*PWM_FREQ *(PWM_PRSC+1))))  //ÒòÎªÊÇÖĞĞÄ¶ÔÆë¼ÆÊıÄ£Ê½£¬ËùÒÔÒª³Ë2
-//²ÉÑù+¿ØÖÆ
+//é¢‘ç‡è®¾ç½®
+#define CKTIM	        ((u32)168000000uL)  //ä¸»é¢‘
+#define TIM_CKTIM	    ((u32) 84000000uL)  //å®šæ—¶å™¨é¢‘ç‡
+#define PWM_PRSC        ((u8)0)            //TIM3åˆ†é¢‘ç³»æ•°
+#define PWM_FREQ        ((u16) 20000)      //PWMé¢‘ç‡(Hz)
+#define PWM_PERIOD      ((u16) (TIM_CKTIM / (u32)( 2*PWM_FREQ *(PWM_PRSC+1))))  //å› ä¸ºæ˜¯ä¸­å¿ƒå¯¹é½è®¡æ•°æ¨¡å¼ï¼Œæ‰€ä»¥è¦ä¹˜2
+//é‡‡æ ·+æ§åˆ¶
 #define TIM2_PRSC		((u8)4)
 #define TIM2_PERIOD     ((u16) (TIM_CKTIM / (u32)(1.0f/Ts*(TIM2_PRSC+1))))
-//ÏÔÊ¾
+//æ˜¾ç¤º
 #define TIM3_PRSC		((u8)400)
 #define TIM3_PERIOD     ((u16) (TIM_CKTIM / (u32)(1.0f/disp_time*(TIM3_PRSC+1))))
 
-////¿ØÖÆ
+////æ§åˆ¶
 //#define TIM4_PRSC		((u8)4)
 //#define TIM4_PERIOD  ((u16) (CKTIM / (u32)( 1.0f/pid_time*(TIM4_PRSC+1))))
 
-//pid²ÎÊı
+//pidå‚æ•°
 #define kp_pll 0.0005f
 #define ki_pll 0.0001f
 
@@ -55,15 +55,15 @@
 #define ki4	0.0001f
 #define kd4	0
 
-//±êÖ¾Î»±äÁ¿
+//æ ‡å¿—ä½å˜é‡
 extern uint16_t pll_is_locked;
 extern char test_flag;
 //vofa
 extern Vofa_HandleTypedef vofa1;
 extern float vofa_databuffer[8];
-//°´¼ü
+//æŒ‰é”®
 extern Key_HandleTypeDef key1;
-//²ÉÑù±äÁ¿
+//é‡‡æ ·å˜é‡
 extern uint16_t adc_buffer[8];
 extern float adc_real[8];
 
@@ -72,7 +72,7 @@ extern uint16_t filter_cnt;
 extern uint16_t timer_cnt;
 
 
-//²ÉÑù»¹Ô­²ÎÊı(k,b£¬²¹³¥)
+//é‡‡æ ·è¿˜åŸå‚æ•°(k,bï¼Œè¡¥å¿)
 extern float  sample2real_k[8];
 extern float  sample2real_b[8];
 extern float  Compensation[8];
@@ -84,7 +84,7 @@ extern pidtype pid1,pid2,pid3,pid4;
 
 extern float MI;
 
-//ÊäÈëĞÅºÅ
+//è¾“å…¥ä¿¡å·
 extern float port_voltage ;
 extern float port_current ;
 extern float port_voltage_alpha ;
@@ -109,7 +109,7 @@ extern float input_active_power ;
 extern float input_power_factor ;
 extern float input_power_factor_angle;
 
-//SOGIËøÏà±äÁ¿
+//SOGIé”ç›¸å˜é‡
 extern sogitype sogi_v;
 extern sogitype sogi_i;
 extern plltype  pll_v;
@@ -128,7 +128,7 @@ extern float input_current_q;
 extern float omega;
 extern float theta;
 
-//ÆÚÍûÊä³ö
+//æœŸæœ›è¾“å‡º
 extern float target_current_d ;
 extern float target_current_q ;
 extern float target_current_d3 ;
@@ -147,7 +147,7 @@ extern float target_voltage_beta3;
 extern float target_voltage_peak;
 extern float set_power_factor_angle;
 
-//ÏÔÊ¾¼°¹¦ÄÜ±äÁ¿
+//æ˜¾ç¤ºåŠåŠŸèƒ½å˜é‡
 extern unsigned char mode;
 extern unsigned char index;
 extern unsigned char page;

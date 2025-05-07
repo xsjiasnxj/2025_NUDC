@@ -1,11 +1,11 @@
 #include "stm32f4xx.h"
 #include "spwm.h"
-//uint16_t Counter_sine1 = 0;		//AÏà
-//uint16_t Counter_sine2 = 133;	//ÖÍºóAÏà120¶È
-//uint16_t Counter_sine3 = 266;	//³¬Ç°AÏà120¶È	
+//uint16_t Counter_sine1 = 0;		//Aç›¸
+//uint16_t Counter_sine2 = 133;	//æ»åAç›¸120åº¦
+//uint16_t Counter_sine3 = 266;	//è¶…å‰Aç›¸120åº¦	
 
 
-//µ¥¼«ĞÔ±¶Æµµ÷ÖÆ£¬Éú³É·´Ïàµ÷ÖÆ²¨
+//å•ææ€§å€é¢‘è°ƒåˆ¶ï¼Œç”Ÿæˆåç›¸è°ƒåˆ¶æ³¢
 uint16_t Counter_sine = 0;
 uint16_t Counter_sine_I = 200;
 

@@ -1,7 +1,7 @@
 #ifndef	__MAIN_H__
 #define	__MAIN_H__
 
-//外部中断定义
+//澶栭儴涓柇瀹氫箟
 #define	EC1_phase_a_PORT				EXTI_PortSourceGPIOB				//EXTI6
 #define	EC1_phase_a_Pin				    EXTI_PinSource7
 #define	EC1_phase_b_PORT				GPIOB
@@ -16,7 +16,7 @@
 #define	EC2_button_PORT				    EXTI_PortSourceGPIOC				//EXTI4
 #define	EC2_button_Pin					EXTI_PinSource4
 
-//板载ADC通道端口定义
+//鏉胯浇ADC閫氶亾绔彛瀹氫箟
 #define ADC1_CH13_adc0_Pin 			    GPIO_Pin_3
 #define ADC1_CH13_adc0_GPIO_Port 	    GPIOC
 #define ADC1_CH12_adc1_Pin 			    GPIO_Pin_2
@@ -44,7 +44,7 @@
 //#define	EXTI3_PORT						GPIOA
 //#define	EXTI3_Pin						GPIO_Pin_12
 
-//矩阵键盘
+//鐭╅樀閿洏
 #define C3_Pin 							GPIO_Pin_2
 #define C3_GPIO_Port 					GPIOE
 #define C2_Pin 							GPIO_Pin_3

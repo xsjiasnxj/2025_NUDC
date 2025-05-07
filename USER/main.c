@@ -1,70 +1,56 @@
+#include "main.h"
+#include "AD7606.h"
+#include "OLED.h"
+#include "Vofa.h"
+#include "arm_math.h"
+#include "buzzer.h"
+#include "delay.h"
+#include "exti.h"
+#include "global.h"
+#include "gpio.h"
+#include "key.h"
+#include "math.h"
+#include "pll.h"
+#include "sogi.h"
+#include "spi.h"
 #include "stm32f4xx.h"
 #include "sys.h"
-#include "delay.h"
-#include "OLED.h"
-#include "exti.h"
 #include "timer.h"
-#include "gpio.h"
-#include "buzzer.h"
-#include "global.h"
-#include "main.h"
-#include "key.h"
 #include "usart.h"
-#include "math.h"
-#include "AD7606.h"
-#include "Vofa.h"
-#include "spi.h"
-#include "sogi.h"
-#include "pll.h"
-#include "arm_math.h"
+
 
 /***********************************************************************
-  * @ º¯ÊıÃû  £º bsp_Init
-  * @ ¹¦ÄÜËµÃ÷£º ËùÓĞÍâÉè³õÊ¼»¯º¯Êı£¬·½±ã¹ÜÀí
-  * @ ²ÎÊı    £º   
-  * @ ·µ»ØÖµ  £º ÎŞ
-  *********************************************************************/
-void bsp_Init()
-{
-    pid_init(&pid1, kp1, ki1, kd1);
-	pid_init(&pid2, kp2, ki2, kd2);
-    
-    sogi_init(&sogi_v,Ts, h_pi);
- //   sogi_init(&sogi_i, Ts, h_pi);
-    pll_init(&pll_v, Ts, 100, 100);
-    
+ * @ å‡½æ•°å  ï¼š bsp_Init
+ * @ åŠŸèƒ½è¯´æ˜ï¼š æ‰€æœ‰å¤–è®¾åˆå§‹åŒ–å‡½æ•°ï¼Œæ–¹ä¾¿ç®¡ç†
+ * @ å‚æ•°    ï¼š
+ * @ è¿”å›å€¼  ï¼š æ— 
+ *********************************************************************/
+void bsp_Init() {
+  pid_init(&pid1, kp1, ki1, kd1);
+  pid_init(&pid2, kp2, ki2, kd2);
 
-    NVIC_PriorityGroupConfig(NVIC_PriorityGroup_4);//ÉèÖÃÏµÍ³ÖĞ¶ÏÓÅÏÈ¼¶·Ö×é 4
-    delay_init(168);
-    AD7606_Init();
-    SPI2_Init();
-	GPIO_Config_Init();
-    EXTIX_Init();	
-	OLED_Init();
-    uart_init(2000000);   
+  sogi_init(&sogi_v, Ts, h_pi);
+  //   sogi_init(&sogi_i, Ts, h_pi);
+  pll_init(&pll_v, Ts, 100, 100);
 
+  NVIC_PriorityGroupConfig(NVIC_PriorityGroup_4); // è®¾ç½®ç³»ç»Ÿä¸­æ–­ä¼˜å…ˆçº§åˆ†ç»„ 4
+  delay_init(168);
+  AD7606_Init();
+  SPI2_Init();
+  GPIO_Config_Init();
+  EXTIX_Init();
+  OLED_Init();
+  uart_init(2000000);
 
-    TIM1_Config_Init();//×¨ÃÅÓÃÓÚPWMÊä³ö
-	TIM2_Config_Init();//×¨ÃÅÓÃÓÚÊı¾İ²ÉÑù+¼ÆËã+¿ØÖÆ
-	TIM3_Config_Init();//×¨ÃÅÓÃÓÚÏÔÊ¾
+  TIM1_Config_Init(); // ä¸“é—¨ç”¨äºPWMè¾“å‡º
+  TIM2_Config_Init(); // ä¸“é—¨ç”¨äºæ•°æ®é‡‡æ ·+è®¡ç®—+æ§åˆ¶
+  TIM3_Config_Init(); // ä¸“é—¨ç”¨äºæ˜¾ç¤º
 
-	OLED_Clear();
+  OLED_Clear();
 }
 
-int main(void)
-{
-    bsp_Init();
-	while (1)
-	{	  
-       
-
-	}
-		
+int main(void) {
+  bsp_Init();
+  while (1) {
+  }
 }
-
-
-
-
-
-
-

@@ -3,14 +3,14 @@
 
 typedef struct
 {
-    float set_speed;//Éè¶¨ËÙ¶È
-    float actual_speed;//Êµ¼ÊËÙ¶È
-    float error;//Æ«²î
-    float error_next;//ÉÏÒ»¸öÆ«²î
-    float error_last;//ÉÏÉÏÒ»¸öÆ«²î
-    float kp,ki,kd;//¶¨Òå±ÈÀı£¬»ı·Ö£¬Î¢·Ö²ÎÊı
+    float set_speed;//è®¾å®šé€Ÿåº¦
+    float actual_speed;//å®é™…é€Ÿåº¦
+    float error;//åå·®
+    float error_next;//ä¸Šä¸€ä¸ªåå·®
+    float error_last;//ä¸Šä¸Šä¸€ä¸ªåå·®
+    float kp,ki,kd;//å®šä¹‰æ¯”ä¾‹ï¼Œç§¯åˆ†ï¼Œå¾®åˆ†å‚æ•°
 }pidtype;
 void pid_init(pidtype* pid, float kp, float ki, float kd);
-float pid_realize(float set, float actual, pidtype* pid);//ÊµÏÖpid
+float pid_realize(float set, float actual, pidtype* pid);//å®ç°pid
 float pid_limited(pidtype* pid, float set, float actual, float output, float min, float max);
 #endif

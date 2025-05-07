@@ -3,16 +3,16 @@
 
 
 typedef enum {
-    NUMBER_EVENT,   //Êı×ÖÊäÈëÊÂ¼ş
-    SET_EVENT,      //SETÊÂ¼ş
-    SWITCH_EVENT,   //¿ª¹ØÊÂ¼ş
-    BACK_EVENT,     //»ØÍËÊÂ¼ş
+    NUMBER_EVENT,   //æ•°å­—è¾“å…¥äº‹ä»¶
+    SET_EVENT,      //SETäº‹ä»¶
+    SWITCH_EVENT,   //å¼€å…³äº‹ä»¶
+    BACK_EVENT,     //å›é€€äº‹ä»¶
 }Key_Event;
 
-typedef struct _Key_HandleTypeDef   //°´¼ü¾ä±ú
+typedef struct _Key_HandleTypeDef   //æŒ‰é”®å¥æŸ„
 {
-    char key_num;   //¼üÂë
-    char key_event; //¶ÔÓ¦ÊÂ¼ş
+    char key_num;   //é”®ç 
+    char key_event; //å¯¹åº”äº‹ä»¶
 
 }Key_HandleTypeDef;
 
@@ -22,18 +22,18 @@ typedef struct _Key_HandleTypeDef   //°´¼ü¾ä±ú
 /* user */
 
 
-void key_command_callback(Key_HandleTypeDef* key);         //°´¼ü»Øµ÷º¯Êı£¬·µ»Ø¼üÖµ
+void key_command_callback(Key_HandleTypeDef* key);         //æŒ‰é”®å›è°ƒå‡½æ•°ï¼Œè¿”å›é”®å€¼
 
 /**********************************************************/
 
 /**********************************************************/
 /* driver */
 
-void R_I_DOWN(void);                //¾ØÕó¼üÅÌËùÓĞĞĞÏÂÀ­ÊäÈë
-void R_O_UP(void);                  //¾ØÕó¼üÅÌËùÓĞĞĞÉÏÀ­Êä³ö
-void C_I_DOWN(void);                //¾ØÕó¼üÅÌËùÓĞÁĞÏÂÀ­ÊäÈë
-void C_O_UP(void);                  //¾ØÕó¼üÅÌËùÓĞÁĞÉÏÀ­Êä³ö
-uint8_t is_key_down(void);          //ÊÇ·ñÓĞ°´¼ü±»°´ÏÂ£¬ÓĞ1ÎŞ0
+void R_I_DOWN(void);                //çŸ©é˜µé”®ç›˜æ‰€æœ‰è¡Œä¸‹æ‹‰è¾“å…¥
+void R_O_UP(void);                  //çŸ©é˜µé”®ç›˜æ‰€æœ‰è¡Œä¸Šæ‹‰è¾“å‡º
+void C_I_DOWN(void);                //çŸ©é˜µé”®ç›˜æ‰€æœ‰åˆ—ä¸‹æ‹‰è¾“å…¥
+void C_O_UP(void);                  //çŸ©é˜µé”®ç›˜æ‰€æœ‰åˆ—ä¸Šæ‹‰è¾“å‡º
+uint8_t is_key_down(void);          //æ˜¯å¦æœ‰æŒ‰é”®è¢«æŒ‰ä¸‹ï¼Œæœ‰1æ— 0
 
 /**********************************************************/
 

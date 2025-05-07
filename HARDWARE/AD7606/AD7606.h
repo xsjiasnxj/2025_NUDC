@@ -24,7 +24,7 @@
 #define cs_Set 	  		GPIO_SetBits(cs_PORT,cs_Pin)
 #define cs_Reset   		GPIO_ResetBits(cs_PORT,cs_Pin)
 
-//Í¨µÀÊı¶¨Òå
+//é€šé“æ•°å®šä¹‰
 #define NUM_CHS         8
 
 
