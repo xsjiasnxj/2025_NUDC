@@ -4,6 +4,7 @@
 #include "key_handler.h"
 #include "main.h"
 #include "stm32f4xx.h"
+#include "stdio.h"
 
 void key_action(char key)
 {
