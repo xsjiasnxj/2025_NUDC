@@ -36,11 +36,8 @@
 //#define TIM4_PERIOD  ((u16) (CKTIM / (u32)( 1.0f/pid_time*(TIM4_PRSC+1))))
 
 //pid参数
-#define kp_pll 0.0005f
-#define ki_pll 0.0001f
-
 #define kp1 0.5f
-#define ki1 0.0001f
+#define ki1 0.1f
 #define kd1 0.0f
 
 #define kp2 0.0846f
@@ -125,8 +122,10 @@ extern float input_power_factor_angle;
 //SOGI锁相变量
 extern sogitype sogi_v;
 extern sogitype sogi_i;
-extern plltype  pll_v;
+extern sogitype sogi_p;
 
+extern plltype  pll_v;
+extern plltype  pll_v3;
 //电压内角度（离网模式）
 extern float internal_theta;
 

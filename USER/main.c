@@ -29,8 +29,10 @@ void bsp_Init() {
 
   sogi_init(&sogi_v, Ts, h_pi);
   sogi_init(&sogi_i, Ts, h_pi);
+  sogi_init(&sogi_p, Ts, h_pi);
   //   sogi_init(&sogi_i, Ts, h_pi);
   pll_init(&pll_v, Ts, 100, 100);
+  pll_init(&pll_v3, Ts, 1200, 2800);
 
   pid_init(&pid1, kp1, ki1, kd1);
   pid_init(&pid2, kp2, ki2, kd2);

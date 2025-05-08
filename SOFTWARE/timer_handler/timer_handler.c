@@ -44,8 +44,8 @@ void TIM2_IRQHandler(void) {
     port_current = adc_real[2];
 
     sogi(&sogi_v, input_voltage, &input_voltage_alpha, &input_voltage_beta);
-    sogi(&sogi_v, input_current, &input_current_alpha, &input_current_beta);
-    sogi(&sogi_v, port_current, &port_current_alpha, &port_current_beta);
+    sogi(&sogi_i, input_current, &input_current_alpha, &input_current_beta);
+    sogi(&sogi_p, port_current, &port_current_alpha, &port_current_beta);
 
     ab_to_dq(input_current_alpha, input_current_beta, theta, &input_current_d, &input_current_q);
     ab_to_dq(port_current_alpha, port_current_beta, theta, &port_current_d, &port_current_q);
@@ -89,19 +89,18 @@ void TIM2_IRQHandler(void) {
       control();
       start_svpwm();
       }
-    
-//     else {
-//      target_voltage_d = input_voltage_peak / (set_out_ac_voltage * 2.0f) * -1.05f * full_duty * module_rate; // 电压预同步
-//      if (pll_is_locked && fabsf(port_theta) <= 0.01) {
-//        theta = port_theta;
-//      }
-//    }
+     else {
+      target_voltage_d = input_voltage_peak / (set_out_ac_voltage * 2.0f) * -1.05f * full_duty * module_rate; // 电压预同步
+      if (pll_is_locked && fabsf(port_theta) <= 0.01) {
+        theta = port_theta;
+      }
+    }
 
     // 串口传输数据
-    // vofa_databuffer[0] = omega;
-    // vofa_databuffer[1] = theta;
-    vofa_databuffer[0] = target_voltage_alpha;
-    vofa_databuffer[1] = target_voltage_beta;
+    vofa_databuffer[0] = input_voltage_d;
+    vofa_databuffer[1] = input_voltage_q;
+    // vofa_databuffer[0] = target_voltage_alpha;
+    // vofa_databuffer[1] = target_voltage_beta;
 
     Vofa_JustFloat(&vofa1, vofa_databuffer, 2);
   }
@@ -112,13 +111,13 @@ void TIM2_IRQHandler(void) {
 void TIM3_IRQHandler(void) {
   if (TIM_GetITStatus(TIM3, TIM_IT_Update) == SET) { // 溢出中断
     
-    // OLED_Clear();
-    // OLED_ShowNum(0, 0, cnt_s, 4, 8);
-    // OLED_ShowFloatNum(0, 16, omega / (2 * M_PI), 3, 2, 8);
-    // OLED_ShowFloatNum(0, 48, theta, 3, 2, 8);
-    // OLED_Update();
+    OLED_Clear();
+    OLED_ShowNum(0, 0, cnt_s, 4, 8);
+    OLED_ShowFloatNum(0, 16, input_voltage_d, 3, 2, 8);
+    OLED_ShowFloatNum(0, 48, input_voltage_q, 3, 2, 8);
+    OLED_Update();
     
-    MENU_RunMainMenu();
+    // MENU_RunMainMenu();
     
   }
   TIM_ClearITPendingBit(TIM3, TIM_IT_Update); // 清除中断标志位

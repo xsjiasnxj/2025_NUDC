@@ -6,7 +6,7 @@
 //标志位变量
 uint16_t pll_is_locked=0;
 char test_flag=0;
-char on_off=0;
+char on_off=1;
 char mode=0;
 //vofa
 Vofa_HandleTypedef vofa1;
@@ -73,8 +73,8 @@ float input_power_factor_angle = 0;
 //float input_current3 = 0;
 
 //锁相变量
-sogitype sogi_v,sogi_i;
-plltype  pll_v;
+sogitype sogi_v,sogi_i,sogi_p;
+plltype  pll_v,pll_v3;
 //电压内角（离网模式）
 float internal_theta=0;
 

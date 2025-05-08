@@ -8,7 +8,7 @@
 #include "math.h"
 #include "arm_math.h"
 
-float module_rate = 0.98f;
+float module_rate = 0.93f;
 unsigned int full_duty = 4200;
 unsigned int set_duty_a = 4200 / 2;
 unsigned int set_duty_b = 4200 / 2;
@@ -127,7 +127,7 @@ void start_svpwm()
 	//pwm3 --> tim1_channel 1
 	//pwm2 --> tim1_channel 2
 	//pwm3 pwm2互补输出。
-	full_duty = 4200;
+	full_duty = 4100;
 	max_duty = full_duty * 0.95f;
 	min_duty = full_duty * 0.05f;
 
