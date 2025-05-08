@@ -27,7 +27,7 @@ Project File Date:  05/08/2025
 <h2>Output:</h2>
 *** Using Compiler 'V5.06 update 5 (build 528)', folder: 'D:\Keil MDK5\ARM\ARMCC\Bin'
 Build target 'Template'
-compiling key_handler.c...
+compiling timer_handler.c...
 ..\SOFTWARE\CONTROL\control.h(4): warning:  #1295-D: Deprecated declaration control - give arg types
   void control();
 ..\SOFTWARE\CONTROL\control.h(5): warning:  #1295-D: Deprecated declaration start_svpwm - give arg types
@@ -36,13 +36,11 @@ compiling key_handler.c...
   void stop_svpwm();
 ..\SOFTWARE\CONTROL\control.h(7): warning:  #1295-D: Deprecated declaration protect_svpwm - give arg types
   void protect_svpwm();
-..\SOFTWARE\key_handler\key_handler.c(21): warning:  #223-D: function "atof" declared implicitly
-  		float temp = (float)atof(input_buffer);
-..\SOFTWARE\key_handler\key_handler.c: 5 warnings, 0 errors
+../SOFTWARE/timer_handler/timer_handler.c: 4 warnings, 0 errors
 linking...
-Program Size: Code=21216 RO-data=5004 RW-data=748 ZI-data=3076  
+Program Size: Code=14248 RO-data=4852 RW-data=328 ZI-data=3072  
 FromELF: creating hex file...
-".\Listings\project.axf" - 0 Error(s), 5 Warning(s).
+".\Listings\project.axf" - 0 Error(s), 4 Warning(s).
 
 <h2>Software Packages used:</h2>
 
@@ -56,7 +54,7 @@ Package Vendor: Keil
   D:\Keil MDK5\Keil\STM32F4xx_DFP\2.17.1\Drivers\CMSIS\Device\ST\STM32F4xx\Include
 
 <h2>Collection of Component Files used:</h2>
-Build Time Elapsed:  00:00:03
+Build Time Elapsed:  00:00:02
 </pre>
 </body>
 </html>

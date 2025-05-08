@@ -11,3 +11,4 @@
 .\listings\menu.o: ../HARDWARE/KEY/key.h
 .\listings\menu.o: ../HARDWARE/OLED/OLED.h
 .\listings\menu.o: ../HARDWARE/OLED/OLED_Data.h
+.\listings\menu.o: ..\SOFTWARE\key_handler\key_handler.h

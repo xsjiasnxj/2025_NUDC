@@ -27,6 +27,7 @@ void TIM2_IRQHandler(void) {
     }
     /*******************************************************************/
   if (TIM_GetITStatus(TIM2, TIM_IT_Update) == SET) { // 溢出中断
+    
     AD7606_read();
     
     internal_theta = internal_theta + h_pi * Ts;
@@ -84,6 +85,8 @@ void TIM2_IRQHandler(void) {
         pll(&pll_v, input_voltage_q, &omega, &theta); // 电压锁相环
     }
     
+    start_svpwm();
+    
     if (on_off == 1) {
       protect_svpwm();
       control();
@@ -108,34 +111,27 @@ void TIM2_IRQHandler(void) {
 // 按键检测 + 显示
 void TIM3_IRQHandler(void) {
   if (TIM_GetITStatus(TIM3, TIM_IT_Update) == SET) { // 溢出中断
-//    OLED_Clear();
-//    OLED_ShowNum(0, 0, cnt_s, 4, 8);
-//    OLED_ShowFloatNum(0, 16, omega / (2 * M_PI), 3, 2, 8);
-//    OLED_ShowFloatNum(0, 48, theta, 3, 2, 8);
-//    OLED_Update();
-    MENU_RunMainMenu();
+    
+    OLED_Clear();
+    OLED_ShowNum(0, 0, cnt_s, 4, 8);
+    OLED_ShowFloatNum(0, 16, omega / (2 * M_PI), 3, 2, 8);
+    OLED_ShowFloatNum(0, 48, theta, 3, 2, 8);
+    OLED_Update();
+    
+  //  MENU_RunMainMenu();
     
   }
   TIM_ClearITPendingBit(TIM3, TIM_IT_Update); // 清除中断标志位
 }
 
-//void TIM1_CC_IRQHandler(void) {
-//  if (Counter_sine1 >= 400) {
-//    Counter_sine1 = 0;
-//  }
-//  if (Counter_sine2 >= 400) {
-//    Counter_sine2 = 0;
-//  }
+void TIM1_CC_IRQHandler(void) {
+  if (TIM_GetITStatus(TIM1, TIM_IT_CC1) != RESET) {
 
-//  if (TIM_GetITStatus(TIM1, TIM_IT_CC1) != RESET) {
-//    TIM_SetCompare1(TIM1, (uint32_t)(talab[Counter_sine1])); // A相
-//    Counter_sine1++;
-//    TIM_ClearITPendingBit(TIM1, TIM_IT_CC1);
-//  }
+    TIM_ClearITPendingBit(TIM1, TIM_IT_CC1);
+  }
 
-//  if (TIM_GetITStatus(TIM1, TIM_IT_CC2) != RESET) {
-//    TIM_SetCompare2(TIM1, ((uint32_t)talab[Counter_sine2])); // B相
-//    Counter_sine2++;
-//    TIM_ClearITPendingBit(TIM1, TIM_IT_CC2);
-//  }
-//}
+  if (TIM_GetITStatus(TIM1, TIM_IT_CC2) != RESET) {
+
+    TIM_ClearITPendingBit(TIM1, TIM_IT_CC2);
+  }
+}
