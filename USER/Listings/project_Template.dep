@@ -75,7 +75,7 @@ I (..\FWLIB\inc\stm32f4xx_dac.h)(0x681ACB5A)
 I (..\FWLIB\inc\stm32f4xx_dcmi.h)(0x681ACB5A)
 I (..\FWLIB\inc\stm32f4xx_fsmc.h)(0x681ACB5A)
 F (.\main.c)(0x681B0659)(--c99 -c --cpu Cortex-M4.fp -D__EVAL -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ..\CORE -I ..\FWLIB\inc -I ..\USER -I ..\SYSTEM -I .\GLOBAL -I ../HARDWARE/EXTI -I ../HARDWARE/OLED -I ../HARDWARE/KEY -I ../HARDWARE/PWM -I ../HARDWARE/DMA -I ../HARDWARE/TIMER -I ../HARDWARE/BUZZER -I ../HARDWARE/spi -I ../HARDWARE/AD7606 -I ../HARDWARE/ADC -I ../HARDWARE/GPIO -I ../SOFTWARE/PLL -I ../SOFTWARE/SPWM -I ../SOFTWARE/DISP -I ../SOFTWARE/PID -I ../SOFTWARE/timer_handler -I ../SOFTWARE/VOFA -I ../SOFTWARE/MENU -I ..\DSP\Include -I ..\DSP -I ..\SOFTWARE\CONTROL --locale=english  --diag_suppress=1-I.\RTE\_Template-I"D:\Keil MDK5\Keil\STM32F4xx_DFP\2.17.1\Drivers\CMSIS\Device\ST\STM32F4xx\Include"-I"D:\Keil MDK5\ARM\CMSIS\Include"-D__UVISION_VERSION="524" -DSTM32F407xx -DSTM32F40_41xxx -DUSE_STDPERIPH_DRIVER -DUSE_STDPERIPH_DRIVER -DSTM32F446xx -DARM_MATH_CM4 -D__CC_ARM -DARM_MATH_MATRIX_CHECK -DARM_MATH_ROUNDING -D__FPU_PRESENT -D__FPU_USED-o .\listings\main.o --omf_browse .\listings\main.crf --depend .\listings\main.d)
-I (main.h)(0x681ACBE6)
+I (main.h)(0x681C2516)
 I (../HARDWARE/AD7606/AD7606.h)(0x681B03C3)
 I (D:\Keil MDK5\ARM\ARMCC\include\stdint.h)(0x588B8344)
 I (..\SYSTEM\sys.h)(0x681ACBE6)
@@ -123,7 +123,7 @@ I (D:\Keil MDK5\ARM\ARMCC\include\math.h)(0x588B8344)
 I (../HARDWARE/BUZZER/buzzer.h)(0x681ACB5A)
 I (..\SYSTEM\delay.h)(0x681ACBE6)
 I (../HARDWARE/EXTI/exti.h)(0x681ACBE6)
-I (.\GLOBAL\global.h)(0x681B014F)
+I (.\GLOBAL\global.h)(0x681C2E6D)
 I (../SOFTWARE/PID/pid.h)(0x681ACBE6)
 I (../SOFTWARE/PLL/pll.h)(0x681ACB5A)
 I (../SOFTWARE/PLL/sogi.h)(0x681B02B5)
@@ -133,8 +133,8 @@ I (../HARDWARE/spi/spi.h)(0x681ACBE6)
 I (../HARDWARE/TIMER/timer.h)(0x681ACB5A)
 I (..\SYSTEM\usart.h)(0x681ACBE6)
 I (D:\Keil MDK5\ARM\ARMCC\include\stdio.h)(0x588B8344)
-F (.\main.h)(0x681ACBE6)()
-F (.\GLOBAL\global.c)(0x681B0EAE)(--c99 -c --cpu Cortex-M4.fp -D__EVAL -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ..\CORE -I ..\FWLIB\inc -I ..\USER -I ..\SYSTEM -I .\GLOBAL -I ../HARDWARE/EXTI -I ../HARDWARE/OLED -I ../HARDWARE/KEY -I ../HARDWARE/PWM -I ../HARDWARE/DMA -I ../HARDWARE/TIMER -I ../HARDWARE/BUZZER -I ../HARDWARE/spi -I ../HARDWARE/AD7606 -I ../HARDWARE/ADC -I ../HARDWARE/GPIO -I ../SOFTWARE/PLL -I ../SOFTWARE/SPWM -I ../SOFTWARE/DISP -I ../SOFTWARE/PID -I ../SOFTWARE/timer_handler -I ../SOFTWARE/VOFA -I ../SOFTWARE/MENU -I ..\DSP\Include -I ..\DSP -I ..\SOFTWARE\CONTROL --locale=english  --diag_suppress=1-I.\RTE\_Template-I"D:\Keil MDK5\Keil\STM32F4xx_DFP\2.17.1\Drivers\CMSIS\Device\ST\STM32F4xx\Include"-I"D:\Keil MDK5\ARM\CMSIS\Include"-D__UVISION_VERSION="524" -DSTM32F407xx -DSTM32F40_41xxx -DUSE_STDPERIPH_DRIVER -DUSE_STDPERIPH_DRIVER -DSTM32F446xx -DARM_MATH_CM4 -D__CC_ARM -DARM_MATH_MATRIX_CHECK -DARM_MATH_ROUNDING -D__FPU_PRESENT -D__FPU_USED-o .\listings\global.o --omf_browse .\listings\global.crf --depend .\listings\global.d)
+F (.\main.h)(0x681C2516)()
+F (.\GLOBAL\global.c)(0x681C2E6D)(--c99 -c --cpu Cortex-M4.fp -D__EVAL -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ..\CORE -I ..\FWLIB\inc -I ..\USER -I ..\SYSTEM -I .\GLOBAL -I ../HARDWARE/EXTI -I ../HARDWARE/OLED -I ../HARDWARE/KEY -I ../HARDWARE/PWM -I ../HARDWARE/DMA -I ../HARDWARE/TIMER -I ../HARDWARE/BUZZER -I ../HARDWARE/spi -I ../HARDWARE/AD7606 -I ../HARDWARE/ADC -I ../HARDWARE/GPIO -I ../SOFTWARE/PLL -I ../SOFTWARE/SPWM -I ../SOFTWARE/DISP -I ../SOFTWARE/PID -I ../SOFTWARE/timer_handler -I ../SOFTWARE/VOFA -I ../SOFTWARE/MENU -I ..\DSP\Include -I ..\DSP -I ..\SOFTWARE\CONTROL --locale=english  --diag_suppress=1-I.\RTE\_Template-I"D:\Keil MDK5\Keil\STM32F4xx_DFP\2.17.1\Drivers\CMSIS\Device\ST\STM32F4xx\Include"-I"D:\Keil MDK5\ARM\CMSIS\Include"-D__UVISION_VERSION="524" -DSTM32F407xx -DSTM32F40_41xxx -DUSE_STDPERIPH_DRIVER -DUSE_STDPERIPH_DRIVER -DSTM32F446xx -DARM_MATH_CM4 -D__CC_ARM -DARM_MATH_MATRIX_CHECK -DARM_MATH_ROUNDING -D__FPU_PRESENT -D__FPU_USED-o .\listings\global.o --omf_browse .\listings\global.crf --depend .\listings\global.d)
 I (..\USER\stm32f4xx.h)(0x681ACB5B)
 I (..\CORE\core_cm4.h)(0x681ACB5A)
 I (D:\Keil MDK5\ARM\ARMCC\include\stdint.h)(0x588B8344)
@@ -169,15 +169,15 @@ I (..\FWLIB\inc\stm32f4xx_can.h)(0x681ACB5A)
 I (..\FWLIB\inc\stm32f4xx_dac.h)(0x681ACB5A)
 I (..\FWLIB\inc\stm32f4xx_dcmi.h)(0x681ACB5A)
 I (..\FWLIB\inc\stm32f4xx_fsmc.h)(0x681ACB5A)
-I (GLOBAL\global.h)(0x681B014F)
+I (GLOBAL\global.h)(0x681C2E6D)
 I (../SOFTWARE/PID/pid.h)(0x681ACBE6)
 I (../SOFTWARE/PLL/pll.h)(0x681ACB5A)
 I (../SOFTWARE/PLL/sogi.h)(0x681B02B5)
 I (../SOFTWARE/VOFA/Vofa.h)(0x681ACB5A)
 I (D:\Keil MDK5\ARM\ARMCC\include\stdbool.h)(0x588B8344)
 I (../HARDWARE/KEY/key.h)(0x681ACBE6)
-F (.\GLOBAL\global.h)(0x681B014F)()
-F (../SOFTWARE/DISP/disp.c)(0x681ACB5A)(--c99 -c --cpu Cortex-M4.fp -D__EVAL -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ..\CORE -I ..\FWLIB\inc -I ..\USER -I ..\SYSTEM -I .\GLOBAL -I ../HARDWARE/EXTI -I ../HARDWARE/OLED -I ../HARDWARE/KEY -I ../HARDWARE/PWM -I ../HARDWARE/DMA -I ../HARDWARE/TIMER -I ../HARDWARE/BUZZER -I ../HARDWARE/spi -I ../HARDWARE/AD7606 -I ../HARDWARE/ADC -I ../HARDWARE/GPIO -I ../SOFTWARE/PLL -I ../SOFTWARE/SPWM -I ../SOFTWARE/DISP -I ../SOFTWARE/PID -I ../SOFTWARE/timer_handler -I ../SOFTWARE/VOFA -I ../SOFTWARE/MENU -I ..\DSP\Include -I ..\DSP -I ..\SOFTWARE\CONTROL --locale=english  --diag_suppress=1-I.\RTE\_Template-I"D:\Keil MDK5\Keil\STM32F4xx_DFP\2.17.1\Drivers\CMSIS\Device\ST\STM32F4xx\Include"-I"D:\Keil MDK5\ARM\CMSIS\Include"-D__UVISION_VERSION="524" -DSTM32F407xx -DSTM32F40_41xxx -DUSE_STDPERIPH_DRIVER -DUSE_STDPERIPH_DRIVER -DSTM32F446xx -DARM_MATH_CM4 -D__CC_ARM -DARM_MATH_MATRIX_CHECK -DARM_MATH_ROUNDING -D__FPU_PRESENT -D__FPU_USED-o .\listings\disp.o --omf_browse .\listings\disp.crf --depend .\listings\disp.d)
+F (.\GLOBAL\global.h)(0x681C2E6D)()
+F (../SOFTWARE/DISP/disp.c)(0x681C2DC2)(--c99 -c --cpu Cortex-M4.fp -D__EVAL -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ..\CORE -I ..\FWLIB\inc -I ..\USER -I ..\SYSTEM -I .\GLOBAL -I ../HARDWARE/EXTI -I ../HARDWARE/OLED -I ../HARDWARE/KEY -I ../HARDWARE/PWM -I ../HARDWARE/DMA -I ../HARDWARE/TIMER -I ../HARDWARE/BUZZER -I ../HARDWARE/spi -I ../HARDWARE/AD7606 -I ../HARDWARE/ADC -I ../HARDWARE/GPIO -I ../SOFTWARE/PLL -I ../SOFTWARE/SPWM -I ../SOFTWARE/DISP -I ../SOFTWARE/PID -I ../SOFTWARE/timer_handler -I ../SOFTWARE/VOFA -I ../SOFTWARE/MENU -I ..\DSP\Include -I ..\DSP -I ..\SOFTWARE\CONTROL --locale=english  --diag_suppress=1-I.\RTE\_Template-I"D:\Keil MDK5\Keil\STM32F4xx_DFP\2.17.1\Drivers\CMSIS\Device\ST\STM32F4xx\Include"-I"D:\Keil MDK5\ARM\CMSIS\Include"-D__UVISION_VERSION="524" -DSTM32F407xx -DSTM32F40_41xxx -DUSE_STDPERIPH_DRIVER -DUSE_STDPERIPH_DRIVER -DSTM32F446xx -DARM_MATH_CM4 -D__CC_ARM -DARM_MATH_MATRIX_CHECK -DARM_MATH_ROUNDING -D__FPU_PRESENT -D__FPU_USED-o .\listings\disp.o --omf_browse .\listings\disp.crf --depend .\listings\disp.d)
 I (..\USER\stm32f4xx.h)(0x681ACB5B)
 I (..\CORE\core_cm4.h)(0x681ACB5A)
 I (D:\Keil MDK5\ARM\ARMCC\include\stdint.h)(0x588B8344)
@@ -215,7 +215,7 @@ I (..\FWLIB\inc\stm32f4xx_fsmc.h)(0x681ACB5A)
 I (../SOFTWARE/DISP/disp.h)(0x681ACB5A)
 I (../HARDWARE/OLED/OLED.h)(0x681ACBE6)
 I (../HARDWARE/OLED/OLED_Data.h)(0x681ACBE6)
-I (.\GLOBAL\global.h)(0x681B014F)
+I (.\GLOBAL\global.h)(0x681C2E6D)
 I (../SOFTWARE/PID/pid.h)(0x681ACBE6)
 I (../SOFTWARE/PLL/pll.h)(0x681ACB5A)
 I (../SOFTWARE/PLL/sogi.h)(0x681B02B5)
@@ -278,7 +278,7 @@ I (..\CORE\core_cmFunc.h)(0x681ACB5A)
 I (..\DSP\Include\core_cmSimd.h)(0x681ACB5A)
 I (D:\Keil MDK5\ARM\ARMCC\include\string.h)(0x588B8344)
 F (../SOFTWARE/PLL/transform.h)(0x681ACB5A)()
-F (../SOFTWARE/SPWM/spwm.c)(0x681B28B0)(--c99 -c --cpu Cortex-M4.fp -D__EVAL -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ..\CORE -I ..\FWLIB\inc -I ..\USER -I ..\SYSTEM -I .\GLOBAL -I ../HARDWARE/EXTI -I ../HARDWARE/OLED -I ../HARDWARE/KEY -I ../HARDWARE/PWM -I ../HARDWARE/DMA -I ../HARDWARE/TIMER -I ../HARDWARE/BUZZER -I ../HARDWARE/spi -I ../HARDWARE/AD7606 -I ../HARDWARE/ADC -I ../HARDWARE/GPIO -I ../SOFTWARE/PLL -I ../SOFTWARE/SPWM -I ../SOFTWARE/DISP -I ../SOFTWARE/PID -I ../SOFTWARE/timer_handler -I ../SOFTWARE/VOFA -I ../SOFTWARE/MENU -I ..\DSP\Include -I ..\DSP -I ..\SOFTWARE\CONTROL --locale=english  --diag_suppress=1-I.\RTE\_Template-I"D:\Keil MDK5\Keil\STM32F4xx_DFP\2.17.1\Drivers\CMSIS\Device\ST\STM32F4xx\Include"-I"D:\Keil MDK5\ARM\CMSIS\Include"-D__UVISION_VERSION="524" -DSTM32F407xx -DSTM32F40_41xxx -DUSE_STDPERIPH_DRIVER -DUSE_STDPERIPH_DRIVER -DSTM32F446xx -DARM_MATH_CM4 -D__CC_ARM -DARM_MATH_MATRIX_CHECK -DARM_MATH_ROUNDING -D__FPU_PRESENT -D__FPU_USED-o .\listings\spwm.o --omf_browse .\listings\spwm.crf --depend .\listings\spwm.d)
+F (../SOFTWARE/SPWM/spwm.c)(0x681C19BB)(--c99 -c --cpu Cortex-M4.fp -D__EVAL -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ..\CORE -I ..\FWLIB\inc -I ..\USER -I ..\SYSTEM -I .\GLOBAL -I ../HARDWARE/EXTI -I ../HARDWARE/OLED -I ../HARDWARE/KEY -I ../HARDWARE/PWM -I ../HARDWARE/DMA -I ../HARDWARE/TIMER -I ../HARDWARE/BUZZER -I ../HARDWARE/spi -I ../HARDWARE/AD7606 -I ../HARDWARE/ADC -I ../HARDWARE/GPIO -I ../SOFTWARE/PLL -I ../SOFTWARE/SPWM -I ../SOFTWARE/DISP -I ../SOFTWARE/PID -I ../SOFTWARE/timer_handler -I ../SOFTWARE/VOFA -I ../SOFTWARE/MENU -I ..\DSP\Include -I ..\DSP -I ..\SOFTWARE\CONTROL --locale=english  --diag_suppress=1-I.\RTE\_Template-I"D:\Keil MDK5\Keil\STM32F4xx_DFP\2.17.1\Drivers\CMSIS\Device\ST\STM32F4xx\Include"-I"D:\Keil MDK5\ARM\CMSIS\Include"-D__UVISION_VERSION="524" -DSTM32F407xx -DSTM32F40_41xxx -DUSE_STDPERIPH_DRIVER -DUSE_STDPERIPH_DRIVER -DSTM32F446xx -DARM_MATH_CM4 -D__CC_ARM -DARM_MATH_MATRIX_CHECK -DARM_MATH_ROUNDING -D__FPU_PRESENT -D__FPU_USED-o .\listings\spwm.o --omf_browse .\listings\spwm.crf --depend .\listings\spwm.d)
 I (..\USER\stm32f4xx.h)(0x681ACB5B)
 I (..\CORE\core_cm4.h)(0x681ACB5A)
 I (D:\Keil MDK5\ARM\ARMCC\include\stdint.h)(0x588B8344)
@@ -315,7 +315,7 @@ I (..\FWLIB\inc\stm32f4xx_dcmi.h)(0x681ACB5A)
 I (..\FWLIB\inc\stm32f4xx_fsmc.h)(0x681ACB5A)
 I (../SOFTWARE/SPWM/spwm.h)(0x681B28B8)
 F (../SOFTWARE/SPWM/spwm.h)(0x681B28B8)()
-F (../SOFTWARE/timer_handler/timer_handler.c)(0x681B2B4C)(--c99 -c --cpu Cortex-M4.fp -D__EVAL -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ..\CORE -I ..\FWLIB\inc -I ..\USER -I ..\SYSTEM -I .\GLOBAL -I ../HARDWARE/EXTI -I ../HARDWARE/OLED -I ../HARDWARE/KEY -I ../HARDWARE/PWM -I ../HARDWARE/DMA -I ../HARDWARE/TIMER -I ../HARDWARE/BUZZER -I ../HARDWARE/spi -I ../HARDWARE/AD7606 -I ../HARDWARE/ADC -I ../HARDWARE/GPIO -I ../SOFTWARE/PLL -I ../SOFTWARE/SPWM -I ../SOFTWARE/DISP -I ../SOFTWARE/PID -I ../SOFTWARE/timer_handler -I ../SOFTWARE/VOFA -I ../SOFTWARE/MENU -I ..\DSP\Include -I ..\DSP -I ..\SOFTWARE\CONTROL --locale=english  --diag_suppress=1-I.\RTE\_Template-I"D:\Keil MDK5\Keil\STM32F4xx_DFP\2.17.1\Drivers\CMSIS\Device\ST\STM32F4xx\Include"-I"D:\Keil MDK5\ARM\CMSIS\Include"-D__UVISION_VERSION="524" -DSTM32F407xx -DSTM32F40_41xxx -DUSE_STDPERIPH_DRIVER -DUSE_STDPERIPH_DRIVER -DSTM32F446xx -DARM_MATH_CM4 -D__CC_ARM -DARM_MATH_MATRIX_CHECK -DARM_MATH_ROUNDING -D__FPU_PRESENT -D__FPU_USED-o .\listings\timer_handler.o --omf_browse .\listings\timer_handler.crf --depend .\listings\timer_handler.d)
+F (../SOFTWARE/timer_handler/timer_handler.c)(0x681C19BB)(--c99 -c --cpu Cortex-M4.fp -D__EVAL -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ..\CORE -I ..\FWLIB\inc -I ..\USER -I ..\SYSTEM -I .\GLOBAL -I ../HARDWARE/EXTI -I ../HARDWARE/OLED -I ../HARDWARE/KEY -I ../HARDWARE/PWM -I ../HARDWARE/DMA -I ../HARDWARE/TIMER -I ../HARDWARE/BUZZER -I ../HARDWARE/spi -I ../HARDWARE/AD7606 -I ../HARDWARE/ADC -I ../HARDWARE/GPIO -I ../SOFTWARE/PLL -I ../SOFTWARE/SPWM -I ../SOFTWARE/DISP -I ../SOFTWARE/PID -I ../SOFTWARE/timer_handler -I ../SOFTWARE/VOFA -I ../SOFTWARE/MENU -I ..\DSP\Include -I ..\DSP -I ..\SOFTWARE\CONTROL --locale=english  --diag_suppress=1-I.\RTE\_Template-I"D:\Keil MDK5\Keil\STM32F4xx_DFP\2.17.1\Drivers\CMSIS\Device\ST\STM32F4xx\Include"-I"D:\Keil MDK5\ARM\CMSIS\Include"-D__UVISION_VERSION="524" -DSTM32F407xx -DSTM32F40_41xxx -DUSE_STDPERIPH_DRIVER -DUSE_STDPERIPH_DRIVER -DSTM32F446xx -DARM_MATH_CM4 -D__CC_ARM -DARM_MATH_MATRIX_CHECK -DARM_MATH_ROUNDING -D__FPU_PRESENT -D__FPU_USED-o .\listings\timer_handler.o --omf_browse .\listings\timer_handler.crf --depend .\listings\timer_handler.d)
 I (..\USER\stm32f4xx.h)(0x681ACB5B)
 I (..\CORE\core_cm4.h)(0x681ACB5A)
 I (D:\Keil MDK5\ARM\ARMCC\include\stdint.h)(0x588B8344)
@@ -351,7 +351,7 @@ I (..\FWLIB\inc\stm32f4xx_dac.h)(0x681ACB5A)
 I (..\FWLIB\inc\stm32f4xx_dcmi.h)(0x681ACB5A)
 I (..\FWLIB\inc\stm32f4xx_fsmc.h)(0x681ACB5A)
 I (../SOFTWARE/timer_handler/timer_handler.h)(0x681ACB5A)
-I (.\GLOBAL\global.h)(0x681B014F)
+I (.\GLOBAL\global.h)(0x681C2E6D)
 I (../SOFTWARE/PID/pid.h)(0x681ACBE6)
 I (../SOFTWARE/PLL/pll.h)(0x681ACB5A)
 I (../SOFTWARE/PLL/sogi.h)(0x681B02B5)
@@ -360,13 +360,13 @@ I (D:\Keil MDK5\ARM\ARMCC\include\stdbool.h)(0x588B8344)
 I (../HARDWARE/KEY/key.h)(0x681ACBE6)
 I (../HARDWARE/AD7606/AD7606.h)(0x681B03C3)
 I (..\SYSTEM\sys.h)(0x681ACBE6)
-I (..\USER\main.h)(0x681ACBE6)
+I (..\USER\main.h)(0x681C2516)
 I (../SOFTWARE/SPWM/spwm.h)(0x681B28B8)
 I (../HARDWARE/OLED/OLED.h)(0x681ACBE6)
 I (../HARDWARE/OLED/OLED_Data.h)(0x681ACBE6)
 I (../HARDWARE/GPIO/gpio.h)(0x681ACB5A)
 I (../SOFTWARE/PLL/transform.h)(0x681ACB5A)
-I (../SOFTWARE/MENU/MENU.h)(0x681ACB5A)
+I (../SOFTWARE/MENU/MENU.h)(0x681C19BB)
 F (../SOFTWARE/timer_handler/timer_handler.h)(0x681ACB5A)()
 F (../SOFTWARE/VOFA/Vofa.c)(0x681ACBE6)(--c99 -c --cpu Cortex-M4.fp -D__EVAL -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ..\CORE -I ..\FWLIB\inc -I ..\USER -I ..\SYSTEM -I .\GLOBAL -I ../HARDWARE/EXTI -I ../HARDWARE/OLED -I ../HARDWARE/KEY -I ../HARDWARE/PWM -I ../HARDWARE/DMA -I ../HARDWARE/TIMER -I ../HARDWARE/BUZZER -I ../HARDWARE/spi -I ../HARDWARE/AD7606 -I ../HARDWARE/ADC -I ../HARDWARE/GPIO -I ../SOFTWARE/PLL -I ../SOFTWARE/SPWM -I ../SOFTWARE/DISP -I ../SOFTWARE/PID -I ../SOFTWARE/timer_handler -I ../SOFTWARE/VOFA -I ../SOFTWARE/MENU -I ..\DSP\Include -I ..\DSP -I ..\SOFTWARE\CONTROL --locale=english  --diag_suppress=1-I.\RTE\_Template-I"D:\Keil MDK5\Keil\STM32F4xx_DFP\2.17.1\Drivers\CMSIS\Device\ST\STM32F4xx\Include"-I"D:\Keil MDK5\ARM\CMSIS\Include"-D__UVISION_VERSION="524" -DSTM32F407xx -DSTM32F40_41xxx -DUSE_STDPERIPH_DRIVER -DUSE_STDPERIPH_DRIVER -DSTM32F446xx -DARM_MATH_CM4 -D__CC_ARM -DARM_MATH_MATRIX_CHECK -DARM_MATH_ROUNDING -D__FPU_PRESENT -D__FPU_USED-o .\listings\vofa.o --omf_browse .\listings\vofa.crf --depend .\listings\vofa.d)
 I (../SOFTWARE/VOFA/Vofa.h)(0x681ACB5A)
@@ -409,21 +409,71 @@ I (..\FWLIB\inc\stm32f4xx_dac.h)(0x681ACB5A)
 I (..\FWLIB\inc\stm32f4xx_dcmi.h)(0x681ACB5A)
 I (..\FWLIB\inc\stm32f4xx_fsmc.h)(0x681ACB5A)
 F (../SOFTWARE/VOFA/Vofa.h)(0x681ACB5A)()
-F (../SOFTWARE/MENU/MENU.h)(0x681ACB5A)()
-F (../SOFTWARE/MENU/MENU.c)(0x681ACB5A)(--c99 -c --cpu Cortex-M4.fp -D__EVAL -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ..\CORE -I ..\FWLIB\inc -I ..\USER -I ..\SYSTEM -I .\GLOBAL -I ../HARDWARE/EXTI -I ../HARDWARE/OLED -I ../HARDWARE/KEY -I ../HARDWARE/PWM -I ../HARDWARE/DMA -I ../HARDWARE/TIMER -I ../HARDWARE/BUZZER -I ../HARDWARE/spi -I ../HARDWARE/AD7606 -I ../HARDWARE/ADC -I ../HARDWARE/GPIO -I ../SOFTWARE/PLL -I ../SOFTWARE/SPWM -I ../SOFTWARE/DISP -I ../SOFTWARE/PID -I ../SOFTWARE/timer_handler -I ../SOFTWARE/VOFA -I ../SOFTWARE/MENU -I ..\DSP\Include -I ..\DSP -I ..\SOFTWARE\CONTROL --locale=english  --diag_suppress=1-I.\RTE\_Template-I"D:\Keil MDK5\Keil\STM32F4xx_DFP\2.17.1\Drivers\CMSIS\Device\ST\STM32F4xx\Include"-I"D:\Keil MDK5\ARM\CMSIS\Include"-D__UVISION_VERSION="524" -DSTM32F407xx -DSTM32F40_41xxx -DUSE_STDPERIPH_DRIVER -DUSE_STDPERIPH_DRIVER -DSTM32F446xx -DARM_MATH_CM4 -D__CC_ARM -DARM_MATH_MATRIX_CHECK -DARM_MATH_ROUNDING -D__FPU_PRESENT -D__FPU_USED-o .\listings\menu.o --omf_browse .\listings\menu.crf --depend .\listings\menu.d)
-I (../SOFTWARE/MENU/MENU.h)(0x681ACB5A)
+F (../SOFTWARE/MENU/MENU.h)(0x681C19BB)()
+F (../SOFTWARE/MENU/MENU.c)(0x681C19BB)(--c99 -c --cpu Cortex-M4.fp -D__EVAL -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ..\CORE -I ..\FWLIB\inc -I ..\USER -I ..\SYSTEM -I .\GLOBAL -I ../HARDWARE/EXTI -I ../HARDWARE/OLED -I ../HARDWARE/KEY -I ../HARDWARE/PWM -I ../HARDWARE/DMA -I ../HARDWARE/TIMER -I ../HARDWARE/BUZZER -I ../HARDWARE/spi -I ../HARDWARE/AD7606 -I ../HARDWARE/ADC -I ../HARDWARE/GPIO -I ../SOFTWARE/PLL -I ../SOFTWARE/SPWM -I ../SOFTWARE/DISP -I ../SOFTWARE/PID -I ../SOFTWARE/timer_handler -I ../SOFTWARE/VOFA -I ../SOFTWARE/MENU -I ..\DSP\Include -I ..\DSP -I ..\SOFTWARE\CONTROL --locale=english  --diag_suppress=1-I.\RTE\_Template-I"D:\Keil MDK5\Keil\STM32F4xx_DFP\2.17.1\Drivers\CMSIS\Device\ST\STM32F4xx\Include"-I"D:\Keil MDK5\ARM\CMSIS\Include"-D__UVISION_VERSION="524" -DSTM32F407xx -DSTM32F40_41xxx -DUSE_STDPERIPH_DRIVER -DUSE_STDPERIPH_DRIVER -DSTM32F446xx -DARM_MATH_CM4 -D__CC_ARM -DARM_MATH_MATRIX_CHECK -DARM_MATH_ROUNDING -D__FPU_PRESENT -D__FPU_USED-o .\listings\menu.o --omf_browse .\listings\menu.crf --depend .\listings\menu.d)
+I (../SOFTWARE/MENU/MENU.h)(0x681C19BB)
 I (D:\Keil MDK5\ARM\ARMCC\include\stdint.h)(0x588B8344)
 I (D:\Keil MDK5\ARM\ARMCC\include\stdio.h)(0x588B8344)
 I (../HARDWARE/KEY/key.h)(0x681ACBE6)
 I (../HARDWARE/OLED/OLED.h)(0x681ACBE6)
 I (../HARDWARE/OLED/OLED_Data.h)(0x681ACBE6)
-I (.\GLOBAL\global.h)(0x681B014F)
+I (.\GLOBAL\global.h)(0x681C2E6D)
 I (../SOFTWARE/PID/pid.h)(0x681ACBE6)
 I (../SOFTWARE/PLL/pll.h)(0x681ACB5A)
 I (../SOFTWARE/PLL/sogi.h)(0x681B02B5)
 I (../SOFTWARE/VOFA/Vofa.h)(0x681ACB5A)
 I (D:\Keil MDK5\ARM\ARMCC\include\stdbool.h)(0x588B8344)
-F (..\SOFTWARE\CONTROL\control.c)(0x681B02B5)(--c99 -c --cpu Cortex-M4.fp -D__EVAL -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ..\CORE -I ..\FWLIB\inc -I ..\USER -I ..\SYSTEM -I .\GLOBAL -I ../HARDWARE/EXTI -I ../HARDWARE/OLED -I ../HARDWARE/KEY -I ../HARDWARE/PWM -I ../HARDWARE/DMA -I ../HARDWARE/TIMER -I ../HARDWARE/BUZZER -I ../HARDWARE/spi -I ../HARDWARE/AD7606 -I ../HARDWARE/ADC -I ../HARDWARE/GPIO -I ../SOFTWARE/PLL -I ../SOFTWARE/SPWM -I ../SOFTWARE/DISP -I ../SOFTWARE/PID -I ../SOFTWARE/timer_handler -I ../SOFTWARE/VOFA -I ../SOFTWARE/MENU -I ..\DSP\Include -I ..\DSP -I ..\SOFTWARE\CONTROL --locale=english  --diag_suppress=1-I.\RTE\_Template-I"D:\Keil MDK5\Keil\STM32F4xx_DFP\2.17.1\Drivers\CMSIS\Device\ST\STM32F4xx\Include"-I"D:\Keil MDK5\ARM\CMSIS\Include"-D__UVISION_VERSION="524" -DSTM32F407xx -DSTM32F40_41xxx -DUSE_STDPERIPH_DRIVER -DUSE_STDPERIPH_DRIVER -DSTM32F446xx -DARM_MATH_CM4 -D__CC_ARM -DARM_MATH_MATRIX_CHECK -DARM_MATH_ROUNDING -D__FPU_PRESENT -D__FPU_USED-o .\listings\control.o --omf_browse .\listings\control.crf --depend .\listings\control.d)
+F (..\SOFTWARE\CONTROL\control.c)(0x681C2E1F)(--c99 -c --cpu Cortex-M4.fp -D__EVAL -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ..\CORE -I ..\FWLIB\inc -I ..\USER -I ..\SYSTEM -I .\GLOBAL -I ../HARDWARE/EXTI -I ../HARDWARE/OLED -I ../HARDWARE/KEY -I ../HARDWARE/PWM -I ../HARDWARE/DMA -I ../HARDWARE/TIMER -I ../HARDWARE/BUZZER -I ../HARDWARE/spi -I ../HARDWARE/AD7606 -I ../HARDWARE/ADC -I ../HARDWARE/GPIO -I ../SOFTWARE/PLL -I ../SOFTWARE/SPWM -I ../SOFTWARE/DISP -I ../SOFTWARE/PID -I ../SOFTWARE/timer_handler -I ../SOFTWARE/VOFA -I ../SOFTWARE/MENU -I ..\DSP\Include -I ..\DSP -I ..\SOFTWARE\CONTROL --locale=english  --diag_suppress=1-I.\RTE\_Template-I"D:\Keil MDK5\Keil\STM32F4xx_DFP\2.17.1\Drivers\CMSIS\Device\ST\STM32F4xx\Include"-I"D:\Keil MDK5\ARM\CMSIS\Include"-D__UVISION_VERSION="524" -DSTM32F407xx -DSTM32F40_41xxx -DUSE_STDPERIPH_DRIVER -DUSE_STDPERIPH_DRIVER -DSTM32F446xx -DARM_MATH_CM4 -D__CC_ARM -DARM_MATH_MATRIX_CHECK -DARM_MATH_ROUNDING -D__FPU_PRESENT -D__FPU_USED-o .\listings\control.o --omf_browse .\listings\control.crf --depend .\listings\control.d)
+I (D:\Keil MDK5\ARM\ARMCC\include\stdio.h)(0x588B8344)
+I (D:\Keil MDK5\ARM\ARMCC\include\stdlib.h)(0x588B8344)
+I (.\GLOBAL\global.h)(0x681C2E6D)
+I (../SOFTWARE/PID/pid.h)(0x681ACBE6)
+I (../SOFTWARE/PLL/pll.h)(0x681ACB5A)
+I (../SOFTWARE/PLL/sogi.h)(0x681B02B5)
+I (../SOFTWARE/VOFA/Vofa.h)(0x681ACB5A)
+I (D:\Keil MDK5\ARM\ARMCC\include\stdint.h)(0x588B8344)
+I (D:\Keil MDK5\ARM\ARMCC\include\stdbool.h)(0x588B8344)
+I (../HARDWARE/KEY/key.h)(0x681ACBE6)
+I (..\SOFTWARE\CONTROL\control.h)(0x681B02B5)
+I (../SOFTWARE/PLL/transform.h)(0x681ACB5A)
+I (..\USER\stm32f4xx.h)(0x681ACB5B)
+I (..\CORE\core_cm4.h)(0x681ACB5A)
+I (..\CORE\core_cmInstr.h)(0x681ACB5A)
+I (..\CORE\core_cmFunc.h)(0x681ACB5A)
+I (..\CORE\core_cm4_simd.h)(0x681ACB5A)
+I (..\USER\system_stm32f4xx.h)(0x681ACB5B)
+I (..\USER\stm32f4xx_conf.h)(0x681ACB5B)
+I (..\FWLIB\inc\stm32f4xx_adc.h)(0x681ACB5A)
+I (..\FWLIB\inc\stm32f4xx_crc.h)(0x681ACB5A)
+I (..\FWLIB\inc\stm32f4xx_dbgmcu.h)(0x681ACB5A)
+I (..\FWLIB\inc\stm32f4xx_dma.h)(0x681ACB5A)
+I (..\FWLIB\inc\stm32f4xx_exti.h)(0x681ACB5A)
+I (..\FWLIB\inc\stm32f4xx_flash.h)(0x681ACB5A)
+I (..\FWLIB\inc\stm32f4xx_gpio.h)(0x681ACB5A)
+I (..\FWLIB\inc\stm32f4xx_i2c.h)(0x681ACB5A)
+I (..\FWLIB\inc\stm32f4xx_iwdg.h)(0x681ACB5A)
+I (..\FWLIB\inc\stm32f4xx_pwr.h)(0x681ACB5A)
+I (..\FWLIB\inc\stm32f4xx_rcc.h)(0x681ACB5A)
+I (..\FWLIB\inc\stm32f4xx_rtc.h)(0x681ACB5A)
+I (..\FWLIB\inc\stm32f4xx_sdio.h)(0x681ACB5A)
+I (..\FWLIB\inc\stm32f4xx_spi.h)(0x681ACB5A)
+I (..\FWLIB\inc\stm32f4xx_syscfg.h)(0x681ACB5A)
+I (..\FWLIB\inc\stm32f4xx_tim.h)(0x681ACB5A)
+I (..\FWLIB\inc\stm32f4xx_usart.h)(0x681ACB5A)
+I (..\FWLIB\inc\stm32f4xx_wwdg.h)(0x681ACB5A)
+I (..\FWLIB\inc\misc.h)(0x681ACB5A)
+I (..\FWLIB\inc\stm32f4xx_cryp.h)(0x681ACB5A)
+I (..\FWLIB\inc\stm32f4xx_hash.h)(0x681ACB5A)
+I (..\FWLIB\inc\stm32f4xx_rng.h)(0x681ACB5A)
+I (..\FWLIB\inc\stm32f4xx_can.h)(0x681ACB5A)
+I (..\FWLIB\inc\stm32f4xx_dac.h)(0x681ACB5A)
+I (..\FWLIB\inc\stm32f4xx_dcmi.h)(0x681ACB5A)
+I (..\FWLIB\inc\stm32f4xx_fsmc.h)(0x681ACB5A)
+I (..\USER\main.h)(0x681C2516)
+I (D:\Keil MDK5\ARM\ARMCC\include\math.h)(0x588B8344)
+I (..\DSP\Include\arm_math.h)(0x681ACB5A)
+I (..\DSP\Include\core_cm4.h)(0x681ACB5A)
+I (D:\Keil MDK5\ARM\ARMCC\include\string.h)(0x588B8344)
 F (..\SOFTWARE\CONTROL\control.h)(0x681B02B5)()
 F (../HARDWARE/AD7606/AD7606.c)(0x681ACBE6)(--c99 -c --cpu Cortex-M4.fp -D__EVAL -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ..\CORE -I ..\FWLIB\inc -I ..\USER -I ..\SYSTEM -I .\GLOBAL -I ../HARDWARE/EXTI -I ../HARDWARE/OLED -I ../HARDWARE/KEY -I ../HARDWARE/PWM -I ../HARDWARE/DMA -I ../HARDWARE/TIMER -I ../HARDWARE/BUZZER -I ../HARDWARE/spi -I ../HARDWARE/AD7606 -I ../HARDWARE/ADC -I ../HARDWARE/GPIO -I ../SOFTWARE/PLL -I ../SOFTWARE/SPWM -I ../SOFTWARE/DISP -I ../SOFTWARE/PID -I ../SOFTWARE/timer_handler -I ../SOFTWARE/VOFA -I ../SOFTWARE/MENU -I ..\DSP\Include -I ..\DSP -I ..\SOFTWARE\CONTROL --locale=english  --diag_suppress=1-I.\RTE\_Template-I"D:\Keil MDK5\Keil\STM32F4xx_DFP\2.17.1\Drivers\CMSIS\Device\ST\STM32F4xx\Include"-I"D:\Keil MDK5\ARM\CMSIS\Include"-D__UVISION_VERSION="524" -DSTM32F407xx -DSTM32F40_41xxx -DUSE_STDPERIPH_DRIVER -DUSE_STDPERIPH_DRIVER -DSTM32F446xx -DARM_MATH_CM4 -D__CC_ARM -DARM_MATH_MATRIX_CHECK -DARM_MATH_ROUNDING -D__FPU_PRESENT -D__FPU_USED-o .\listings\ad7606.o --omf_browse .\listings\ad7606.crf --depend .\listings\ad7606.d)
 I (..\USER\stm32f4xx.h)(0x681ACB5B)
@@ -464,7 +514,7 @@ I (..\SYSTEM\delay.h)(0x681ACBE6)
 I (..\SYSTEM\sys.h)(0x681ACBE6)
 I (../HARDWARE/AD7606/AD7606.h)(0x681B03C3)
 I (../HARDWARE/spi/spi.h)(0x681ACBE6)
-I (.\GLOBAL\global.h)(0x681B014F)
+I (.\GLOBAL\global.h)(0x681C2E6D)
 I (../SOFTWARE/PID/pid.h)(0x681ACBE6)
 I (../SOFTWARE/PLL/pll.h)(0x681ACB5A)
 I (../SOFTWARE/PLL/sogi.h)(0x681B02B5)
@@ -507,10 +557,10 @@ I (..\FWLIB\inc\stm32f4xx_can.h)(0x681ACB5A)
 I (..\FWLIB\inc\stm32f4xx_dac.h)(0x681ACB5A)
 I (..\FWLIB\inc\stm32f4xx_dcmi.h)(0x681ACB5A)
 I (..\FWLIB\inc\stm32f4xx_fsmc.h)(0x681ACB5A)
-I (..\USER\main.h)(0x681ACBE6)
+I (..\USER\main.h)(0x681C2516)
 I (../HARDWARE/ADC/adc.h)(0x681ACBE6)
 I (../HARDWARE/DMA/dma.h)(0x681ACB5A)
-I (.\GLOBAL\global.h)(0x681B014F)
+I (.\GLOBAL\global.h)(0x681C2E6D)
 I (../SOFTWARE/PID/pid.h)(0x681ACBE6)
 I (../SOFTWARE/PLL/pll.h)(0x681ACB5A)
 I (../SOFTWARE/PLL/sogi.h)(0x681B02B5)
@@ -593,7 +643,7 @@ I (..\FWLIB\inc\stm32f4xx_dac.h)(0x681ACB5A)
 I (..\FWLIB\inc\stm32f4xx_dcmi.h)(0x681ACB5A)
 I (..\FWLIB\inc\stm32f4xx_fsmc.h)(0x681ACB5A)
 I (../HARDWARE/DMA/dma.h)(0x681ACB5A)
-I (.\GLOBAL\global.h)(0x681B014F)
+I (.\GLOBAL\global.h)(0x681C2E6D)
 I (../SOFTWARE/PID/pid.h)(0x681ACBE6)
 I (../SOFTWARE/PLL/pll.h)(0x681ACB5A)
 I (../SOFTWARE/PLL/sogi.h)(0x681B02B5)
@@ -640,9 +690,9 @@ I (..\FWLIB\inc\stm32f4xx_dac.h)(0x681ACB5A)
 I (..\FWLIB\inc\stm32f4xx_dcmi.h)(0x681ACB5A)
 I (..\FWLIB\inc\stm32f4xx_fsmc.h)(0x681ACB5A)
 I (..\SYSTEM\delay.h)(0x681ACBE6)
-I (..\USER\main.h)(0x681ACBE6)
+I (..\USER\main.h)(0x681C2516)
 I (../HARDWARE/GPIO/gpio.h)(0x681ACB5A)
-I (.\GLOBAL\global.h)(0x681B014F)
+I (.\GLOBAL\global.h)(0x681C2E6D)
 I (../SOFTWARE/PID/pid.h)(0x681ACBE6)
 I (../SOFTWARE/PLL/pll.h)(0x681ACB5A)
 I (../SOFTWARE/PLL/sogi.h)(0x681B02B5)
@@ -687,7 +737,7 @@ I (..\FWLIB\inc\stm32f4xx_dac.h)(0x681ACB5A)
 I (..\FWLIB\inc\stm32f4xx_dcmi.h)(0x681ACB5A)
 I (..\FWLIB\inc\stm32f4xx_fsmc.h)(0x681ACB5A)
 I (../HARDWARE/GPIO/gpio.h)(0x681ACB5A)
-I (..\USER\main.h)(0x681ACBE6)
+I (..\USER\main.h)(0x681C2516)
 F (../HARDWARE/GPIO/gpio.h)(0x681ACB5A)()
 F (../HARDWARE/KEY/key.c)(0x681ACBE6)(--c99 -c --cpu Cortex-M4.fp -D__EVAL -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ..\CORE -I ..\FWLIB\inc -I ..\USER -I ..\SYSTEM -I .\GLOBAL -I ../HARDWARE/EXTI -I ../HARDWARE/OLED -I ../HARDWARE/KEY -I ../HARDWARE/PWM -I ../HARDWARE/DMA -I ../HARDWARE/TIMER -I ../HARDWARE/BUZZER -I ../HARDWARE/spi -I ../HARDWARE/AD7606 -I ../HARDWARE/ADC -I ../HARDWARE/GPIO -I ../SOFTWARE/PLL -I ../SOFTWARE/SPWM -I ../SOFTWARE/DISP -I ../SOFTWARE/PID -I ../SOFTWARE/timer_handler -I ../SOFTWARE/VOFA -I ../SOFTWARE/MENU -I ..\DSP\Include -I ..\DSP -I ..\SOFTWARE\CONTROL --locale=english  --diag_suppress=1-I.\RTE\_Template-I"D:\Keil MDK5\Keil\STM32F4xx_DFP\2.17.1\Drivers\CMSIS\Device\ST\STM32F4xx\Include"-I"D:\Keil MDK5\ARM\CMSIS\Include"-D__UVISION_VERSION="524" -DSTM32F407xx -DSTM32F40_41xxx -DUSE_STDPERIPH_DRIVER -DUSE_STDPERIPH_DRIVER -DSTM32F446xx -DARM_MATH_CM4 -D__CC_ARM -DARM_MATH_MATRIX_CHECK -DARM_MATH_ROUNDING -D__FPU_PRESENT -D__FPU_USED-o .\listings\key.o --omf_browse .\listings\key.crf --depend .\listings\key.d)
 I (..\USER\stm32f4xx.h)(0x681ACB5B)
@@ -725,7 +775,7 @@ I (..\FWLIB\inc\stm32f4xx_dac.h)(0x681ACB5A)
 I (..\FWLIB\inc\stm32f4xx_dcmi.h)(0x681ACB5A)
 I (..\FWLIB\inc\stm32f4xx_fsmc.h)(0x681ACB5A)
 I (../HARDWARE/KEY/key.h)(0x681ACBE6)
-I (..\USER\main.h)(0x681ACBE6)
+I (..\USER\main.h)(0x681C2516)
 I (..\SYSTEM\delay.h)(0x681ACBE6)
 I (..\SYSTEM\sys.h)(0x681ACBE6)
 F (../HARDWARE/KEY/key.h)(0x681ACBE6)()
@@ -765,7 +815,7 @@ I (..\FWLIB\inc\stm32f4xx_dac.h)(0x681ACB5A)
 I (..\FWLIB\inc\stm32f4xx_dcmi.h)(0x681ACB5A)
 I (..\FWLIB\inc\stm32f4xx_fsmc.h)(0x681ACB5A)
 I (../HARDWARE/PWM/pwm.h)(0x681ACB5A)
-I (.\GLOBAL\global.h)(0x681B014F)
+I (.\GLOBAL\global.h)(0x681C2E6D)
 I (../SOFTWARE/PID/pid.h)(0x681ACBE6)
 I (../SOFTWARE/PLL/pll.h)(0x681ACB5A)
 I (../SOFTWARE/PLL/sogi.h)(0x681B02B5)
@@ -848,7 +898,7 @@ I (..\FWLIB\inc\stm32f4xx_dcmi.h)(0x681ACB5A)
 I (..\FWLIB\inc\stm32f4xx_fsmc.h)(0x681ACB5A)
 I (../HARDWARE/TIMER/timer.h)(0x681ACB5A)
 I (../HARDWARE/PWM/pwm.h)(0x681ACB5A)
-I (.\GLOBAL\global.h)(0x681B014F)
+I (.\GLOBAL\global.h)(0x681C2E6D)
 I (../SOFTWARE/PID/pid.h)(0x681ACBE6)
 I (../SOFTWARE/PLL/pll.h)(0x681ACB5A)
 I (../SOFTWARE/PLL/sogi.h)(0x681B02B5)

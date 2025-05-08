@@ -6,6 +6,8 @@
 //标志位变量
 uint16_t pll_is_locked=0;
 char test_flag=0;
+char on_off=0;
+char mode=0;
 //vofa
 Vofa_HandleTypedef vofa1;
 float vofa_databuffer[8];
@@ -27,7 +29,7 @@ float  sample2real_b[8]={0.0f,0.0f,0.0f,0.0f,0.0f,0.0f,0.0f,0.0f};
 float  Compensation[8]={0.0f,0.0f,0.0f,0.0f,0.0f,0.0f,0.0f,0.0f};
 
 //pid
-pidtype pid1,pid2,pid3,pid4;
+pidtype pid1,pid2,pid3,pid4,pid5,pid6;
 
 //float input_voltage_test;
 //float test_voltage_target=1.854;
@@ -35,6 +37,7 @@ pidtype pid1,pid2,pid3,pid4;
 
 float MI=0.5f;      //调制比
 
+float current_rate = 0.5f;//电流比
 //输入信号
 
 float port_voltage = 0;
@@ -52,6 +55,10 @@ float port_omega = 0;
 float port_voltage_peak = 0;
 float port_current_peak = 0;
 
+float set_out_ac_voltage = 24.0f;
+float set_out_ac_current = 1.0f;
+float set_dc_current = 0;
+
 float input_voltage = 0;
 float input_current = 0;
 float input_voltage_peak = 0;
@@ -66,8 +73,7 @@ float input_power_factor_angle = 0;
 //float input_current3 = 0;
 
 //锁相变量
-sogitype sogi_v;
-sogitype sogi_i;
+sogitype sogi_v,sogi_i;
 plltype  pll_v;
 
 float input_voltage_alpha=0;
@@ -104,10 +110,5 @@ float target_voltage_peak = 1;
 float set_power_factor_angle = 0;
 
 
-//显示及功能变量
-
-unsigned char mode=0;
-unsigned char index=0;
-unsigned char page=0;
 
 

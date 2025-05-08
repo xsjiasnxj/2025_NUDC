@@ -17,22 +17,22 @@
 #define	EC2_button_Pin					EXTI_PinSource4
 
 //板载ADC通道端口定义
-#define ADC1_CH13_adc0_Pin 			    GPIO_Pin_3
-#define ADC1_CH13_adc0_GPIO_Port 	    GPIOC
-#define ADC1_CH12_adc1_Pin 			    GPIO_Pin_2
-#define ADC1_CH12_adc1_GPIO_Port 	    GPIOC
-#define ADC1_CH11_adc2_Pin 			    GPIO_Pin_1
-#define ADC1_CH11_adc2_GPIO_Port 	    GPIOC
-#define ADC1_CH10_adc3_Pin 			    GPIO_Pin_0
-#define ADC1_CH10_adc3_GPIO_Port 	    GPIOC
-#define ADC1_CH2_adc4_Pin 				GPIO_Pin_2
-#define ADC1_CH2_adc4_GPIO_Port 		GPIOA
-#define ADC1_CH3_adc5_Pin 				GPIO_Pin_3
-#define ADC1_CH3_adc5_GPIO_Port 		GPIOA
-#define ADC1_CH0_adc6_Pin 				GPIO_Pin_0
-#define ADC1_CH0_adc6_GPIO_Port 		GPIOA
-#define ADC1_CH1_adc7_Pin 				GPIO_Pin_1
-#define ADC1_CH1_adc7_GPIO_Port 		GPIOA
+#define GPIO_EN0_Pin 			        GPIO_Pin_12
+#define GPIO_EN0_GPIO_Port 	            GPIOD
+#define GPIO_EN1_Pin 			        GPIO_Pin_14
+#define GPIO_EN1_GPIO_Port 	            GPIOD
+#define GPIO_EN2_Pin 			        GPIO_Pin_0
+#define GPIO_EN2_GPIO_Port 	            GPIOD
+#define GPIO_EN3_Pin 			        GPIO_Pin_1
+#define GPIO_EN3_GPIO_Port 	            GPIOD
+#define GPIO_EN4_Pin 				    GPIO_Pin_2
+#define GPIO_EN4_GPIO_Port 		        GPIOD
+#define GPIO_EN5_Pin 				    GPIO_Pin_3
+#define GPIO_EN5_GPIO_Port 		        GPIOD
+#define GPIO_EN6_Pin 				    GPIO_Pin_4
+#define GPIO_EN6_GPIO_Port 		        GPIOD
+#define GPIO_EN7_Pin 				    GPIO_Pin_7
+#define GPIO_EN7_GPIO_Port 		        GPIOD
 
 
 //#define	EXTI0_PORT						GPIOB

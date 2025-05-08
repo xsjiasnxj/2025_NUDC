@@ -55,9 +55,18 @@
 #define ki4	0.0001f
 #define kd4	0
 
+#define kp5	0.01f
+#define ki5	0.0001f
+#define kd5	0
+
+#define kp6	0.01f
+#define ki6	0.0001f
+#define kd6	0
 //标志位变量
 extern uint16_t pll_is_locked;
 extern char test_flag;
+extern char on_off;
+extern char mode;
 //vofa
 extern Vofa_HandleTypedef vofa1;
 extern float vofa_databuffer[8];
@@ -78,12 +87,11 @@ extern float  sample2real_b[8];
 extern float  Compensation[8];
 
 //pid
-extern pidtype pid1,pid2,pid3,pid4;
-
-
-
+extern pidtype pid1,pid2,pid3,pid4,pid5,pid6;
+//调制比
 extern float MI;
-
+//电流比
+extern float current_rate;
 //输入信号
 extern float port_voltage ;
 extern float port_current ;
@@ -99,6 +107,10 @@ extern float port_theta;
 extern float port_omega;
 extern float port_voltage_peak;
 extern float port_current_peak; 
+
+extern float set_out_ac_voltage;
+extern float set_out_ac_current;
+extern float set_dc_current;
 
 extern float input_voltage ;
 extern float input_current ;
@@ -147,9 +159,5 @@ extern float target_voltage_beta3;
 extern float target_voltage_peak;
 extern float set_power_factor_angle;
 
-//显示及功能变量
-extern unsigned char mode;
-extern unsigned char index;
-extern unsigned char page;
 
 #endif
