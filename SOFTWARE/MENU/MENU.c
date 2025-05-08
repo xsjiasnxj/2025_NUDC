@@ -75,6 +75,7 @@
 #include "key.h"
 #include "OLED.h"
 #include "global.h"
+#include "key_handler.h"
 /// @brief 菜单指令回调函数
 /// @param  command 指令
 /// @param  ... 可变参数列表根据指令定义
@@ -191,6 +192,7 @@ void MENU_RunMenu(MENU_HandleTypeDef *hMENU)
 
     while (hMENU->isRun)
     {
+        key_command_callback(&key1);
         menu_command_callback(BUFFER_CLEAR); // 擦除缓冲区
 
         MENU_ShowOptionList(hMENU); /* 显示选项列表 */
@@ -251,7 +253,8 @@ void MENU_Event_and_Action(MENU_HandleTypeDef *hMENU)
             hMENU->AnimationUpdateEvent = 1;
         }
     }
-    
+    //在此插入！！！
+    key_action(key1.key_num);
 }
 
 void MENU_UpdateIndex(MENU_HandleTypeDef *hMENU)
