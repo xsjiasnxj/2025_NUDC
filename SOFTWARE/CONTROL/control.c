@@ -52,7 +52,7 @@ void control()
     //电流内环
 	target_voltage_d = target_voltage_d + pid_limited(&pid2, target_current_d, input_current_d, target_voltage_d, -max_duty, max_duty);
 	target_voltage_q = target_voltage_q + pid_limited(&pid3, target_current_q, input_current_q, target_voltage_q, -max_duty, max_duty);
-    //三次谐波消除
+    //三次谐波注入
 //	target_voltage_d3 = target_voltage_d3 + pid_limited(&pid5, 0, input_current_d3, target_voltage_d3, -max_duty * 0.1f, max_duty * 0.1f);
 //	target_voltage_q3 = target_voltage_q3 + pid_limited(&pid6, 0, input_current_q3, target_voltage_q3, -max_duty * 0.1f, max_duty * 0.1f);
 	if(target_voltage_d > max_duty)

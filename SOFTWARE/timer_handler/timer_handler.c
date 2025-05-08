@@ -94,12 +94,14 @@ void TIM2_IRQHandler(void) {
                     TIM_CCER_CC3E | TIM_CCER_CC3NE ;
       control();
       start_svpwm();
-    } else {
-      target_voltage_d = input_voltage_peak / (set_out_ac_voltage * 2.0f) * -1.05f * full_duty * module_rate; // 电压预同步
-      if (pll_is_locked && fabsf(port_theta) <= 0.01) {
-        theta = port_theta;
       }
-    }
+    
+//     else {
+//      target_voltage_d = input_voltage_peak / (set_out_ac_voltage * 2.0f) * -1.05f * full_duty * module_rate; // 电压预同步
+//      if (pll_is_locked && fabsf(port_theta) <= 0.01) {
+//        theta = port_theta;
+//      }
+//    }
 
     // 串口传输数据
     vofa_databuffer[0] = omega;
@@ -112,11 +114,13 @@ void TIM2_IRQHandler(void) {
 // 按键检测 + 显示
 void TIM3_IRQHandler(void) {
   if (TIM_GetITStatus(TIM3, TIM_IT_Update) == SET) { // 溢出中断
-    OLED_Clear();
-    OLED_ShowNum(0, 0, cnt_s, 4, 8);
-    OLED_ShowFloatNum(0, 16, omega / (2 * M_PI), 3, 2, 8);
-    OLED_ShowFloatNum(0, 48, theta, 3, 2, 8);
-    OLED_Update();
+//    OLED_Clear();
+//    OLED_ShowNum(0, 0, cnt_s, 4, 8);
+//    OLED_ShowFloatNum(0, 16, omega / (2 * M_PI), 3, 2, 8);
+//    OLED_ShowFloatNum(0, 48, theta, 3, 2, 8);
+//    OLED_Update();
+    MENU_RunMainMenu();
+    
   }
   TIM_ClearITPendingBit(TIM3, TIM_IT_Update); // 清除中断标志位
 }
