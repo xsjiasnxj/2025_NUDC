@@ -48,7 +48,7 @@
 
 #include "MENU.h"
 #include "stdio.h"
-#include "global.h"
+
 /* 配置菜单 */
 #define MENU_X 0       // 菜单位置X
 #define MENU_Y 0       // 菜单位置Y
@@ -65,8 +65,8 @@
 #define MENU_BORDER 1         // 边框线条尺寸
 #define IS_CENTERED 1         // 是否居中
 #define IS_OVERSHOOT 1        // 是否过冲 (果冻效果)
-#define OVERSHOOT 0.321       // 过冲量 0 < 范围 < 1;
-#define ANIMATION_SPEED 0.456 // 动画速度 0 < 范围 <= 1;
+#define OVERSHOOT 0.2       // 过冲量 0 < 范围 < 1;
+#define ANIMATION_SPEED 0.123 // 动画速度 0 < 范围 <= 1;
 
 #define CURSOR_CEILING (((MENU_HEIGHT - MENU_MARGIN - MENU_MARGIN) / MENU_LINE_H) - 1) // 光标限位
 
@@ -75,7 +75,6 @@
 #include "key.h"
 #include "OLED.h"
 #include "global.h"
-#include "key_handler.h"
 /// @brief 菜单指令回调函数
 /// @param  command 指令
 /// @param  ... 可变参数列表根据指令定义
@@ -253,8 +252,6 @@ void MENU_Event_and_Action(MENU_HandleTypeDef *hMENU)
             hMENU->AnimationUpdateEvent = 1;
         }
     }
-    //在此插入！！！
-    key_action(key1.key_num);
 }
 
 void MENU_UpdateIndex(MENU_HandleTypeDef *hMENU)

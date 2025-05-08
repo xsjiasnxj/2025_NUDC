@@ -84,11 +84,6 @@ void TIM2_IRQHandler(void) {
         ab_to_dq(input_voltage_alpha, input_voltage_beta, theta, &input_voltage_d, &input_voltage_q);
         pll(&pll_v, input_voltage_q, &omega, &theta); // 电压锁相环
     }
-    target_voltage_d = 2100;
-    target_voltage_q = 0;
-    dq_to_ab(target_voltage_d, target_voltage_q, theta, &target_voltage_alpha,
-             &target_voltage_beta);
-    start_svpwm();
     if (on_off == 1) {
       protect_svpwm();
       control();
@@ -117,13 +112,13 @@ void TIM2_IRQHandler(void) {
 void TIM3_IRQHandler(void) {
   if (TIM_GetITStatus(TIM3, TIM_IT_Update) == SET) { // 溢出中断
     
-    OLED_Clear();
-    OLED_ShowNum(0, 0, cnt_s, 4, 8);
-    OLED_ShowFloatNum(0, 16, omega / (2 * M_PI), 3, 2, 8);
-    OLED_ShowFloatNum(0, 48, theta, 3, 2, 8);
-    OLED_Update();
+    // OLED_Clear();
+    // OLED_ShowNum(0, 0, cnt_s, 4, 8);
+    // OLED_ShowFloatNum(0, 16, omega / (2 * M_PI), 3, 2, 8);
+    // OLED_ShowFloatNum(0, 48, theta, 3, 2, 8);
+    // OLED_Update();
     
-  //  MENU_RunMainMenu();
+    MENU_RunMainMenu();
     
   }
   TIM_ClearITPendingBit(TIM3, TIM_IT_Update); // 清除中断标志位
