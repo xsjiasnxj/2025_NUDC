@@ -84,9 +84,11 @@ void TIM2_IRQHandler(void) {
         ab_to_dq(input_voltage_alpha, input_voltage_beta, theta, &input_voltage_d, &input_voltage_q);
         pll(&pll_v, input_voltage_q, &omega, &theta); // 电压锁相环
     }
-    
+    target_voltage_d = 2100;
+    target_voltage_q = 0;
+    dq_to_ab(target_voltage_d, target_voltage_q, theta, &target_voltage_alpha,
+             &target_voltage_beta);
     start_svpwm();
-    
     if (on_off == 1) {
       protect_svpwm();
       control();
@@ -101,8 +103,11 @@ void TIM2_IRQHandler(void) {
 //    }
 
     // 串口传输数据
-    vofa_databuffer[0] = omega;
-    vofa_databuffer[1] = theta;
+    // vofa_databuffer[0] = omega;
+    // vofa_databuffer[1] = theta;
+    vofa_databuffer[0] = target_voltage_alpha;
+    vofa_databuffer[1] = target_voltage_beta;
+
     Vofa_JustFloat(&vofa1, vofa_databuffer, 2);
   }
   TIM_ClearITPendingBit(TIM2, TIM_IT_Update); // 清除中断标志位
