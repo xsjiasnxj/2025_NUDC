@@ -26,12 +26,18 @@
  * @ 返回值  ： 无
  *********************************************************************/
 void bsp_Init() {
-  pid_init(&pid1, kp1, ki1, kd1);
-  pid_init(&pid2, kp2, ki2, kd2);
 
   sogi_init(&sogi_v, Ts, h_pi);
+  sogi_init(&sogi_i, Ts, h_pi);
   //   sogi_init(&sogi_i, Ts, h_pi);
   pll_init(&pll_v, Ts, 100, 100);
+
+  pid_init(&pid1, kp1, ki1, kd1);
+  pid_init(&pid2, kp2, ki2, kd2);
+  pid_init(&pid3, kp3, ki3, kd3);
+  pid_init(&pid4, kp4, ki4, kd4);
+  pid_init(&pid5, kp5, ki5, kd5);
+  pid_init(&pid6, kp6, ki6, kd6);
 
   NVIC_PriorityGroupConfig(NVIC_PriorityGroup_4); // 设置系统中断优先级分组 4
   delay_init(168);

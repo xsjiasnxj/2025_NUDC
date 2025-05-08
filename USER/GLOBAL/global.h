@@ -39,29 +39,30 @@
 #define kp_pll 0.0005f
 #define ki_pll 0.0001f
 
-#define kp1	0.00003f
-#define ki1 0.00008f
-#define kd1	0.00f
+#define kp1 0.5f
+#define ki1 0.0001f
+#define kd1 0.0f
 
-#define kp2	0.00003f
-#define ki2	0.00008f
-#define kd2	0.00f
+#define kp2 0.0846f
+#define ki2 0.022f
+#define kd2 0.0f
 
-#define kp3	0
-#define ki3	0
-#define kd3	0
+#define kp3 0.8f
+#define ki3 0.08f
+#define kd3 0.0f
 
-#define kp4	0.01f
-#define ki4	0.0001f
-#define kd4	0
+#define kp4 0.0052f
+#define ki4 0.00024f
+#define kd4 0.0f
 
-#define kp5	0.01f
-#define ki5	0.0001f
-#define kd5	0
+#define kp5 0.016f
+#define ki5 0.0022f
+#define kd5 0.0f
 
-#define kp6	0.01f
-#define ki6	0.0001f
-#define kd6	0
+#define kp6 0.003f
+#define ki6 0.004f
+#define kd6 0.0f
+
 //标志位变量
 extern uint16_t pll_is_locked;
 extern char test_flag;
@@ -125,6 +126,9 @@ extern float input_power_factor_angle;
 extern sogitype sogi_v;
 extern sogitype sogi_i;
 extern plltype  pll_v;
+
+//电压内角度（离网模式）
+extern float internal_theta;
 
 extern float input_voltage_alpha;
 extern float input_voltage_beta;

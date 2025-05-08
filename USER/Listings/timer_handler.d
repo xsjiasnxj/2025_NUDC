@@ -50,4 +50,9 @@
 .\listings\timer_handler.o: ../HARDWARE/OLED/OLED_Data.h
 .\listings\timer_handler.o: ../HARDWARE/GPIO/gpio.h
 .\listings\timer_handler.o: ../SOFTWARE/PLL/transform.h
+.\listings\timer_handler.o: ..\DSP\Include\arm_math.h
+.\listings\timer_handler.o: ..\DSP\Include\core_cm4.h
+.\listings\timer_handler.o: D:\Keil MDK5\ARM\ARMCC\Bin\..\include\string.h
+.\listings\timer_handler.o: D:\Keil MDK5\ARM\ARMCC\Bin\..\include\math.h
 .\listings\timer_handler.o: ../SOFTWARE/MENU/MENU.h
+.\listings\timer_handler.o: ..\SOFTWARE\CONTROL\control.h

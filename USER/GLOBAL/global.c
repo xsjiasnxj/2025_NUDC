@@ -75,6 +75,8 @@ float input_power_factor_angle = 0;
 //锁相变量
 sogitype sogi_v,sogi_i;
 plltype  pll_v;
+//电压内角（离网模式）
+float internal_theta=0;
 
 float input_voltage_alpha=0;
 float input_voltage_beta=0;
