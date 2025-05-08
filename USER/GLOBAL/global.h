@@ -163,5 +163,9 @@ extern float target_voltage_beta3;
 extern float target_voltage_peak;
 extern float set_power_factor_angle;
 
-
+//显示变量
+extern unsigned char menu_index;
+extern unsigned char input_buffer[10];
+extern unsigned char input_index;
+extern unsigned disp_page;
 #endif

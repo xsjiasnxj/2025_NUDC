@@ -86,12 +86,6 @@ void TIM2_IRQHandler(void) {
     
     if (on_off == 1) {
       protect_svpwm();
-      GPIO_ResetBits(GPIO_EN0_GPIO_Port, GPIO_EN0_Pin);
-      GPIO_ResetBits(GPIO_EN1_GPIO_Port, GPIO_EN1_Pin);
-      GPIO_ResetBits(GPIO_EN2_GPIO_Port, GPIO_EN2_Pin);
-      TIM1->CCER =  TIM_CCER_CC1E | TIM_CCER_CC1NE |
-                    TIM_CCER_CC2E | TIM_CCER_CC2NE |
-                    TIM_CCER_CC3E | TIM_CCER_CC3NE ;
       control();
       start_svpwm();
       }

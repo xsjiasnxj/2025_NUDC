@@ -48,7 +48,7 @@
 
 #include "MENU.h"
 #include "stdio.h"
-
+#include "global.h"
 /* 配置菜单 */
 #define MENU_X 0       // 菜单位置X
 #define MENU_Y 0       // 菜单位置Y
@@ -251,6 +251,7 @@ void MENU_Event_and_Action(MENU_HandleTypeDef *hMENU)
             hMENU->AnimationUpdateEvent = 1;
         }
     }
+    
 }
 
 void MENU_UpdateIndex(MENU_HandleTypeDef *hMENU)

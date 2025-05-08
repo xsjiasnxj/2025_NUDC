@@ -13,6 +13,7 @@
 ".\listings\vofa.o"
 ".\listings\menu.o"
 ".\listings\control.o"
+".\listings\key_handler.o"
 ".\listings\ad7606.o"
 ".\listings\adc.o"
 ".\listings\buzzer.o"

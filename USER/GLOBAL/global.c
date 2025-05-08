@@ -111,6 +111,8 @@ float target_voltage_beta3 = 0;
 float target_voltage_peak = 1;
 float set_power_factor_angle = 0;
 
-
-
-
+//显示变量
+unsigned char menu_index=0;
+unsigned char input_buffer[10]={0};
+unsigned char input_index = 0;
+unsigned disp_page=0;
