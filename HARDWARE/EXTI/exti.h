@@ -3,17 +3,23 @@
 
 #include "sys.h"  	
 //////////////////////////////////////////////////////////////////////////////////	 
-//STM32F4¹¤³ÌÄ£°å-¿âº¯Êı°æ±¾
-//ÌÔ±¦µêÆÌ£ºhttp://mcudev.taobao.com								  
+//STM32F4å·¥ç¨‹æ¨¡æ¿-åº“å‡½æ•°ç‰ˆæœ¬
+//æ·˜å®åº—é“ºï¼šhttp://mcudev.taobao.com								  
 ////////////////////////////////////////////////////////////////////////////////// 	 
+
 
 #define EC1_BUTTON	(u8)0
 #define EC1_PHASEA	(u8)1
 #define EC2_BUTTON	(u8)2
 #define EC2_PHASEA	(u8)3
 
-void EXTIX_Init(void);	//Íâ²¿ÖĞ¶Ï³õÊ¼»¯	
+#define EC_COROTATION   1
+#define EC_REVERSAL     -1
+
+void EXTIX_Init(void);	//å¤–éƒ¨ä¸­æ–­åˆå§‹åŒ–	
 void EXTI_EC_handler(u8 EC_flag);
+
+
 #endif
 
 

@@ -1,6 +1,8 @@
 #ifndef _AD7606_H
 #define _AD7606_H
+#include "stdint.h"
 
+#include "sys.h"
 //SPI2_SCK -> PB13
 //SPI2_MISO -> PB14
   
@@ -24,7 +26,7 @@
 #define cs_Set 	  		GPIO_SetBits(cs_PORT,cs_Pin)
 #define cs_Reset   		GPIO_ResetBits(cs_PORT,cs_Pin)
 
-//Í¨µÀÊı¶¨Òå
+//é€šé“æ•°å®šä¹‰
 #define NUM_CHS         8
 
 
@@ -34,4 +36,5 @@ void AD7606_startconvst(void);
 void AD7606_reset(void) ;
 //extern uint16_t AD7606_read_data();
 void AD7606_read_data(uint16_t *data) ;
+void AD7606_read(void);
 #endif

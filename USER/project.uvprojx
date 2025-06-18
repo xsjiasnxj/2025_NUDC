@@ -7,7 +7,7 @@
 
   <Targets>
     <Target>
-      <TargetName>project_15</TargetName>
+      <TargetName>Template</TargetName>
       <ToolsetNumber>0x4</ToolsetNumber>
       <ToolsetName>ARM-ADS</ToolsetName>
       <pCCUsed>5060528::V5.06 update 5 (build 528)::ARMCC</pCCUsed>
@@ -37,7 +37,7 @@
           <bCustSvd>0</bCustSvd>
           <UseEnv>0</UseEnv>
           <BinPath></BinPath>
-          <IncludePath></IncludePath>
+          <IncludePath>../HARDWARE/OLED;../HARDWARE/AD7606;../HARDWARE/KEY;../HARDWARE/spi;../HARDWARE/PWM;../HARDWARE/DMA;../HARDWARE/TIMER;../HARDWARE/ADC;../HARDWARE/EXTI;../HARDWARE/BUZZER;../HARDWARE/GPIO;../SOFTWARE/timer_handler;../SOFTWARE/DISP;../SOFTWARE/MENU;../SOFTWARE/VOFA;../SOFTWARE/PLL;../SOFTWARE/PID;../SOFTWARE/SPWM;../SOFTWARE/filterDemo;../HARDWARE/TIMER/timer</IncludePath>
           <LibPath></LibPath>
           <RegisterFilePath></RegisterFilePath>
           <DBRegisterFilePath></DBRegisterFilePath>
@@ -187,7 +187,7 @@
             <hadIRAM2>1</hadIRAM2>
             <hadIROM2>0</hadIROM2>
             <StupSel>8</StupSel>
-            <useUlib>0</useUlib>
+            <useUlib>1</useUlib>
             <EndSel>0</EndSel>
             <uLtcg>0</uLtcg>
             <nSecure>0</nSecure>
@@ -334,9 +334,9 @@
             <v6Rtti>0</v6Rtti>
             <VariousControls>
               <MiscControls>--locale=english  --diag_suppress=1</MiscControls>
-              <Define>STM32F40_41xxx,USE_STDPERIPH_DRIVER</Define>
+              <Define>STM32F40_41xxx,USE_STDPERIPH_DRIVER,USE_STDPERIPH_DRIVER,STM32F446xx,ARM_MATH_CM4,__CC_ARM,ARM_MATH_MATRIX_CHECK,ARM_MATH_ROUNDING,__FPU_PRESENT,__FPU_USED</Define>
               <Undefine></Undefine>
-              <IncludePath>..\CORE;..\FWLIB\inc;..\USER;..\SYSTEM;..\HARDWARE\OLED;..\HARDWARE\EXTI;..\HARDWARE\SPWM;..\HARDWARE\GPIO;..\HARDWARE\TIMER;..\HARDWARE\GLOBAL;..\HARDWARE\BUZZER;..\HARDWARE\ADC;..\HARDWARE\DMA;..\HARDWARE\KEY;..\HARDWARE\PID;..\HARDWARE\MENU;..\HARDWARE\CONTROL;..\HARDWARE\PWM;..\HARDWARE\PLL;..\HARDWARE\filterDemo;..\HARDWARE\DISP;..\HARDWARE\AD7606;..\HARDWARE\VOFA;..\HARDWARE;..\HARDWARE\spi;..\HARDWARE\AD7606</IncludePath>
+              <IncludePath>..\CORE;..\FWLIB\inc;..\USER;..\SYSTEM;.\GLOBAL;../HARDWARE/EXTI;../HARDWARE/OLED;../HARDWARE/KEY;../HARDWARE/PWM;../HARDWARE/DMA;../HARDWARE/TIMER;../HARDWARE/BUZZER;../HARDWARE/spi;../HARDWARE/AD7606;../HARDWARE/ADC;../HARDWARE/GPIO;../SOFTWARE/PLL;../SOFTWARE/SPWM;../SOFTWARE/DISP;../SOFTWARE/PID;../SOFTWARE/timer_handler;../SOFTWARE/VOFA;../SOFTWARE/MENU;..\DSP\Include;..\DSP;..\SOFTWARE\CONTROL;..\SOFTWARE\key_handler</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -354,7 +354,7 @@
               <MiscControls></MiscControls>
               <Define></Define>
               <Undefine></Undefine>
-              <IncludePath></IncludePath>
+              <IncludePath>../HARDWARE/OLED;../HARDWARE/AD7606;../HARDWARE/KEY;../HARDWARE/spi;../HARDWARE/PWM;../HARDWARE/DMA;../HARDWARE/TIMER;../HARDWARE/ADC;../HARDWARE/EXTI;../HARDWARE/BUZZER;../HARDWARE/GPIO;../SOFTWARE/timer_handler;../SOFTWARE/DISP;../SOFTWARE/MENU;../SOFTWARE/VOFA;../SOFTWARE/PLL;../SOFTWARE/PID;../SOFTWARE/SPWM;../SOFTWARE/filterDemo;../HARDWARE/TIMER/timer</IncludePath>
             </VariousControls>
           </Aads>
           <LDads>
@@ -381,6 +381,26 @@
           <GroupName>USER</GroupName>
           <Files>
             <File>
+              <FileName>stm32f4xx.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\stm32f4xx.h</FilePath>
+            </File>
+            <File>
+              <FileName>stm32f4xx_conf.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\stm32f4xx_conf.h</FilePath>
+            </File>
+            <File>
+              <FileName>system_stm32f4xx.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\system_stm32f4xx.c</FilePath>
+            </File>
+            <File>
+              <FileName>stm32f4xx_it.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\stm32f4xx_it.c</FilePath>
+            </File>
+            <File>
               <FileName>main.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\main.c</FilePath>
@@ -391,9 +411,49 @@
               <FilePath>.\main.h</FilePath>
             </File>
             <File>
-              <FileName>stm32f4xx_it.c</FileName>
+              <FileName>global.c</FileName>
               <FileType>1</FileType>
-              <FilePath>.\stm32f4xx_it.c</FilePath>
+              <FilePath>.\GLOBAL\global.c</FilePath>
+            </File>
+            <File>
+              <FileName>global.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\GLOBAL\global.h</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>SOFTWARE</GroupName>
+          <Files>
+            <File>
+              <FileName>disp.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>../SOFTWARE/DISP/disp.c</FilePath>
+            </File>
+            <File>
+              <FileName>disp.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>../SOFTWARE/DISP/disp.h</FilePath>
+            </File>
+            <File>
+              <FileName>pid.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>../SOFTWARE/PID/pid.c</FilePath>
+            </File>
+            <File>
+              <FileName>pid.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>../SOFTWARE/PID/pid.h</FilePath>
+            </File>
+            <File>
+              <FileName>Vofa.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>../SOFTWARE/VOFA/Vofa.c</FilePath>
+            </File>
+            <File>
+              <FileName>Vofa.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>../SOFTWARE/VOFA/Vofa.h</FilePath>
             </File>
           </Files>
         </Group>
@@ -401,199 +461,104 @@
           <GroupName>HARDWARE</GroupName>
           <Files>
             <File>
-              <FileName>system_stm32f4xx.c</FileName>
+              <FileName>AD7606.c</FileName>
               <FileType>1</FileType>
-              <FilePath>.\system_stm32f4xx.c</FilePath>
+              <FilePath>../HARDWARE/AD7606/AD7606.c</FilePath>
             </File>
             <File>
-              <FileName>OLED_Data.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\HARDWARE\OLED\OLED_Data.c</FilePath>
-            </File>
-            <File>
-              <FileName>OLED_Data.h</FileName>
+              <FileName>AD7606.h</FileName>
               <FileType>5</FileType>
-              <FilePath>..\HARDWARE\OLED\OLED_Data.h</FilePath>
-            </File>
-            <File>
-              <FileName>exti.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\HARDWARE\EXTI\exti.c</FilePath>
-            </File>
-            <File>
-              <FileName>exti.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>..\HARDWARE\EXTI\exti.h</FilePath>
-            </File>
-            <File>
-              <FileName>timer.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\HARDWARE\TIMER\timer.c</FilePath>
-            </File>
-            <File>
-              <FileName>timer.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>..\HARDWARE\TIMER\timer.h</FilePath>
-            </File>
-            <File>
-              <FileName>gpio.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\HARDWARE\GPIO\gpio.c</FilePath>
-            </File>
-            <File>
-              <FileName>global.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>..\HARDWARE\GLOBAL\global.h</FilePath>
-            </File>
-            <File>
-              <FileName>gpio.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>..\HARDWARE\GPIO\gpio.h</FilePath>
-            </File>
-            <File>
-              <FileName>global.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\HARDWARE\GLOBAL\global.c</FilePath>
-            </File>
-            <File>
-              <FileName>buzzer.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\HARDWARE\BUZZER\buzzer.c</FilePath>
-            </File>
-            <File>
-              <FileName>buzzer.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>..\HARDWARE\BUZZER\buzzer.h</FilePath>
-            </File>
-            <File>
-              <FileName>key.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\HARDWARE\KEY\key.c</FilePath>
-            </File>
-            <File>
-              <FileName>key.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>..\HARDWARE\KEY\key.h</FilePath>
+              <FilePath>../HARDWARE/AD7606/AD7606.h</FilePath>
             </File>
             <File>
               <FileName>adc.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\HARDWARE\ADC\adc.c</FilePath>
+              <FilePath>../HARDWARE/ADC/adc.c</FilePath>
             </File>
             <File>
               <FileName>adc.h</FileName>
               <FileType>5</FileType>
-              <FilePath>..\HARDWARE\ADC\adc.h</FilePath>
+              <FilePath>../HARDWARE/ADC/adc.h</FilePath>
+            </File>
+            <File>
+              <FileName>buzzer.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>../HARDWARE/BUZZER/buzzer.c</FilePath>
+            </File>
+            <File>
+              <FileName>buzzer.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>../HARDWARE/BUZZER/buzzer.h</FilePath>
             </File>
             <File>
               <FileName>dma.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\HARDWARE\DMA\dma.c</FilePath>
+              <FilePath>../HARDWARE/DMA/dma.c</FilePath>
             </File>
             <File>
               <FileName>dma.h</FileName>
               <FileType>5</FileType>
-              <FilePath>..\HARDWARE\DMA\dma.h</FilePath>
+              <FilePath>../HARDWARE/DMA/dma.h</FilePath>
             </File>
             <File>
-              <FileName>menu.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\HARDWARE\MENU\menu.c</FilePath>
-            </File>
-            <File>
-              <FileName>menu.h</FileName>
+              <FileName>exti.h</FileName>
               <FileType>5</FileType>
-              <FilePath>..\HARDWARE\MENU\menu.h</FilePath>
+              <FilePath>../HARDWARE/EXTI/exti.h</FilePath>
             </File>
             <File>
-              <FileName>pid.c</FileName>
+              <FileName>exti.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\HARDWARE\PID\pid.c</FilePath>
+              <FilePath>../HARDWARE/EXTI/exti.c</FilePath>
             </File>
             <File>
-              <FileName>pid.h</FileName>
+              <FileName>gpio.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>../HARDWARE/GPIO/gpio.c</FilePath>
+            </File>
+            <File>
+              <FileName>gpio.h</FileName>
               <FileType>5</FileType>
-              <FilePath>..\HARDWARE\PID\pid.h</FilePath>
+              <FilePath>../HARDWARE/GPIO/gpio.h</FilePath>
+            </File>
+            <File>
+              <FileName>key.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>../HARDWARE/KEY/key.c</FilePath>
+            </File>
+            <File>
+              <FileName>key.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>../HARDWARE/KEY/key.h</FilePath>
             </File>
             <File>
               <FileName>pwm.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\HARDWARE\PWM\pwm.c</FilePath>
+              <FilePath>../HARDWARE/PWM/pwm.c</FilePath>
             </File>
             <File>
               <FileName>pwm.h</FileName>
               <FileType>5</FileType>
-              <FilePath>..\HARDWARE\PWM\pwm.h</FilePath>
-            </File>
-            <File>
-              <FileName>timer_handler.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\HARDWARE\TIMER\timer_handler.c</FilePath>
-            </File>
-            <File>
-              <FileName>timer_handler.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>..\HARDWARE\TIMER\timer_handler.h</FilePath>
-            </File>
-            <File>
-              <FileName>sogi.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\HARDWARE\PLL\sogi.c</FilePath>
-            </File>
-            <File>
-              <FileName>sogi.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>..\HARDWARE\PLL\sogi.h</FilePath>
-            </File>
-            <File>
-              <FileName>transform.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\HARDWARE\PLL\transform.c</FilePath>
-            </File>
-            <File>
-              <FileName>transform.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>..\HARDWARE\PLL\transform.h</FilePath>
-            </File>
-            <File>
-              <FileName>pll.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>..\HARDWARE\PLL\pll.h</FilePath>
-            </File>
-            <File>
-              <FileName>pll.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\HARDWARE\PLL\pll.c</FilePath>
-            </File>
-            <File>
-              <FileName>arm_math.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\HARDWARE\filterDemo\arm_math.c</FilePath>
-            </File>
-            <File>
-              <FileName>filter.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\HARDWARE\filterDemo\filter.c</FilePath>
-            </File>
-            <File>
-              <FileName>Vofa.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\HARDWARE\VOFA\Vofa.c</FilePath>
-            </File>
-            <File>
-              <FileName>Vofa.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>..\HARDWARE\VOFA\Vofa.h</FilePath>
-            </File>
-            <File>
-              <FileName>spi.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>..\HARDWARE\spi\spi.h</FilePath>
+              <FilePath>../HARDWARE/PWM/pwm.h</FilePath>
             </File>
             <File>
               <FileName>spi.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\HARDWARE\spi\spi.c</FilePath>
+              <FilePath>../HARDWARE/spi/spi.c</FilePath>
+            </File>
+            <File>
+              <FileName>spi.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>../HARDWARE/spi/spi.h</FilePath>
+            </File>
+            <File>
+              <FileName>timer.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>../HARDWARE/TIMER/timer.c</FilePath>
+            </File>
+            <File>
+              <FileName>timer.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>../HARDWARE/TIMER/timer.h</FilePath>
             </File>
             <File>
               <FileName>OLED.c</FileName>
@@ -606,14 +571,14 @@
               <FilePath>..\HARDWARE\OLED\OLED.h</FilePath>
             </File>
             <File>
-              <FileName>AD7606.c</FileName>
+              <FileName>OLED_Data.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\HARDWARE\AD7606\AD7606.c</FilePath>
+              <FilePath>..\HARDWARE\OLED\OLED_Data.c</FilePath>
             </File>
             <File>
-              <FileName>AD7606.h</FileName>
+              <FileName>OLED_Data.h</FileName>
               <FileType>5</FileType>
-              <FilePath>..\HARDWARE\AD7606\AD7606.h</FilePath>
+              <FilePath>..\HARDWARE\OLED\OLED_Data.h</FilePath>
             </File>
           </Files>
         </Group>
@@ -824,6 +789,16 @@
               <FileName>stm32f4xx_wwdg.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\FWLIB\src\stm32f4xx_wwdg.c</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>DSP</GroupName>
+          <Files>
+            <File>
+              <FileName>arm_cortexM4lf_math.lib</FileName>
+              <FileType>4</FileType>
+              <FilePath>..\DSP\arm_cortexM4lf_math.lib</FilePath>
             </File>
           </Files>
         </Group>

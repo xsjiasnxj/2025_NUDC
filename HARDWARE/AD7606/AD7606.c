@@ -2,68 +2,68 @@
 #include "delay.h"
 #include "AD7606.h"
 #include "spi.h"
-
+#include "global.h"
 //-----------------------------------------------------------------
-// ³õÊ¼»¯³ÌĞòÇø
+// åˆå§‹åŒ–ç¨‹åºåŒº
 //-----------------------------------------------------------------
 //-----------------------------------------------------------------
 // void GPIO_AD7606_Configuration(void)
 //-----------------------------------------------------------------
 //
-// º¯Êı¹¦ÄÜ: AD7606Òı½ÅÅäÖÃº¯Êı
-// Èë¿Ú²ÎÊı: ÎŞ
-// ·µ»Ø²ÎÊı: ÎŞ
-// È«¾Ö±äÁ¿: ÎŞ
-// ×¢ÒâÊÂÏî: ÓÃGPIOÇı¶¯·½Ê½ºÍFSMCÇı¶¯·½Ê½ÏÂµÄÒı½ÅÅäÖÃ²»Ò»Ñù
+// å‡½æ•°åŠŸèƒ½: AD7606å¼•è„šé…ç½®å‡½æ•°
+// å…¥å£å‚æ•°: æ— 
+// è¿”å›å‚æ•°: æ— 
+// å…¨å±€å˜é‡: æ— 
+// æ³¨æ„äº‹é¡¹: ç”¨GPIOé©±åŠ¨æ–¹å¼å’ŒFSMCé©±åŠ¨æ–¹å¼ä¸‹çš„å¼•è„šé…ç½®ä¸ä¸€æ ·
 //			
 //-----------------------------------------------------------------
 void GPIO_AD7606_Configuration(void)
 { 
 
-	// Ê¹ÄÜIO¿ÚÊ±ÖÓ
-    RCC_AHB1PeriphClockCmd(RCC_AHB1Periph_GPIOA, ENABLE);//Ê¹ÄÜGPIOAÊ±ÖÓ
-    RCC_AHB1PeriphClockCmd(RCC_AHB1Periph_GPIOB, ENABLE);//Ê¹ÄÜGPIOAÊ±ÖÓ
-    RCC_AHB1PeriphClockCmd(RCC_AHB1Periph_GPIOC, ENABLE);//Ê¹ÄÜGPIOAÊ±ÖÓ
-    RCC_AHB1PeriphClockCmd(RCC_AHB1Periph_GPIOD, ENABLE);//Ê¹ÄÜGPIOAÊ±ÖÓ
+	// ä½¿èƒ½IOå£æ—¶é’Ÿ
+    RCC_AHB1PeriphClockCmd(RCC_AHB1Periph_GPIOA, ENABLE);//ä½¿èƒ½GPIOAæ—¶é’Ÿ
+    RCC_AHB1PeriphClockCmd(RCC_AHB1Periph_GPIOB, ENABLE);//ä½¿èƒ½GPIOAæ—¶é’Ÿ
+    RCC_AHB1PeriphClockCmd(RCC_AHB1Periph_GPIOC, ENABLE);//ä½¿èƒ½GPIOAæ—¶é’Ÿ
+    RCC_AHB1PeriphClockCmd(RCC_AHB1Periph_GPIOD, ENABLE);//ä½¿èƒ½GPIOAæ—¶é’Ÿ
 	//++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 	// AD7606 
 	//++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-	// ¿ØÖÆÏßÅäÖÃ 
+	// æ§åˆ¶çº¿é…ç½® 
     
     GPIO_InitTypeDef GPIO_InitStructure;
 	//             CS_N      
     GPIO_InitStructure.GPIO_Pin = cs_Pin;
-    GPIO_InitStructure.GPIO_Mode = GPIO_Mode_OUT;//ÆÕÍ¨Êä³öÄ£Ê½
-    GPIO_InitStructure.GPIO_OType = GPIO_OType_PP;//ÍÆÍìÊä³ö
+    GPIO_InitStructure.GPIO_Mode = GPIO_Mode_OUT;//æ™®é€šè¾“å‡ºæ¨¡å¼
+    GPIO_InitStructure.GPIO_OType = GPIO_OType_PP;//æ¨æŒ½è¾“å‡º
     GPIO_InitStructure.GPIO_Speed = GPIO_Speed_100MHz;//100MHz
-    GPIO_InitStructure.GPIO_PuPd = GPIO_PuPd_UP;//ÉÏÀ­
-    GPIO_Init(cs_PORT, &GPIO_InitStructure);//³õÊ¼»¯GPIO
+    GPIO_InitStructure.GPIO_PuPd = GPIO_PuPd_UP;//ä¸Šæ‹‰
+    GPIO_Init(cs_PORT, &GPIO_InitStructure);//åˆå§‹åŒ–GPIO
   
 	//        rst convstB convstA 
 
-    GPIO_InitStructure.GPIO_Mode = GPIO_Mode_OUT;//ÆÕÍ¨Êä³öÄ£Ê½
-    GPIO_InitStructure.GPIO_OType = GPIO_OType_PP;//ÍÆÍìÊä³ö
+    GPIO_InitStructure.GPIO_Mode = GPIO_Mode_OUT;//æ™®é€šè¾“å‡ºæ¨¡å¼
+    GPIO_InitStructure.GPIO_OType = GPIO_OType_PP;//æ¨æŒ½è¾“å‡º
     GPIO_InitStructure.GPIO_Speed = GPIO_Speed_100MHz;//100MHz
-    GPIO_InitStructure.GPIO_PuPd = GPIO_PuPd_UP;//ÉÏÀ­
+    GPIO_InitStructure.GPIO_PuPd = GPIO_PuPd_UP;//ä¸Šæ‹‰
 
     GPIO_InitStructure.GPIO_Pin = rst_Pin;
-    GPIO_Init(rst_PORT, &GPIO_InitStructure);//³õÊ¼»¯GPIO
+    GPIO_Init(rst_PORT, &GPIO_InitStructure);//åˆå§‹åŒ–GPIO
     GPIO_InitStructure.GPIO_Pin = convstA_Pin;
-    GPIO_Init(convstA_PORT, &GPIO_InitStructure);//³õÊ¼»¯GPIO
+    GPIO_Init(convstA_PORT, &GPIO_InitStructure);//åˆå§‹åŒ–GPIO
 //    GPIO_InitStructure.GPIO_Pin = convstB_Pin;
-//    GPIO_Init(convstB_PORT, &GPIO_InitStructure);//³õÊ¼»¯GPIO
+//    GPIO_Init(convstB_PORT, &GPIO_InitStructure);//åˆå§‹åŒ–GPIO
 }  
 
 //-----------------------------------------------------------------
 // void AD7606_Init(void)
 //-----------------------------------------------------------------
 //
-// º¯Êı¹¦ÄÜ: AD7606³õÊ¼»¯º¯Êı
-// Èë¿Ú²ÎÊı: ÎŞ
-// ·µ»Ø²ÎÊı: ÎŞ
-// È«¾Ö±äÁ¿: ÎŞ
-// µ÷ÓÃÄ£¿é:    
-// ×¢ÒâÊÂÏî: ÎŞ
+// å‡½æ•°åŠŸèƒ½: AD7606åˆå§‹åŒ–å‡½æ•°
+// å…¥å£å‚æ•°: æ— 
+// è¿”å›å‚æ•°: æ— 
+// å…¨å±€å˜é‡: æ— 
+// è°ƒç”¨æ¨¡å—:    
+// æ³¨æ„äº‹é¡¹: æ— 
 //-----------------------------------------------------------------
 void AD7606_Init(void)
 {
@@ -81,7 +81,7 @@ void AD7606_Init(void)
 	AD7606_startconvst();
 }
 
-/*   * Ãû³Æ£ºAD7606_startconvst()  * ¹¦ÄÜ£ºÆô¶¯×ª»»  */  
+/*   * åç§°ï¼šAD7606_startconvst()  * åŠŸèƒ½ï¼šå¯åŠ¨è½¬æ¢  */  
 void AD7606_startconvst(void)
 {  
 	convstA_Reset;	
@@ -91,7 +91,7 @@ void AD7606_startconvst(void)
 	//convstB_Set;
 }
   
-/*   * Ãû³Æ£ºAD7606_reset()  * ¹¦ÄÜ£º¸´Î»Ä£¿é  */
+/*   * åç§°ï¼šAD7606_reset()  * åŠŸèƒ½ï¼šå¤ä½æ¨¡å—  */
 void AD7606_reset(void) 
 { 
 	rst_Reset;
@@ -101,9 +101,9 @@ void AD7606_reset(void)
 }  
 
 /* 
-* Ãû³Æ£ºAD7606_read_data() 
-* ¹¦ÄÜ£º¶ÁÈ¡Êı¾İ 
-* ·µ»ØÖµ£º·µ»ØÒ»¸ö½á¹¹ÌåÖ¸Õë£¬¸ÃÖ¸ÕëÎªÖ¸Ïò½á¹¹ÌåÊı×éµÄÊ×µØÖ·  
+* åç§°ï¼šAD7606_read_data() 
+* åŠŸèƒ½ï¼šè¯»å–æ•°æ® 
+* è¿”å›å€¼ï¼šè¿”å›ä¸€ä¸ªç»“æ„ä½“æŒ‡é’ˆï¼Œè¯¥æŒ‡é’ˆä¸ºæŒ‡å‘ç»“æ„ä½“æ•°ç»„çš„é¦–åœ°å€  
 */ 
 //uint16_t AD7606_read_data() 
 //{
@@ -128,5 +128,21 @@ void AD7606_read_data(uint16_t *data)
     }
 	cs_Set;
 	AD7606_startconvst();
-
 }
+////è½¬æ¢ä¸ºå®é™…å€¼
+//void AD7606_read()
+//{
+//    AD7606_read_data(adc_buffer);
+//    for(int i=0;i<NUM_CHS;i++)
+//    {
+//        if(adc_buffer[i]<32768)
+//        {
+//            adc_real[i]=((adc_buffer[i])*10.0f  ) / 32768; 
+//        }
+//        else{
+//            adc_buffer[i] = (~adc_buffer[i])+1;
+//            adc_real[i]=((adc_buffer[i])*10.0f * (-1.0f) ) / 32768;
+//        }
+//        adc_real[i]=(adc_real[i]-sample2real_b[i])/sample2real_k[i]+Compensation[i];
+//    }
+//}

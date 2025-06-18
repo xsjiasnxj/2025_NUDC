@@ -2,6 +2,7 @@
 #include "pwm.h"
 #include "global.h"
 
+
 void set_duty1(float duty)
 {
 	TIM_SetCompare1(TIM1,(uint32_t)((1-duty)*PWM_PERIOD));

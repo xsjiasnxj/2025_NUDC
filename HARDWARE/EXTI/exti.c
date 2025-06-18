@@ -5,8 +5,8 @@
 #include "global.h"
 #include "OLED.h"
 //////////////////////////////////////////////////////////////////////////////////	 
-//STM32F4¹¤³ÌÄ£°å-¿âº¯Êı°æ±¾
-//ÌÔ±¦µêÆÌ£ºhttp://mcudev.taobao.com								  
+//STM32F4å·¥ç¨‹æ¨¡æ¿-åº“å‡½æ•°ç‰ˆæœ¬
+//æ·˜å®åº—é“ºï¼šhttp://mcudev.taobao.com								  
 ////////////////////////////////////////////////////////////////////////////////// 
 /*
 			EC1_phase_a	--->>	B7
@@ -15,59 +15,60 @@
 			EC2_button	--->>	C4
 */
 
-//Íâ²¿ÖĞ¶Ï³õÊ¼»¯³ÌĞò
+//å¤–éƒ¨ä¸­æ–­åˆå§‹åŒ–ç¨‹åº
 
 void EXTIX_Init(void)
 {
 	NVIC_InitTypeDef   NVIC_InitStructure;
 	EXTI_InitTypeDef   EXTI_InitStructure;
 	
-	//KEY_Init(); //°´¼ü¶ÔÓ¦µÄIO¿Ú³õÊ¼»¯
+	//KEY_Init(); //æŒ‰é”®å¯¹åº”çš„IOå£åˆå§‹åŒ–
  
-	RCC_APB2PeriphClockCmd(RCC_APB2Periph_SYSCFG, ENABLE);//Ê¹ÄÜSYSCFGÊ±ÖÓ
+	RCC_APB2PeriphClockCmd(RCC_APB2Periph_SYSCFG, ENABLE);//ä½¿èƒ½SYSCFGæ—¶é’Ÿ
 	
- 
-	SYSCFG_EXTILineConfig(EC1_phase_a_PORT, EC1_phase_a_Pin);//PE2 Á¬½Óµ½ÖĞ¶ÏÏß2
-	SYSCFG_EXTILineConfig(EC1_button_PORT, EC1_button_Pin);//PE3 Á¬½Óµ½ÖĞ¶ÏÏß3
-	SYSCFG_EXTILineConfig(EC2_phase_a_Pin, EC2_phase_a_Pin);//PE4 Á¬½Óµ½ÖĞ¶ÏÏß4
-	SYSCFG_EXTILineConfig(EC2_button_PORT, EC2_button_Pin);//PA0 Á¬½Óµ½ÖĞ¶ÏÏß0
+    //å¤–éƒ¨ä¸­æ–­çº¿é…ç½®
+	SYSCFG_EXTILineConfig(EC1_phase_a_PORT, EC1_phase_a_Pin);
+	SYSCFG_EXTILineConfig(EC1_button_PORT, EC1_button_Pin);
+	SYSCFG_EXTILineConfig(EC2_phase_a_Pin, EC2_phase_a_Pin);
+	SYSCFG_EXTILineConfig(EC2_button_PORT, EC2_button_Pin);
 	
-	/* ÅäÖÃEXTI_Line4 */
-	EXTI_InitStructure.EXTI_Line = EXTI_Line4;//LINE0
-	EXTI_InitStructure.EXTI_Mode = EXTI_Mode_Interrupt;//ÖĞ¶ÏÊÂ¼ş
-	EXTI_InitStructure.EXTI_Trigger = EXTI_Trigger_Rising; //ÏÂ½µÑØ´¥·¢ 
-	EXTI_InitStructure.EXTI_LineCmd = ENABLE;//Ê¹ÄÜLINE0
-	EXTI_Init(&EXTI_InitStructure);//ÅäÖÃ
+	/* é…ç½®EXTI_Line4 ï¼ˆEC2_buttonï¼‰*/
+	EXTI_InitStructure.EXTI_Line = EXTI_Line4;//LINE4
+	EXTI_InitStructure.EXTI_Mode = EXTI_Mode_Interrupt;//ä¸­æ–­äº‹ä»¶
+	EXTI_InitStructure.EXTI_Trigger = EXTI_Trigger_Rising; //ä¸Šå‡æ²¿è§¦å‘ 
+	EXTI_InitStructure.EXTI_LineCmd = ENABLE;//ä½¿èƒ½LINE4
+	EXTI_Init(&EXTI_InitStructure);//é…ç½®
 	
-	/* ÅäÖÃEXTI_Line5,7,8 */
+	/* é…ç½®EXTI_Line5,7,8 (EC2_phase_a,EC1_phase_a,EC1_button)*/
 	EXTI_InitStructure.EXTI_Line = EXTI_Line5 | EXTI_Line7 ;
-	EXTI_InitStructure.EXTI_Mode = EXTI_Mode_Interrupt;//ÖĞ¶ÏÊÂ¼ş
-	EXTI_InitStructure.EXTI_Trigger = EXTI_Trigger_Falling; //ÏÂ½µÑØ´¥·¢
-	EXTI_InitStructure.EXTI_LineCmd = ENABLE;//ÖĞ¶ÏÏßÊ¹ÄÜ
-	EXTI_Init(&EXTI_InitStructure);//ÅäÖÃ
+	EXTI_InitStructure.EXTI_Mode = EXTI_Mode_Interrupt;//ä¸­æ–­äº‹ä»¶
+	EXTI_InitStructure.EXTI_Trigger = EXTI_Trigger_Falling; //ä¸‹é™æ²¿è§¦å‘
+	EXTI_InitStructure.EXTI_LineCmd = ENABLE;//ä¸­æ–­çº¿ä½¿èƒ½
+	EXTI_Init(&EXTI_InitStructure);//é…ç½®
 	
 	
 	EXTI_InitStructure.EXTI_Line = EXTI_Line8 ;
-	EXTI_InitStructure.EXTI_Trigger = EXTI_Trigger_Rising; //ÏÂ½µÑØ´¥·¢
-	EXTI_Init(&EXTI_InitStructure);//ÅäÖÃ
+	EXTI_InitStructure.EXTI_Trigger = EXTI_Trigger_Rising; //ä¸Šå‡æ²¿è§¦å‘
+	EXTI_Init(&EXTI_InitStructure);//é…ç½®
 	
-	NVIC_InitStructure.NVIC_IRQChannel = EXTI4_IRQn;//Íâ²¿ÖĞ¶Ï0
-	NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority = 0x00;//ÇÀÕ¼ÓÅÏÈ¼¶0
-	NVIC_InitStructure.NVIC_IRQChannelSubPriority = 0x02;//×ÓÓÅÏÈ¼¶2
-	NVIC_InitStructure.NVIC_IRQChannelCmd = ENABLE;//Ê¹ÄÜÍâ²¿ÖĞ¶ÏÍ¨µÀ
-	NVIC_Init(&NVIC_InitStructure);//ÅäÖÃ
+    /* é…ç½®NVICä¸­æ–­é€šé“*/
+	NVIC_InitStructure.NVIC_IRQChannel = EXTI4_IRQn;//å¤–éƒ¨ä¸­æ–­4
+	NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority = 0x00;//æŠ¢å ä¼˜å…ˆçº§0
+	NVIC_InitStructure.NVIC_IRQChannelSubPriority = 0x02;//å­ä¼˜å…ˆçº§2
+	NVIC_InitStructure.NVIC_IRQChannelCmd = ENABLE;//ä½¿èƒ½å¤–éƒ¨ä¸­æ–­é€šé“
+	NVIC_Init(&NVIC_InitStructure);//é…ç½®
 		
-	NVIC_InitStructure.NVIC_IRQChannel = EXTI9_5_IRQn;//Íâ²¿ÖĞ¶Ï2
-	NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority = 0x01;//ÇÀÕ¼ÓÅÏÈ¼¶3
-	NVIC_InitStructure.NVIC_IRQChannelSubPriority = 0x02;//×ÓÓÅÏÈ¼¶2
-	NVIC_InitStructure.NVIC_IRQChannelCmd = ENABLE;//Ê¹ÄÜÍâ²¿ÖĞ¶ÏÍ¨µÀ
-	NVIC_Init(&NVIC_InitStructure);//ÅäÖÃ
+	NVIC_InitStructure.NVIC_IRQChannel = EXTI9_5_IRQn;//å¤–éƒ¨ä¸­æ–­9_5
+	NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority = 0x01;//æŠ¢å ä¼˜å…ˆçº§3
+	NVIC_InitStructure.NVIC_IRQChannelSubPriority = 0x02;//å­ä¼˜å…ˆçº§2
+	NVIC_InitStructure.NVIC_IRQChannelCmd = ENABLE;//ä½¿èƒ½å¤–éƒ¨ä¸­æ–­é€šé“
+	NVIC_Init(&NVIC_InitStructure);//é…ç½®
 	
 }
 
 void EXTI4_IRQHandler(void)
 {
-	//delay_ms(20);	//Ïû¶¶
+	//delay_ms(20);	//æ¶ˆæŠ–
 	
 	if(EXTI_GetITStatus(EXTI_Line4)==SET)	 
 	{
@@ -78,7 +79,7 @@ void EXTI4_IRQHandler(void)
 
 void EXTI9_5_IRQHandler(void)
 {
-   //delay_ms(20);	//Ïû¶¶
+   //delay_ms(20);	//æ¶ˆæŠ–
 	if(EXTI_GetITStatus(EXTI_Line5)==SET)	 
 	{
 		EXTI_EC_handler(EC2_PHASEA);
@@ -103,7 +104,7 @@ void EXTI9_5_IRQHandler(void)
 
 }
 
-
+//ç¼–ç å™¨ä¸­æ–­å¤„ç†å‡½æ•°ï¼ˆé©±åŠ¨å±‚ï¼‰
 void EXTI_EC_handler(u8 EC_flag)
 {
 	
@@ -115,48 +116,92 @@ void EXTI_EC_handler(u8 EC_flag)
 			u8 PS=GPIO_ReadInputDataBit(EC1_phase_b_PORT,EC1_phase_b_Pin);
 			if(PS==Bit_SET)
 			{
-					irms_DC_input_target+=0.1;
-							
-					if(irms_DC_input_target>=2)
-					{
-						irms_DC_input_target=2;
-					}
-							
-				}				
-			
+               
+			}
 			else
 			{
-				
-				irms_DC_input_target-=0.1;
-		
-				if(irms_DC_input_target<=1.0)
-					{
-						irms_DC_input_target=1.0;
-					}	
-			}
-																																					
+                
+			}																																		
 			break;
 		}
         
 		case EC1_BUTTON:
 		{
-			if(loop_state==NLOOP)
-            {
-                loop_state=ILOOP;
-            } 
-            else if(loop_state==ILOOP)
-            {
-                 loop_state=VLOOP;
-            }else if(loop_state==VLOOP)
-            {
-                loop_state=ILOOP;
-            }
+           
 			break;
 		}	
-		
+        
+		case EC2_PHASEA:
+		{
+			u8 PS=GPIO_ReadInputDataBit(EC2_phase_b_PORT,EC2_phase_b_Pin);
+			if(PS==Bit_SET)
+			{
+                
+			}
+			else
+			{
+               
+			}																																		
+			break;
+		}
+        
+		case EC2_BUTTON:
+		{
+           
+			break;
+		}	
 	}
 }
 
+
+////ç¼–ç å™¨ä¸­æ–­å¤„ç†å‡½æ•°ï¼ˆç”¨æˆ·æ›´æ”¹ï¼‰
+//void EXTI_EC_handler(u8 EC_flag)
+//{
+//	
+//	//OLED_Clear();
+//	switch(EC_flag)
+//	{
+//		case EC1_PHASEA:
+//		{
+//			u8 PS=GPIO_ReadInputDataBit(EC1_phase_b_PORT,EC1_phase_b_Pin);
+//			if(PS==Bit_SET)
+//			{
+//                
+//			}
+//			else
+//			{
+
+//			}																																		
+//			break;
+//		}
+//        
+//		case EC1_BUTTON:
+//		{
+
+//			break;
+//		}	
+//        
+//		case EC2_PHASEA:
+//		{
+//			u8 PS=GPIO_ReadInputDataBit(EC2_phase_b_PORT,EC2_phase_b_Pin);
+//			if(PS==Bit_SET)
+//			{
+//                
+//			}
+//			else
+//			{
+
+//			}																																		
+//			break;
+//		}
+//        
+//		case EC2_BUTTON:
+//		{
+
+//			break;
+//		}	
+//	}
+//}
 
 
 

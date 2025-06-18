@@ -4,12 +4,12 @@
 void ADC_Config_Init(void);
 void get_adc(void);
 
-// DMA1 Êı¾İÁ÷0 Í¨µÀ2
+// DMA1 æ•°æ®æµ0 é€šé“2
 #define ADC_DMA_STREAM   DMA1_Stream0
 #define ADC_DMA_CHANNEL  DMA_Channel_2
-//ADC1 DR¼Ä´æÆ÷µØÖ·
+//ADC1 DRå¯„å­˜å™¨åœ°å€
 #define ADC_DR_ADDR     ((uint32_t)0x4001204C)
-//×ª»»µÄÍ¨µÀ¸öÊı
+//è½¬æ¢çš„é€šé“ä¸ªæ•°
 #define NUMOFCHANNEL       8
 
 #endif

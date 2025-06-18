@@ -3,12 +3,8 @@
 #include "main.h"
 #include "delay.h"
 
-
-
 uint8_t R3,R2,R1,R0;
 uint8_t C3,C2,C1,C0;
-
-
 
 GPIO_InitTypeDef GPIO_InitStructure_KEY;
 
@@ -34,7 +30,7 @@ void R_I_DOWN()
 	GPIO_InitStructure_KEY.GPIO_Mode = GPIO_Mode_IN;
 	GPIO_InitStructure_KEY.GPIO_Speed = GPIO_Speed_50MHz;
 	GPIO_InitStructure_KEY.GPIO_OType = GPIO_OType_OD;
-	GPIO_InitStructure_KEY.GPIO_PuPd = GPIO_PuPd_DOWN;//下拉
+	GPIO_InitStructure_KEY.GPIO_PuPd = GPIO_PuPd_DOWN;//涓嬫媺
 
 	GPIO_InitStructure_KEY.GPIO_Pin = GPIO_Pin_6|GPIO_Pin_0|GPIO_Pin_1;	//R3 R2 R1 R0
  	GPIO_Init(GPIOE, &GPIO_InitStructure_KEY);
@@ -47,7 +43,7 @@ void C_O_UP()
 	GPIO_InitStructure_KEY.GPIO_Mode = GPIO_Mode_OUT;
 	GPIO_InitStructure_KEY.GPIO_Speed = GPIO_Speed_50MHz;
 	GPIO_InitStructure_KEY.GPIO_OType = GPIO_OType_PP;
-	GPIO_InitStructure_KEY.GPIO_PuPd = GPIO_PuPd_UP;//下拉
+	GPIO_InitStructure_KEY.GPIO_PuPd = GPIO_PuPd_UP;//涓婃媺
 
 	GPIO_InitStructure_KEY.GPIO_Pin = GPIO_Pin_2|GPIO_Pin_3|GPIO_Pin_4|GPIO_Pin_5;	//C3  C1 C0
  	GPIO_Init(GPIOE, &GPIO_InitStructure_KEY);
@@ -62,7 +58,7 @@ void C_I_DOWN()
 	GPIO_InitStructure_KEY.GPIO_Mode = GPIO_Mode_IN;
 	GPIO_InitStructure_KEY.GPIO_Speed = GPIO_Speed_50MHz;
 	GPIO_InitStructure_KEY.GPIO_OType = GPIO_OType_OD;
-	GPIO_InitStructure_KEY.GPIO_PuPd = GPIO_PuPd_DOWN;//下拉
+	GPIO_InitStructure_KEY.GPIO_PuPd = GPIO_PuPd_DOWN;//涓嬫媺
 
 	GPIO_InitStructure_KEY.GPIO_Pin = GPIO_Pin_2|GPIO_Pin_3|GPIO_Pin_4|GPIO_Pin_5;	//C3  C1 C0
  	GPIO_Init(GPIOE, &GPIO_InitStructure_KEY);
@@ -93,7 +89,7 @@ void Clear_CR()
 }
 
 
-char getkey()
+void key_command_callback(Key_HandleTypeDef* key)
 {
 	char result = '#';
 	if(is_key_down())
@@ -112,7 +108,7 @@ char getkey()
 			if(R3)
 			{
 				if(C0)
-				{
+                {   
 					result = '1';
 				}
 				if(C1)
@@ -125,27 +121,27 @@ char getkey()
 				}
 				if(C3)
 				{
-					result = 'N';
-				}
-			}
+					result = '4';
+            }
+            }
 			if(R2)
 			{
 				
 				if(C0)
 				{
-					result = '4';
+					result = '5';
 				}
 				if(C1)
 				{
-					result = '5';
+					result = '6';
 				}
 				if(C2)
 				{
-					result = '6';
+					result = '7';
 				}
 				if(C3)
 				{
-					result = 'F';
+					result = '8';
 				}
 			}	
 
@@ -154,26 +150,7 @@ char getkey()
 
 				if(C0)
 				{
-					result = '7';
-				}
-				if(C1)
-				{
-					result = '8';
-				}
-				if(C2)
-				{
 					result = '9';
-				}
-				if(C3)
-				{
-					result = 'B';
-				}
-			}			
-			if(R0)
-			{
-				if(C0)
-				{
-					result = '-';
 				}
 				if(C1)
 				{
@@ -185,13 +162,33 @@ char getkey()
 				}
 				if(C3)
 				{
+					result = '-';
+				}
+			}			
+			if(R0)
+			{
+				if(C0)
+				{
+					result = 'N';
+				}
+				if(C1)
+				{
+					result = 'F';
+				}
+				if(C2)
+				{
+					result = 'B';
+				}
+				if(C3)
+				{
 					result = 'S';
 				}
 			}
 
 		}
-		//while(is_key_down());
+		while(is_key_down());
+        delay_ms(20);
 	}
 	Clear_CR();
-	return result;
+	key->key_num=result;
 }

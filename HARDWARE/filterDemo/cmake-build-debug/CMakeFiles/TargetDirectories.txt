@@ -1,3 +1,0 @@
-C:/Users/MHR/CLionProjects/filterDemo/cmake-build-debug/CMakeFiles/filterDemo.dir
-C:/Users/MHR/CLionProjects/filterDemo/cmake-build-debug/CMakeFiles/edit_cache.dir
-C:/Users/MHR/CLionProjects/filterDemo/cmake-build-debug/CMakeFiles/rebuild_cache.dir
