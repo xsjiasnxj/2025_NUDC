@@ -1,3 +1,4 @@
+#include "GLOBAL/global.h"
 #include "stm32f4xx.h"
 #include "sys.h"
 #include "delay.h"
@@ -19,17 +20,14 @@
 #include "Vofa.h"
 #include "spi.h"
 
-
-
-int Run_mode=0;
-float real[4];
 //VoFA
 Vofa_HandleTypedef vofa1;
 float	Ii_temp=0;
 float	Io_temp=0;
 float  Vi_temp=0;
 float  Vo_temp=0;
-
+void PWM_StopAndSetLow(void);
+    
 int main(void)
 {
  
@@ -45,10 +43,10 @@ int main(void)
     SPI2_Init();
     OLED_Init();
     uart_init(115200); //串口初始化波特率为 115200
-    TIM3_Config_Init();//专门用于显示
     TIM1_Config_Init();//专门用于PWM输出
     TIM2_Config_Init();//专门用于数据采样+计算+数字滤波+pid
-
+    TIM3_Config_Init();//专门用于显示+串口打印
+    
     //设置初始值
     irms_DC_input_target=1.5;
     vrms_DC_output_target=30;
@@ -70,61 +68,64 @@ int main(void)
 void TIM2_IRQHandler(void)
 {
 	
-	if(TIM_GetITStatus(TIM2,TIM_IT_Update)==SET) //溢出中断
+    if(TIM_GetITStatus(TIM2,TIM_IT_Update)==SET) //溢出中断
 	{		
-       AD7606_read_data(adc_buffer);
-        for(int i=0;i<NUM_CHS;i++)
-        {
-            if(adc_buffer[i]<32768)
-            {
-                adc_real[i]=((adc_buffer[i])*10.0  ) / 32768; 
-            }
-            else{
-                adc_buffer[i] = (~adc_buffer[i])+1;
-                adc_real[i]=((adc_buffer[i])*10.0 * (-1) ) / 32768;
-            }
-        }
+        AD7606_read();
 		timer_cnt++;
 		Ii_temp+=adc_real[0];
 		Io_temp+=adc_real[1];
 		Vi_temp+=adc_real[2];
 		Vo_temp+=adc_real[3];
+        //均值滤波
 		if(timer_cnt>100)
 		{
-            real[0]=Ii_temp/100;
-            real[1]=Io_temp/100;
-            real[2]=Vi_temp/100;	
-            real[3]=Vo_temp/100;	
-            //计数清零
-            timer_cnt=0;	
+            //更新实际值
+            irms_DC_input=Ii_temp/100;
+            irms_DC_output=Io_temp/100;
+            vrms_DC_input=Vi_temp/100;
+            vrms_DC_output = Vo_temp / 100;
+            zout = vrms_DC_output / irms_DC_output;
+            // 计数清零
+            timer_cnt = 0;
             Ii_temp=0;
             Io_temp=0;
             Vi_temp=0;
             Vo_temp=0;
-            //实际值转换
-            //Vofa_JustFloat(&vofa1,real,4);
-            irms_DC_input=-1*(real[0]-0.005)/1.94-0.01;
-            irms_DC_output=(real[1]-0.025)/1.94;				  
-            vrms_DC_input=adc_real[2]*6.2;
-            vrms_DC_output=adc_real[3]*6.2;
-		}
-        //Vofa_JustFloat(&vofa1,real,1);
-        
-        //电压环
-        duty+=pid_limited(&pid2,vrms_DC_output_target,vrms_DC_output,
-            duty,-max_duty,max_duty);
-		
-			if(duty>=max_duty)
-			{
-			duty=max_duty;			
+        }
+
+        //保护方式
+        if (vrms_DC_input < 23.0f) {
+            flag_protect = LESS_VOLTAGE_IN;
+        } else if (irms_DC_output > 2.5f) {
+            flag_protect = OVER_CURRENT;
+        } else if (zout < 0.1f) {
+            flag_protect =  SHORT_CIRCUIT_OUT;
+        } else {
+            flag_protect = NORMAL;
+        }
+        //复位判断
+        if(flag_reset==1)
+        {
+           TIM1_Config_Init();//PWM重新输出
+           flag_protect=NORMAL;//正常模式
+           flag_reset=0;       //退出复位状态
+        }
+        if (flag_protect== NORMAL) {
+            // 电压环
+            duty += pid_limited(&pid2, vrms_DC_output_target, vrms_DC_output,
+                              duty, -max_duty, max_duty);
+            if (duty >= max_duty) {
+            duty = max_duty;			
 			}
 			if(duty<=min_duty)
 			{
 			duty=min_duty;			
-			}		
-			set_duty1(1-duty);
+			}
+            set_duty1(1 - duty);
+        }else{
+            PWM_StopAndSetLow();
+        }
 	}
-	
 	TIM_ClearITPendingBit(TIM2,TIM_IT_Update); //清除中断标志位
 }
 
@@ -134,21 +135,59 @@ void TIM3_IRQHandler(void)
 	
 	if(TIM_GetITStatus(TIM3,TIM_IT_Update)==SET) //溢出中断
 	{	
-        OLED_ShowString(0,0,"I2:",6);OLED_ShowString(72,0,"A",6);
-        OLED_ShowFloatNum(24,0,irms_DC_input,2,3,6);
-        OLED_ShowString(0,8,"U1:",6);OLED_ShowString(72,8,"V",6);
-        OLED_ShowFloatNum(24,8,vrms_DC_output,2,3,6);
-        OLED_ShowString(0,16,"duty:",6);
-        OLED_ShowFloatNum(24,16,duty,1,4,6);
-        OLED_ShowString(0,40,"Iset:",6);OLED_ShowString(72,40,"A",6);
-        OLED_ShowFloatNum(24,40,irms_DC_input_target,2,3,6);
-        OLED_ShowString(0,48,"Uset:",6);OLED_ShowString(72,48,"V",6);
-        OLED_ShowFloatNum(24,48,vrms_DC_output_target,2,3,6);
+        Vofa_JustFloat(&vofa1,adc_real,1);
+        
+        OLED_ShowString(0,0,"Uset:",OLED_8X16);OLED_ShowString(108,0,"V",OLED_8X16);
+        OLED_ShowFloatNum(48,0,vrms_DC_output_target,2,3,OLED_8X16);
+        
+        OLED_ShowString(0,16,"Uout:",OLED_8X16);OLED_ShowString(108,16,"V",OLED_8X16);
+        OLED_ShowFloatNum(48,16,vrms_DC_output,2,3,OLED_8X16);
+        
+        OLED_ShowString(0,32,"Iout:",OLED_8X16);OLED_ShowString(108,32,"A",OLED_8X16);
+        OLED_ShowFloatNum(48,32,irms_DC_output,2,3,OLED_8X16);
+        
+        OLED_ShowString(0,48,"Protect:",OLED_8X16);
+        if (flag_protect == LESS_VOLTAGE_IN) {
+            OLED_ShowString(64,48,"LV_IN",OLED_8X16);
+        } else if (flag_protect == OVER_CURRENT) {
+            OLED_ShowString(64,48,"OC",OLED_8X16);
+        } else if (flag_protect == SHORT_CIRCUIT_OUT) {
+            OLED_ShowString(64,48,"SC_OUT",OLED_8X16);
+        } else {
+            OLED_ShowString(64,48,"NORMAL",OLED_8X16);
+        }
         // OLED_ShowString(0,0,"I2:",6);OLED_ShowString(72,0,"A",6);
         OLED_Update();
 	}
 	TIM_ClearITPendingBit(TIM3,TIM_IT_Update); //清除中断标志位
 }
+
+
+// 关闭PWM并设置为低电平
+void PWM_StopAndSetLow(void)
+{
+    // 关闭定时器
+    TIM_Cmd(TIM1, DISABLE);
+    // 重新配置GPIO为推挽输出
+	GPIO_InitTypeDef GPIO_InitStructure;
+	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_AF;        //复用功能
+	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;   //速度 50MHz
+	GPIO_InitStructure.GPIO_OType = GPIO_OType_PP;      //推挽复用输出
+	GPIO_InitStructure.GPIO_PuPd = GPIO_PuPd_DOWN;      //下拉
+	
+	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_8; //GPIOF9
+	GPIO_Init(GPIOE,&GPIO_InitStructure); //初始化 PF9
+	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_9; //GPIOF9
+	GPIO_Init(GPIOE,&GPIO_InitStructure); //初始化 PF9
+	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_10; //GPIOF9
+	GPIO_Init(GPIOE,&GPIO_InitStructure); //初始化 PF9
+	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_11; //GPIOF9
+	GPIO_Init(GPIOE,&GPIO_InitStructure); //初始化 PF9
+	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_12; //GPIOF9
+	GPIO_Init(GPIOE,&GPIO_InitStructure); //初始化 PF9
+	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_13; //GPIOF9
+	GPIO_Init(GPIOE,&GPIO_InitStructure); //初始化 PF9	
+};
 
 //void TIM4_IRQHandler(void)
 //{

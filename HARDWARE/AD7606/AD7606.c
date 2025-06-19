@@ -129,20 +129,20 @@ void AD7606_read_data(uint16_t *data)
 	cs_Set;
 	AD7606_startconvst();
 }
-////转换为实际值
-//void AD7606_read()
-//{
-//    AD7606_read_data(adc_buffer);
-//    for(int i=0;i<NUM_CHS;i++)
-//    {
-//        if(adc_buffer[i]<32768)
-//        {
-//            adc_real[i]=((adc_buffer[i])*10.0f  ) / 32768; 
-//        }
-//        else{
-//            adc_buffer[i] = (~adc_buffer[i])+1;
-//            adc_real[i]=((adc_buffer[i])*10.0f * (-1.0f) ) / 32768;
-//        }
-//        adc_real[i]=(adc_real[i]-sample2real_b[i])/sample2real_k[i]+Compensation[i];
-//    }
-//}
+//转换为实际值
+void AD7606_read()
+{
+    AD7606_read_data(adc_buffer);
+    for(int i=0;i<NUM_CHS;i++)
+    {
+        if(adc_buffer[i]<32768)
+        {
+            adc_real[i]=((adc_buffer[i])*10.0f  ) / 32768; 
+        }
+        else{
+            adc_buffer[i] = (~adc_buffer[i])+1;
+            adc_real[i]=((adc_buffer[i])*10.0f * (-1.0f) ) / 32768;
+        }
+        adc_real[i]=(adc_real[i]-sample2real_b[i])/sample2real_k[i]+Compensation[i];
+    }
+}

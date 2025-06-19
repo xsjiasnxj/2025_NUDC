@@ -10,17 +10,12 @@
 #define sample_time 			0.0001f
 #define v_time					0.020f
 #define disp_time   			0.01f
-//#define vref		1.6418
-extern float vref;
-
-extern uint16_t timer_cnt;
-
 
 //频率设置
 #define CKTIM	        ((u32)168000000uL)  //主频
 #define TIM_CKTIM	    ((u32) 84000000uL)  //定时器频率
 #define PWM_PRSC        ((u8)0)            //TIM3分频系数
-#define PWM_FREQ        ((u16) 20000)      //PWM频率(Hz)
+#define PWM_FREQ        ((u16) 5000)      //PWM频率(Hz)
 #define PWM_PERIOD      ((u16) (TIM_CKTIM / (u32)( 2*PWM_FREQ *(PWM_PRSC+1))))  //因为是中心对齐计数模式，所以要乘2
 //采样+控制
 #define TIM2_PRSC		((u8)4)
@@ -52,17 +47,27 @@ extern uint16_t timer_cnt;
 #define ki4	0.0001f
 #define kd4	0
 
+enum PROTECT_FLAG {
+  NORMAL = 0,   // 正常
+  OVER_CURRENT, // 过流
+  LESS_VOLTAGE_IN, // 输入欠压
+  SHORT_CIRCUIT_OUT, // 输出短路
+};
+
+//标志变量
+extern char flag_zero;
+extern char flag_protect;
+extern char flag_reset;
 extern pidtype pid1,pid2,pid3,pid4;
 
-//采样电路增益
-#define gain_vol_1	28.184
-#define gain_cur		2.0
-
-extern int loop_state;
-
-
+//采样还原参数(k,b，补偿)
+extern float  sample2real_k[8];
+extern float  sample2real_b[8];
+extern float  Compensation[8];
+//采样变量
 extern uint16_t adc_buffer[8];
 extern float adc_real[8];
+
 extern uint16_t test_num;
 extern uint16_t filter_cnt;
 extern uint16_t timer_cnt;
@@ -72,7 +77,7 @@ extern float vrms_DC_input;
 extern float irms_DC_input;
 extern float vrms_DC_output;
 extern float irms_DC_output;
-
+extern float zout;
 
 extern float duty;
 
@@ -81,27 +86,6 @@ extern float irms_DC_input_target;
 extern float Irms_AC1_input;
 extern float Irms_AC2_input;
 extern float vrms_AC1_input;
-//期望输出参数
-extern float vrms_AC1_output_target;
-extern float irms_AC2_output_target;
-extern float kI_o1o2;
-
-
-
-
-//输出参数
-extern float vrms_AC1_output_target_d;
-extern float irms_AC2_output_target_d;
-
-
-
-extern float input_AC_voltage;
-
-extern float AC1_input_voltage;
-extern float AC1_input_current;
-
-extern float AC2_input_voltage;
-extern float AC2_input_current;
 
 
 extern unsigned char mode;
@@ -110,16 +94,6 @@ extern unsigned char list_index;
 
 extern float max_duty ;
 extern float min_duty ;
-
-//有效值测量变量
-
-extern float vrms_AC1_input;
-extern float Irms_AC1_input;
-extern float Irms_AC2_input;
-
-extern float v_temp;
-extern float I1_temp;
-extern float I2_temp;
 
 
 //期望输出参数
