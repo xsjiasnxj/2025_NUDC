@@ -119,7 +119,7 @@ void TIM2_IRQHandler(void)
         } else {
             debounce_counter_oc = 0; // 重置计数器
         }
-        if (zout < 0.1f) {
+        if (zout < 0.1f&&flag_protect==NORMAL) {
             if (++debounce_counter_sc_out > 500) { // 连续500次检测到短路才触发保护
             flag_protect = SHORT_CIRCUIT_OUT;
             debounce_counter_sc_out = 0; // 重置计数器
@@ -155,8 +155,8 @@ void TIM2_IRQHandler(void)
         }else{
             LED0=0;
             LED2=1;
-            //PWM_StopAndSetLow();
-             set_duty1(0);
+           // PWM_StopAndSetLow();
+            set_duty1(0);
         }
 	}
 	TIM_ClearITPendingBit(TIM2,TIM_IT_Update); //清除中断标志位
