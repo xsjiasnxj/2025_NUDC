@@ -104,26 +104,6 @@ void key_command_callback(Key_HandleTypeDef* key)
 			R2=GPIO_ReadInputDataBit(GPIOC,R2_Pin);				
 			R1=GPIO_ReadInputDataBit(GPIOE,R1_Pin);
 			R0=GPIO_ReadInputDataBit(GPIOE,R0_Pin);	
-			
-			if(R3)
-			{
-				if(C0)
-                {   
-					result = '1';
-				}
-				if(C1)
-				{
-					result = '2';
-				}
-				if(C2)
-				{
-					result = '3';
-				}
-				if(C3)
-				{
-					result = '4';
-            }
-            }
 			if(R2)
 			{
 				
@@ -144,6 +124,26 @@ void key_command_callback(Key_HandleTypeDef* key)
 					result = '8';
 				}
 			}	
+			if(R3)
+			{
+				if(C0)
+                {   
+					result = '1';
+				}
+				if(C1)
+				{
+					result = '2';
+				}
+				if(C2)
+				{
+					result = '3';
+				}
+				if(C3)
+				{
+					result = '4';
+                }
+            }
+
 
 			if(R1)
 			{

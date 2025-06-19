@@ -2,6 +2,7 @@
 #define	__GLOBAL_H__
 
 #include "pid.h"
+#include "key.h"
 #include "stm32f4xx.h"
 
 #define h_pi 					314.15926535f
@@ -58,6 +59,9 @@ enum PROTECT_FLAG {
 extern char flag_zero;
 extern char flag_protect;
 extern char flag_reset;
+// 按键
+extern Key_HandleTypeDef key1; // 按键句柄
+
 extern pidtype pid1,pid2,pid3,pid4;
 
 //采样还原参数(k,b，补偿)

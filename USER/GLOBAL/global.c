@@ -5,8 +5,10 @@
 //标志变量
 char flag_zero;
 char flag_protect=0;
-char flag_reset=0;
-//采样变量
+char flag_reset = 0;
+// 按键
+Key_HandleTypeDef key1; //按键句柄
+// 采样变量
 uint16_t adc_buffer[8];
 float adc_real[8];
 
