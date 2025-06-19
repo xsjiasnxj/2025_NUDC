@@ -3,17 +3,17 @@
 
 
 #define	EC1_phase_a_PORT				EXTI_PortSourceGPIOB				//EXTI6
-#define	EC1_phase_a_Pin				EXTI_PinSource7
+#define	EC1_phase_a_Pin				    EXTI_PinSource7
 #define	EC1_phase_b_PORT				GPIOB
-#define	EC1_phase_b_Pin				GPIO_Pin_12
-#define	EC1_button_PORT				EXTI_PortSourceGPIOB				//EXTI7
+#define	EC1_phase_b_Pin				    GPIO_Pin_12
+#define	EC1_button_PORT				    EXTI_PortSourceGPIOB				//EXTI7
 #define	EC1_button_Pin					EXTI_PinSource8
 
 #define	EC2_phase_a_PORT				EXTI_PortSourceGPIOC				//EXTI5
-#define	EC2_phase_a_Pin				EXTI_PinSource5
+#define	EC2_phase_a_Pin				    EXTI_PinSource5
 #define	EC2_phase_b_PORT				GPIOE
-#define	EC2_phase_b_Pin				GPIO_Pin_15
-#define	EC2_button_PORT				EXTI_PortSourceGPIOC				//EXTI4
+#define	EC2_phase_b_Pin				    GPIO_Pin_15
+#define	EC2_button_PORT				    EXTI_PortSourceGPIOC				//EXTI4
 #define	EC2_button_Pin					EXTI_PinSource4
 
 

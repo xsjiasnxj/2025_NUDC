@@ -6,6 +6,9 @@
 char flag_zero;
 char flag_protect=0;
 char flag_reset = 0;
+
+//调试变量
+uint16_t test_cnt=0;
 // 按键
 Key_HandleTypeDef key1; //按键句柄
 // 采样变量

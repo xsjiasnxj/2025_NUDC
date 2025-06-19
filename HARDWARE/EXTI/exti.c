@@ -35,7 +35,7 @@ void EXTIX_Init(void)
 	/* 配置EXTI_Line4 （EC2_button）*/
 	EXTI_InitStructure.EXTI_Line = EXTI_Line4;//LINE4
 	EXTI_InitStructure.EXTI_Mode = EXTI_Mode_Interrupt;//中断事件
-	EXTI_InitStructure.EXTI_Trigger = EXTI_Trigger_Rising; //上升沿触发 
+	EXTI_InitStructure.EXTI_Trigger = EXTI_Trigger_Falling; //上升沿触发 
 	EXTI_InitStructure.EXTI_LineCmd = ENABLE;//使能LINE4
 	EXTI_Init(&EXTI_InitStructure);//配置
 	
@@ -53,14 +53,14 @@ void EXTIX_Init(void)
 	
     /* 配置NVIC中断通道*/
 	NVIC_InitStructure.NVIC_IRQChannel = EXTI4_IRQn;//外部中断4
-	NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority = 0x00;//抢占优先级0
+	NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority = 0x01;//抢占优先级0
 	NVIC_InitStructure.NVIC_IRQChannelSubPriority = 0x02;//子优先级2
 	NVIC_InitStructure.NVIC_IRQChannelCmd = ENABLE;//使能外部中断通道
 	NVIC_Init(&NVIC_InitStructure);//配置
 		
 	NVIC_InitStructure.NVIC_IRQChannel = EXTI9_5_IRQn;//外部中断9_5
 	NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority = 0x01;//抢占优先级3
-	NVIC_InitStructure.NVIC_IRQChannelSubPriority = 0x02;//子优先级2
+	NVIC_InitStructure.NVIC_IRQChannelSubPriority = 0x03;//子优先级2
 	NVIC_InitStructure.NVIC_IRQChannelCmd = ENABLE;//使能外部中断通道
 	NVIC_Init(&NVIC_InitStructure);//配置
 	
@@ -84,6 +84,7 @@ void EXTI9_5_IRQHandler(void)
 	{
 		EXTI_EC_handler(EC2_PHASEA);
 		EXTI_ClearITPendingBit(EXTI_Line5);
+        delay_us(500);
 		return;
 	}		 
 	 
@@ -91,6 +92,7 @@ void EXTI9_5_IRQHandler(void)
 	{
 		EXTI_EC_handler(EC1_PHASEA);
 		EXTI_ClearITPendingBit(EXTI_Line7);
+        delay_us(500);
 		return;
 	}		 
 	
@@ -109,6 +111,7 @@ void EXTI_EC_handler(u8 EC_flag)
 {
 	
 	//OLED_Clear();
+    //delay_ms(20);
 	switch(EC_flag)
 	{
 		case EC1_PHASEA:
@@ -116,18 +119,20 @@ void EXTI_EC_handler(u8 EC_flag)
 			u8 PS=GPIO_ReadInputDataBit(EC1_phase_b_PORT,EC1_phase_b_Pin);
 			if(PS==Bit_SET)
 			{
-               
+               //  LED0=1;
+               test_cnt++;
 			}
 			else
 			{
-                
-			}																																		
+              //  LED0=1;
+                test_cnt--;
+			}			         
 			break;
 		}
         
 		case EC1_BUTTON:
 		{
-           
+           LED0=1;
 			break;
 		}	
         
@@ -136,18 +141,19 @@ void EXTI_EC_handler(u8 EC_flag)
 			u8 PS=GPIO_ReadInputDataBit(EC2_phase_b_PORT,EC2_phase_b_Pin);
 			if(PS==Bit_SET)
 			{
-                
+               // LED0=1;
+                test_cnt++;
 			}
 			else
 			{
-               
-			}																																		
+               test_cnt--;
+			}		 
 			break;
 		}
         
 		case EC2_BUTTON:
 		{
-           
+           LED0=0;
 			break;
 		}	
 	}

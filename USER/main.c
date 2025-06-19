@@ -26,9 +26,11 @@ float	Ii_temp=0;
 float	Io_temp=0;
 float  Vi_temp=0;
 float  Vo_temp=0;
+
+        
 char keynum='#';
 void PWM_StopAndSetLow(void);
-    
+
 int main(void)
 {
  
@@ -137,8 +139,32 @@ void TIM3_IRQHandler(void)
 	if(TIM_GetITStatus(TIM3,TIM_IT_Update)==SET) //溢出中断
 	{	
         Vofa_JustFloat(&vofa1,adc_real,1);
-       key_command_callback(&key1); //按键回调函数，返回键值
-//        OLED_ShowString(0,0,"Uset:",OLED_8X16);OLED_ShowString(108,0,"V",OLED_8X16);
+        key_command_callback(&key1); //按键回调函数，返回键值
+
+//        if (key1.key_num >= '0' && key1.key_num <= '9') {
+//            if (buffer_index < sizeof(buffer) - 1) {
+//            buffer[buffer_index++] = key1.key_num;
+//            buffer[buffer_index] = '\0'; // Null-terminate the string
+//            }
+//        } else if (key1.key_num == 'S') {
+//            if (buffer_index > 0) {
+//            vrms_DC_output_target = atof(buffer); // Convert string to float
+//            buffer_index = 0; // Reset buffer index
+//            memset(buffer, 0, sizeof(buffer)); // Clear the buffer
+//            }
+//        } else if (key1.key_num == 'B') {
+//            if (buffer_index > 0) {
+//            buffer[--buffer_index] = '\0'; // Remove last character
+//            }
+//        }
+
+        // Display logic
+//        if (buffer_index > 0) {
+//            OLED_ShowString(0, 0, buffer, OLED_8X16); // Show buffer
+//        } else {
+//            OLED_ShowFloatNum(0, 0, vrms_DC_output_target, 3, 3, OLED_8X16); // Show target value
+//        }
+    //        OLED_ShowString(0,0,"Uset:",OLED_8X16);OLED_ShowString(108,0,"V",OLED_8X16);
 //        OLED_ShowFloatNum(48,0,vrms_DC_output_target,2,3,OLED_8X16);
 //        
 //        OLED_ShowString(0,16,"Uout:",OLED_8X16);OLED_ShowString(108,16,"V",OLED_8X16);
@@ -159,13 +185,13 @@ void TIM3_IRQHandler(void)
 //        }
            
         // OLED_ShowString(0,0,"I2:",6);OLED_ShowString(72,0,"A",6);
-        if(key1.key_num!='#')
-        {
-            keynum=key1.key_num;
-        }
+//        if(key1.key_num!='#')
+//        {
+//            keynum=key1.key_num;
+//        }
 
         OLED_ShowChar(0, 0, keynum, OLED_8X16);
-
+        OLED_ShowNum(0,16,test_cnt,4,OLED_8X16);
         OLED_Update();
 	}
 	TIM_ClearITPendingBit(TIM3,TIM_IT_Update); //清除中断标志位

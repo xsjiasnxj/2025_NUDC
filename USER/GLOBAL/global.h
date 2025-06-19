@@ -59,6 +59,8 @@ enum PROTECT_FLAG {
 extern char flag_zero;
 extern char flag_protect;
 extern char flag_reset;
+//调试变量
+extern uint16_t test_cnt;
 // 按键
 extern Key_HandleTypeDef key1; // 按键句柄
 
