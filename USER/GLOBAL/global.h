@@ -61,6 +61,8 @@ extern char flag_protect;
 extern char flag_reset;
 //调试变量
 extern uint16_t test_cnt;
+extern char test_string[10];
+
 // 按键
 extern Key_HandleTypeDef key1; // 按键句柄
 
