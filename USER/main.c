@@ -96,16 +96,40 @@ void TIM2_IRQHandler(void)
             Vi_temp=0;
             Vo_temp=0;
         }
-        //保护方式
-//        if (vrms_DC_input < 23.0f) {
-//           flag_protect = LESS_VOLTAGE_IN;
-//        } else if (irms_DC_output > 2.5f) {
-//            flag_protect = OVER_CURRENT;
-//        } else if (zout < 0.1f) {
-//          flag_protect =  SHORT_CIRCUIT_OUT;
-//        } else {
-//            flag_protect = NORMAL;
-//        }
+
+        //保护方式，添加消抖
+        static int debounce_counter_lv_in = 0;
+        static int debounce_counter_oc = 0;
+        static int debounce_counter_sc_out = 0;
+
+        if (vrms_DC_input < 23.0f) {
+            if (++debounce_counter_lv_in > 500) { // 连续500次检测到低电压才触发保护
+            flag_protect = LESS_VOLTAGE_IN;
+            debounce_counter_lv_in = 0; // 重置计数器
+            }
+        } else {
+            debounce_counter_lv_in = 0; // 重置计数器
+        }
+
+        if (irms_DC_output > 2.5f) {
+            if (++debounce_counter_oc > 500) { // 连续500次检测到过流才触发保护
+            flag_protect = OVER_CURRENT;
+            debounce_counter_oc = 0; // 重置计数器
+            }
+        } else {
+            debounce_counter_oc = 0; // 重置计数器
+        }
+        if (zout < 0.1f) {
+            if (++debounce_counter_sc_out > 500) { // 连续500次检测到短路才触发保护
+            flag_protect = SHORT_CIRCUIT_OUT;
+            debounce_counter_sc_out = 0; // 重置计数器
+            }
+        } else {
+            debounce_counter_sc_out = 0; // 重置计数器
+        }
+        if (flag_protect != LESS_VOLTAGE_IN && flag_protect != OVER_CURRENT && flag_protect != SHORT_CIRCUIT_OUT) {
+            flag_protect = NORMAL;
+        }
         //复位判断
         if(flag_reset==1)
         {
@@ -131,7 +155,8 @@ void TIM2_IRQHandler(void)
         }else{
             LED0=0;
             LED2=1;
-            PWM_StopAndSetLow();
+            //PWM_StopAndSetLow();
+             set_duty1(0);
         }
 	}
 	TIM_ClearITPendingBit(TIM2,TIM_IT_Update); //清除中断标志位

@@ -59,6 +59,7 @@ enum PROTECT_FLAG {
 extern char flag_zero;
 extern char flag_protect;
 extern char flag_reset;
+
 //µ÷ÊÔ±äÁ¿
 extern uint16_t test_cnt;
 extern char test_string[10];

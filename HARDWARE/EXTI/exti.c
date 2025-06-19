@@ -135,7 +135,8 @@ void EXTI_EC_handler(u8 EC_flag)
         
 		case EC1_BUTTON:
 		{
-           LED0=1;
+          // LED0=1;
+           flag_reset=1;
 			break;
 		}	
         
