@@ -26,9 +26,9 @@ pidtype pid1,pid2,pid3,pid4;
 
 
 //采样还原参数(k,b，补偿)
-float  sample2real_k[8]={1.0f,1.0f,1.0f,1.0f,1.0f,1.0f,1.0f,1.0f};
-float  sample2real_b[8]={0.0f,0.0f,0.0f,0.0f,0.0f,0.0f,0.0f,0.0f};
-float  Compensation[8]={0.0f,0.0f,0.0f,0.0f,0.0f,0.0f,0.0f,0.0f};
+float  sample2real_k[8]={1.0f,1.94f,0.161177f,0.16315f,1.0f,1.0f,1.0f,1.0f};
+float  sample2real_b[8]={0.0f,0.005f,-0.0008f,-0.0009f,0.0f,0.0f,0.0f,0.0f};
+float  Compensation[8]={0.0f,0.0f,0.0f,-0.014f,0.0f,0.0f,0.0f,0.0f};
 
 
 //输入输出电压、电流;输出阻抗
@@ -56,8 +56,8 @@ float Irms_AC1_input;
 float Irms_AC2_input;
 float vrms_AC1_input;
 
-float max_duty = 0.8f;
-float min_duty = 0.1f;
+float max_duty = 0.99f;
+float min_duty = 0.0f;
 
 
 float Vrms_DC_input=0;

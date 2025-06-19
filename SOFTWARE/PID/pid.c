@@ -38,11 +38,11 @@ float pid_limited(pidtype* pid, float set, float actual, float output, float min
     pid->set_speed = set;//设置目标速度
     pid->actual_speed = actual;
     pid->error = pid->set_speed - pid->actual_speed;
-    if(((pid->error) >= 0.0f && (pid->error) <= 0.02f) || ((pid->error) <= 0.0f && (pid->error) >= -0.02f))
-    {
-    	pid->error = 0.0f;
-    	pid->error_next = 0.0f;
-    }
+//    if(((pid->error) >= 0.0f && (pid->error) <= 0.02f) || ((pid->error) <= 0.0f && (pid->error) >= -0.02f))
+//    {
+//    	pid->error = 0.0f;
+//    	pid->error_next = 0.0f;
+//    }
 
     float increment_speed =
     		pid->kp*(pid->error-pid->error_next)

@@ -84,7 +84,7 @@ void EXTI9_5_IRQHandler(void)
 	{
 		EXTI_EC_handler(EC2_PHASEA);
 		EXTI_ClearITPendingBit(EXTI_Line5);
-        delay_us(500);
+        delay_us(200);
 		return;
 	}		 
 	 
@@ -92,7 +92,7 @@ void EXTI9_5_IRQHandler(void)
 	{
 		EXTI_EC_handler(EC1_PHASEA);
 		EXTI_ClearITPendingBit(EXTI_Line7);
-        delay_us(500);
+        delay_us(200);
 		return;
 	}		 
 	
@@ -120,12 +120,15 @@ void EXTI_EC_handler(u8 EC_flag)
 			if(PS==Bit_SET)
 			{
                //  LED0=1;
-               test_cnt++;
+               //test_cnt++;
+               vrms_DC_output_target+=0.1;
+                
 			}
 			else
 			{
               //  LED0=1;
-                test_cnt--;
+              //test_cnt--;
+              vrms_DC_output_target-=0.1;
 			}			         
 			break;
 		}

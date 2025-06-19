@@ -16,7 +16,7 @@
 #define CKTIM	        ((u32)168000000uL)  //主频
 #define TIM_CKTIM	    ((u32) 84000000uL)  //定时器频率
 #define PWM_PRSC        ((u8)0)            //TIM3分频系数
-#define PWM_FREQ        ((u16) 5000)      //PWM频率(Hz)
+#define PWM_FREQ        ((u16) 10000)      //PWM频率(Hz)
 #define PWM_PERIOD      ((u16) (TIM_CKTIM / (u32)( 2*PWM_FREQ *(PWM_PRSC+1))))  //因为是中心对齐计数模式，所以要乘2
 //采样+控制
 #define TIM2_PRSC		((u8)4)
@@ -44,8 +44,8 @@
 #define ki3	0
 #define kd3	0
 
-#define kp4	0.01f
-#define ki4	0.0001f
+#define kp4	0.00003f
+#define ki4	0.00008f
 #define kd4	0
 
 enum PROTECT_FLAG {
