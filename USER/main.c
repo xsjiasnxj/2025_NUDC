@@ -119,7 +119,7 @@ void TIM2_IRQHandler(void)
         } else {
             debounce_counter_oc = 0; // 重置计数器
         }
-        if (zout < 0.1f&&flag_protect==NORMAL) {
+        if (zout < 0.1f&&zout>0.0f&&flag_protect==NORMAL) {
             if (++debounce_counter_sc_out > 500) { // 连续500次检测到短路才触发保护
             flag_protect = SHORT_CIRCUIT_OUT;
             debounce_counter_sc_out = 0; // 重置计数器
@@ -170,7 +170,7 @@ void TIM3_IRQHandler(void)
 	{	
         OLED_Clear();
         
-        Vofa_Buffer[0]=vrms_DC_output;
+        Vofa_Buffer[0]=irms_DC_output;
         Vofa_Buffer[1]= vrms_DC_output_target;
         Vofa_Buffer[2] = (1-duty)*PWM_PERIOD;
         Vofa_Buffer[3] = vrms_DC_output;
@@ -269,32 +269,5 @@ void PWM_StopAndSetLow(void)
 	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_13; //GPIOF9
 	GPIO_Init(GPIOE,&GPIO_InitStructure); //初始化 PF9	
 };
-
-//void TIM4_IRQHandler(void)
-//{
-//	if(TIM_GetITStatus(TIM4,TIM_IT_Update)==SET) //溢出中断
-//	{		
-//        if(loop_state==ILOOP)
-//        {
-//            duty+=pid_limited(&pid1,irms_DC_input_target,irms_DC_input,
-//            duty,-max_duty,max_duty);
-//		
-//			if(duty>=max_duty)
-//			{
-//			duty=max_duty;			
-//			}
-//			if(duty<=min_duty)
-//			{
-//			duty=min_duty;			
-//			}		
-//            
-//			set_duty1(duty);
-//        }else if(loop_state==VLOOP)
-//        {
-//            
-//        }
-//	}
-//	TIM_ClearITPendingBit(TIM4,TIM_IT_Update); //清除中断标志位
-//}
 
 

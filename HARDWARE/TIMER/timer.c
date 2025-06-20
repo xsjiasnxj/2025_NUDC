@@ -109,13 +109,13 @@ void TIM1_Mode_Config()
    TIM_OCInitStructure.TIM_OCIdleState = TIM_OCIdleState_Reset;  	
    TIM_OCInitStructure.TIM_OCNIdleState = TIM_OCNIdleState_Set;  
 	                                                             
-	TIM_OCInitStructure.TIM_Pulse = 0;  																				 
+	TIM_OCInitStructure.TIM_Pulse = 1;  																				 
 	TIM_OC1Init(TIM1, &TIM_OCInitStructure);                       //配置CH1
 	
-	TIM_OCInitStructure.TIM_Pulse = 0;                         
+	TIM_OCInitStructure.TIM_Pulse = 1;                         
 	TIM_OC2Init(TIM1, &TIM_OCInitStructure);                       //配置CH2
 	
-	TIM_OCInitStructure.TIM_Pulse = 0;                         
+	TIM_OCInitStructure.TIM_Pulse = 1;                         
 	TIM_OC3Init(TIM1, &TIM_OCInitStructure);                       //配置CH3
 	
 

@@ -27,9 +27,9 @@ pidtype pid1,pid2,pid3,pid4;
 
 
 //采样还原参数(k,b，补偿)
-float  sample2real_k[8]={1.0f,1.94f,0.161177f,0.16315f,1.0f,1.0f,1.0f,1.0f};
+float  sample2real_k[8]={1.0f,1.9774f,0.161177f,0.1631f,1.0f,1.0f,1.0f,1.0f};
 float  sample2real_b[8]={0.0f,0.005f,-0.0008f,-0.0009f,0.0f,0.0f,0.0f,0.0f};
-float  Compensation[8]={0.0f,0.0f,0.0f,-0.014f,0.0f,0.0f,0.0f,0.0f};
+float  Compensation[8]={0.0f,-0.006f,0.0f,-0.003f,0.0f,0.0f,0.0f,0.0f};
 
 
 //输入输出电压、电流;输出阻抗
